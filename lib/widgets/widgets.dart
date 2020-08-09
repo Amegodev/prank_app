@@ -10,72 +10,87 @@ import 'package:tinycolor/tinycolor.dart';
 
 class CustomAppBar extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
-  final String title;
-  final Widget ads;
+  final Widget title;
+  final Widget bannerAd;
+  final Widget trailing;
+  final Widget leading;
+  final Color bgColor;
   final VoidCallback onClicked;
 
   const CustomAppBar(
-      {Key key, this.scaffoldKey, this.ads, this.title, this.onClicked})
+      {Key key,
+      this.scaffoldKey,
+      this.bannerAd,
+      this.title,
+      this.onClicked,
+      this.leading,
+      this.trailing,
+      this.bgColor})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: MyColors.primary),
+      decoration: BoxDecoration(color: this.bgColor ?? MyColors.primary),
       child: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            this.ads != null
-                ? SizedBox(height: 60.0, child: this.ads)
+            this.bannerAd != null
+                ? SizedBox(height: 60.0, child: this.bannerAd)
                 : SizedBox(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               child: Row(
                 children: <Widget>[
-                  IconButton(
-                    icon: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: SvgPicture.asset(
-                        'assets/icons/burger_menu.svg',
-                        color: MyColors.white,
-                      ),
-                    ),
-                    onPressed: () => scaffoldKey.currentState.openDrawer(),
-                  ),
-                  Expanded(
-                    child: Text(
-                      this.title,
-                      style: MyTextStyles.title.apply(color: MyColors.white),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                  IconButton(
-                    icon: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Icon(
-                        Icons.star,
-                        color: MyColors.white,
-                      ),
-                    ),
-                    onPressed: () async {
-                      int count = await showDialog(
-                          context: context, builder: (_) => RatingDialog());
-                      String text = '';
-                      if (count != null) {
-                        if (count <= 2)
-                          text = 'Your rating was $count ☹ alright, thank you.';
-                        if (count == 3) text = 'Thanks for your rating 🙂';
-                        if (count >= 4) text = 'Thanks for your rating 😀';
-                        scaffoldKey.currentState.showSnackBar(
-                          new SnackBar(
-                            content: Text(text),
+                  this.leading != null
+                      ? this.leading
+                      : IconButton(
+                          icon: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: SvgPicture.asset(
+                              'assets/icons/burger_menu.svg',
+                              color: MyColors.white,
+                            ),
                           ),
-                        );
-                      }
-                      if (count != null && count <= 3) this.onClicked();
-                    },
+                          onPressed: () =>
+                              scaffoldKey.currentState.openDrawer(),
+                        ),
+                  Expanded(
+                    child: this.title,
                   ),
+                  this.trailing != null
+                      ? this.trailing
+                      : IconButton(
+                          icon: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Icon(
+                              Icons.star,
+                              color: MyColors.white,
+                            ),
+                          ),
+                          onPressed: () async {
+                            int count = await showDialog(
+                                context: context,
+                                builder: (_) => RatingDialog());
+                            String text = '';
+                            if (count != null) {
+                              if (count <= 2)
+                                text =
+                                    'Your rating was $count ☹ alright, thank you.';
+                              if (count == 3)
+                                text = 'Thanks for your rating 🙂';
+                              if (count >= 4)
+                                text = 'Thanks for your rating 😀';
+                              scaffoldKey.currentState.showSnackBar(
+                                new SnackBar(
+                                  content: Text(text),
+                                ),
+                              );
+                            }
+                            if (count != null && count <= 3) this.onClicked();
+                          },
+                        ),
                 ],
               ),
             ),
@@ -139,17 +154,18 @@ class CustomDrawer {
                   Tools.packageInfo == null
                       ? SizedBox()
                       : Align(
-                    alignment: Alignment.bottomCenter,
-                        child: Padding(
+                          alignment: Alignment.bottomCenter,
+                          child: Padding(
                             padding:
                                 const EdgeInsets.only(bottom: 20.0, top: 20.0),
                             child: Text(
                               Tools.packageInfo.appName,
-                              style: MyTextStyles.bigTitleBold.apply(color: MyColors.white),
+                              style: MyTextStyles.bigTitleBold
+                                  .apply(color: MyColors.white),
                               textAlign: TextAlign.center,
                             ),
                           ),
-                      ),
+                        ),
                 ],
               ),
             ),
@@ -426,12 +442,12 @@ class ButtonOutlined extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14.0),
-        border: Border.all(
-          color: this.borderColor == null ? MyColors.primary : this.borderColor,
-          width: 2.0,
-        )
-      ),
+          borderRadius: BorderRadius.circular(14.0),
+          border: Border.all(
+            color:
+                this.borderColor == null ? MyColors.primary : this.borderColor,
+            width: 2.0,
+          )),
       child: FlatButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
         padding: EdgeInsets.all(14.0),
@@ -444,10 +460,11 @@ class ButtonOutlined extends StatelessWidget {
 
 Container cardSide({int points, Color color, bool front}) {
   return Container(
+    padding: EdgeInsets.all(6.0),
     decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(15.0),
-        border: Border.all(color: Colors.white, width: 8.0),
+        border: Border.all(color: Colors.black),
         boxShadow: [
           BoxShadow(
             color: Colors.black38,
@@ -458,10 +475,10 @@ Container cardSide({int points, Color color, bool front}) {
     child: Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(10.0),
         border: Border.all(
           color: color == null ? Colors.black : color,
-          width: 1.0,
+          width: 2.0,
         ),
       ),
       child: Stack(
@@ -474,19 +491,20 @@ Container cardSide({int points, Color color, bool front}) {
           ),
           front
               ? BorderedText(
-            strokeWidth: 5.0,
-            strokeColor: Colors.white,
-            child: Text(
-              points.toString(),
-              style: TextStyle(
-                fontFamily: 'SuezOne',
-                fontSize: 25.0,
-                color: color == null
-                    ? Colors.black
-                    : TinyColor(color).darken().color,
-              ),
-            ),
-          ) : SizedBox(),
+                  strokeWidth: 5.0,
+                  strokeColor: Colors.white,
+                  child: Text(
+                    points.toString(),
+                    style: TextStyle(
+                      fontFamily: 'SuezOne',
+                      fontSize: 25.0,
+                      color: color == null
+                          ? Colors.black
+                          : TinyColor(color).darken().color,
+                    ),
+                  ),
+                )
+              : SizedBox(),
         ],
       ),
     ),
@@ -510,7 +528,8 @@ Transform cardFlip(
         if (animationStatus == AnimationStatus.dismissed) {
           animationController.forward();
           onClicked();
-        } /*else {
+        }
+        /*else {
           animationController.reverse();
         }*/
       },

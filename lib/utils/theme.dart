@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class MyColors {
   static Color white = Color(0XFFFFFFFF);
 
-  static Color primary = Color(0XFFFF7146);
-  static Color accent = Color(0XFF80BEFF);
+  static Color primary = Color(0XFFFF2C52);
+  static Color accent = Color(0XFF29ECE5);
 
   static Color black = Color(0XFF050505);
 

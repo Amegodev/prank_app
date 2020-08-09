@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'package:admob_flutter/admob_flutter.dart';
 import 'package:confetti/confetti.dart';
 import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
@@ -50,12 +49,12 @@ class _CardsPageState extends State with TickerProviderStateMixin {
     ads.loadAdmobInter(AdsHelper.admobInterId_1);
     ads.loadAdmobReward(AdsHelper.admobRewardedId);
     ads.onRewarded = (isAdmobRewarded) {
-      if(isAdmobRewarded){
+      if (isAdmobRewarded) {
         print('===(failedToLoad)===>***************************');
         Future.delayed(Duration(seconds: 1), () => reFlipCards());
-      }else{
+      } else {
         Toast.show("Please finish watching ad to play again", context,
-        duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       }
     };
     customDrawer = CustomDrawer(() => ads.showInter());
@@ -133,7 +132,11 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    title: '',
+                    title: Text(
+                      '',
+                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      textAlign: TextAlign.center,
+                    ),
                     onClicked: () => ads.showInter(),
                   ),
                   Container(
@@ -184,12 +187,13 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                               children: <Widget>[
                                 cardFlip(
                                   onClicked: () {
-                                    ads.showInter(probablity: 20,delay: 5000);
+                                    ads.showInter(probablity: 20, delay: 5000);
                                     setState(() {
                                       totalPoints += listPoints[points];
                                     });
                                     nbFlip++;
-                                    print("==================> nbflip : " + nbFlip.toString());
+                                    print("==================> nbflip : " +
+                                        nbFlip.toString());
                                   },
                                   color: Colors.deepOrange,
                                   points: listPoints[points],
@@ -199,7 +203,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                 ),
                                 cardFlip(
                                   onClicked: () {
-                                    ads.showInter(probablity: 20,delay: 5000);
+                                    ads.showInter(probablity: 20, delay: 5000);
                                     setState(() {
                                       totalPoints += listPoints[points1];
                                     });
@@ -215,7 +219,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                 ),
                                 cardFlip(
                                   onClicked: () {
-                                    ads.showInter(probablity: 20,delay: 5000);
+                                    ads.showInter(probablity: 20, delay: 5000);
                                     setState(() {
                                       totalPoints += listPoints[points2];
                                     });
@@ -332,15 +336,18 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                 ),
                                 onClicked: () {
                                   ads.showAdmobReward(
-                                    onFailedLoad: (isAdmobInterAdLoaded) {
-                                      if(isAdmobInterAdLoaded){
-                                        ads.showAdmobInter();
-                                        reFlipCards();
-                                      } else {
-                                        Toast.show("OOPS! Ad not loaded yet, you can't try again at the moment", context, duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-                                      }
+                                      onFailedLoad: (isAdmobInterAdLoaded) {
+                                    if (isAdmobInterAdLoaded) {
+                                      ads.showInter(probablity: 50);
+                                      reFlipCards();
+                                    } else {
+                                      Toast.show(
+                                          "OOPS! Ad not loaded yet, you can't try again at the moment",
+                                          context,
+                                          duration: Toast.LENGTH_LONG,
+                                          gravity: Toast.BOTTOM);
                                     }
-                                  );
+                                  });
                                 },
                               ),
                               Padding(

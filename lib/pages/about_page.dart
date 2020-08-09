@@ -34,7 +34,6 @@ class _AboutPageState extends State<AboutPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: scaffoldKey,
       drawer: customDrawer.buildDrawer(context),
@@ -57,8 +56,19 @@ class _AboutPageState extends State<AboutPage> {
               children: <Widget>[
                 CustomAppBar(
                   scaffoldKey: scaffoldKey,
-                  title: Strings.privacy,
-                  ads: ads.getFbNativeBanner(
+                  leading: IconButton(
+                    icon: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Icon(Icons.arrow_back_ios, color: Colors.white),
+                    ),
+                    onPressed: () => scaffoldKey.currentState.openDrawer(),
+                  ),
+                  title: Text(
+                    Strings.privacy,
+                    style: MyTextStyles.title.apply(color: MyColors.white),
+                    textAlign: TextAlign.center,
+                  ),
+                  bannerAd: ads.getFbNativeBanner(
                       AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_50),
                   onClicked: () => ads.showInter(),
                 ),
@@ -76,8 +86,7 @@ class _AboutPageState extends State<AboutPage> {
                 MainButton(
                   title: Text(
                     'Return',
-                    style: MyTextStyles.bigTitle
-                        .apply(color: MyColors.white),
+                    style: MyTextStyles.bigTitle.apply(color: MyColors.white),
                   ),
                   svgIcon: 'assets/icons/back.svg',
                   bgColor: MyColors.black,

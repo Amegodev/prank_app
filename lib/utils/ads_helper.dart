@@ -24,17 +24,17 @@ class AdsHelper {
 //===================================> Facebook Ads:
   //FB Banner
   static String admobBannerId_1 =
-      'ca-app-pub-3940256099942544/6300978111'; // test : ca-app-pub-3940256099942544/6300978111
+      'ca-app-pub-7200723121807417/8728733843'; // test : ca-app-pub-3940256099942544/6300978111
   static String admobBannerId_2 = '';
 
   //FB Inter
   static String admobInterId_1 =
-      'ca-app-pub-3940256099942544/1033173712'; // test : ca-app-pub-3940256099942544/1033173712
+      'ca-app-pub-7200723121807417/1608791722'; // test : ca-app-pub-3940256099942544/1033173712
   static String admobInterId_2 = '';
 
   //FB Native Banner
   static String admobRewardedId =
-      'ca-app-pub-3940256099942544/5224354917'; // test : ca-app-pub-3940256099942544/5224354917
+      'ca-app-pub-7200723121807417/4272831124'; // test : ca-app-pub-3940256099942544/5224354917
 
   Widget fbBannerAd, admobBannerAd;
   Widget fbNativeBannerAd;
@@ -56,14 +56,14 @@ class AdsHelper {
 ////  My Raal Device
 //  static String testingId = '49561229-6006-416f-a4e5-8ff12965dd02';
 ////  AVD
-  static String testingId = 'ea693ea7-9881-48ff-8bd2-ec06afb03136';
+  static String testingId = '3f14f4ef-8bfb-4c82-abae-75b16dfa2559';
 
 //======================================= Admob AppId :
   static String getAppId() {
     if (Platform.isIOS) {
       return ''; // test : ca-app-pub-3940256099942544~1458002511
     } else if (Platform.isAndroid) {
-      return 'ca-app-pub-3940256099942544~3347511713'; //test : ca-app-pub-3940256099942544~3347511713
+      return 'ca-app-pub-7200723121807417~1800363419'; //test : ca-app-pub-3940256099942544~3347511713
     }
     return null;
   }
@@ -83,6 +83,7 @@ class AdsHelper {
     FacebookInterstitialAd.loadInterstitialAd(
       placementId: fbInterId,
       listener: (result, value) {
+        print("===(Fb Inter)===> result : $result =====> value : $value");
         if (result == InterstitialAdResult.LOADED) {
           isFbInterAdLoaded = true;
         }
@@ -95,7 +96,6 @@ class AdsHelper {
           isFbInterAdLoaded = false;
           loadFbInter(fbInterId);
         }
-        print("===(Fb Inter)===> result : $result =====> value : $value");
       },
     );
   }
@@ -104,13 +104,14 @@ class AdsHelper {
     interstitialAd = AdmobInterstitial(
       adUnitId: admobInterId,
       listener: (AdmobAdEvent event, Map<String, dynamic> args) {
-        if (event == AdmobAdEvent.closed || event == AdmobAdEvent.completed) interstitialAd.load();
+        print("===(Admob Inter)===> result : $event =====> args : $args");
+        if (event == AdmobAdEvent.closed || event == AdmobAdEvent.completed)
+          interstitialAd.load();
         if (event == AdmobAdEvent.loaded) isAdmobInterAdLoaded = true;
         if (event == AdmobAdEvent.failedToLoad) {
           isAdmobInterAdLoaded = false;
           loadAdmobInter(admobInterId);
         }
-        print("===(Admob Inter)===> result : $event =====> args : $args");
       },
     );
     interstitialAd.load();
@@ -120,7 +121,8 @@ class AdsHelper {
     rewardAd = AdmobReward(
       adUnitId: admobRewardId,
       listener: (AdmobAdEvent event, Map<String, dynamic> args) {
-        if (event == AdmobAdEvent.closed){
+        print("===(Admob Reward)===> result : $event =====> args : $args");
+        if (event == AdmobAdEvent.closed) {
           onRewarded(isAdmobRewarded);
           rewardAd.load();
           isAdmobRewarded = false;
@@ -132,7 +134,6 @@ class AdsHelper {
           isAdmobRewarded = false;
           loadAdmobReward(admobRewardId);
         }
-        print("===(Admob Reward)===> result : $event =====> args : $args");
       },
     );
     rewardAd.load();
@@ -156,7 +157,7 @@ class AdsHelper {
     }
   }
 
-  showAdmobReward({Function(bool) onFailedLoad}){
+  showAdmobReward({Function(bool) onFailedLoad}) {
     if (isAdmobRewardedloaded == true) {
       rewardAd.show();
       print('===(Admob Reward)===> Reward Ad is about to be Showen :D');
@@ -167,7 +168,7 @@ class AdsHelper {
   }
 
   showInter({int probablity, delay = 0}) async {
-    if(probablity == null) probablity = AdsHelper.adsFrequency;
+    if (probablity == null) probablity = AdsHelper.adsFrequency;
     Random r = new Random();
     double falseProbability = (100 - probablity) / 100;
     bool result = r.nextDouble() > falseProbability;
@@ -206,7 +207,7 @@ class AdsHelper {
           adUnitId: bannerId,
           adSize: size,
           listener: (AdmobAdEvent event, Map<String, dynamic> args) {
-                print("===(Admob Banner)=== result : $event =====> $args");
+            print("===(Admob Banner)=== result : $event =====> $args");
           },
         ),
       );

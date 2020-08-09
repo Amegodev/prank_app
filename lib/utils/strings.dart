@@ -9,19 +9,13 @@ class Strings {
   static final String about = "About";
   static final String privacy = "Privacy Policy";
   static final String storeId = ""; //TODO : Store ID
-  static final String storeName = "Developer LLC"; //TODO : Store Name
+  static final String storeName = "WII";
   static final String aboutText = """
       ${Strings.storeName} Built ${Tools.packageInfo.appName} \nVersion ${Tools.packageInfo.version}
   """;
   static final String link =
-      "https://www.verifysuper.com/cl.php?id=f51886c571ca68b4d561db4926299bd4";
+      "https://play.google.com/store/apps/dev?id=6782303090044555721";
   static final String privacyText = """
-        <p class=MsoNormal align=center style='text-align:center'><b><span
-style='font-size:36.0pt;line-height:107%;color:#2E75B6;mso-themecolor:accent5;
-mso-themeshade:191;mso-style-textfill-fill-color:#2E75B6;mso-style-textfill-fill-themecolor:
-accent5;mso-style-textfill-fill-alpha:100.0%;mso-style-textfill-fill-colortransforms:
-lumm=75000'>Privacy policy</span></b></p>
-
 <p class=MsoNormal style='margin-top:0cm;margin-right:86.8pt;margin-bottom:
 0cm;margin-left:70.9pt;margin-bottom:.0001pt;line-height:normal;vertical-align:
 top'><span style='font-size:12.0pt;font-family:"Open Sans",sans-serif;

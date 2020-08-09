@@ -50,7 +50,11 @@ class _HomePageState extends State<HomePage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    title: '',
+                    title: Text(
+                      '',
+                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      textAlign: TextAlign.center,
+                    ),
                     onClicked: () => ads.showInter(),
                   ),
                   Container(
@@ -140,7 +144,8 @@ class _HomePageState extends State<HomePage> {
                                             color: Colors.white,
                                             size: 10.0,
                                           ),
-                                          onTap: () => usernameTextController.clear(),
+                                          onTap: () =>
+                                              usernameTextController.clear(),
                                         ),
                                       ),
                                     ),
@@ -163,7 +168,8 @@ class _HomePageState extends State<HomePage> {
                       onClicked: () async {
                         if (usernameTextController.text.isNotEmpty) {
                           ads.showInter(probablity: 80);
-                          MyNavigator.goCards(context, usernameTextController.text);
+                          MyNavigator.goCards(
+                              context, usernameTextController.text);
                         } else {
                           showDialog(
                               context: context,
@@ -200,8 +206,8 @@ class _HomePageState extends State<HomePage> {
                           builder: (_) {
                             return AlertDialog(
                               title: Text('Not working ?'),
-                              content:
-                              Text('If you have not received anything within 24 hours, please re-launch the process after a few days. The Server blocks us every so often due to the high number of requests.\nThanks for your understanding.'),
+                              content: Text(
+                                  'If you have not received anything within 24 hours, please re-launch the process after a few days. The Server blocks us every so often due to the high number of requests.\nThanks for your understanding.'),
                               actions: <Widget>[
                                 FlatButton(
                                   child: Text('OK'),
@@ -220,7 +226,8 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 120.0,
                 decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.black, width: 0.5)),
+                  border:
+                      Border(top: BorderSide(color: Colors.black, width: 0.5)),
                 ),
                 child: ads.getFbNativeBanner(
                     AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_120),

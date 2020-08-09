@@ -21,7 +21,7 @@ var routes = <String, WidgetBuilder>{
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
-    statusBarIconBrightness: Brightness.dark,
+    statusBarIconBrightness: Brightness.light,
     statusBarBrightness: Brightness.light,
   ));
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +29,8 @@ void main() {
   AdsHelper.initAdmobAds();
   Tools.getAppInfo().then((value) => runApp(MyApp()));
 }
-class MyApp extends StatelessWidget {
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

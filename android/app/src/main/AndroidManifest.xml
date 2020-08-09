@@ -1,14 +1,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tikbooster.winfollowers">
+    package="com.tikbooster.followersbomber">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="TokBooster"
+        android:label="Followers Bomber"
         android:icon="@mipmap/ic_launcher">
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713"/>
+            android:value="ca-app-pub-7200723121807417~1800363419"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

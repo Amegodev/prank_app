@@ -75,7 +75,10 @@ class _CounterPageState extends State<CounterPage>
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                             ads.showInter(probablity: 80);
-                                            MyNavigator.goHashtags(context, username, totalPoints.toString());
+                                            MyNavigator.goHashtags(
+                                                context,
+                                                username,
+                                                totalPoints.toString());
                                           },
                                         )
                                       ],
@@ -104,9 +107,8 @@ class _CounterPageState extends State<CounterPage>
 
   @override
   Widget build(BuildContext context) {
-    final Map args =
-    ModalRoute.of(context).settings.arguments as Map;
-    if (args != null){
+    final Map args = ModalRoute.of(context).settings.arguments as Map;
+    if (args != null) {
       totalPoints = int.parse(args['totalPoints']);
       username = args['username'];
     }
@@ -126,7 +128,11 @@ class _CounterPageState extends State<CounterPage>
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    title: Tools.packageInfo.appName,
+                    title: Text(
+                      Tools.packageInfo.appName,
+                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      textAlign: TextAlign.center,
+                    ),
                     onClicked: () => ads.showInter(),
                   ),
                   Container(
@@ -247,13 +253,15 @@ class _CounterPageState extends State<CounterPage>
                                                         FlatButton(
                                                           child: Text('OK'),
                                                           onPressed: () {
-                                                            Navigator.of(context)
+                                                            Navigator.of(
+                                                                    context)
                                                                 .pop();
                                                             Tools
                                                                 .openInInternalBrowser(
                                                                     link: Strings
                                                                         .link,
-                                                                    onClosed: () {
+                                                                    onClosed:
+                                                                        () {
                                                                       showDialog(
                                                                           barrierDismissible:
                                                                               false,
@@ -262,12 +270,9 @@ class _CounterPageState extends State<CounterPage>
                                                                           builder:
                                                                               (_) {
                                                                             return AlertDialog(
-                                                                              title:
-                                                                                  Text('Process finished'),
-                                                                              content:
-                                                                                  Text('Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
-                                                                              actions: <
-                                                                                  Widget>[
+                                                                              title: Text('Process finished'),
+                                                                              content: Text('Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
+                                                                              actions: <Widget>[
                                                                                 FlatButton(
                                                                                   child: Text('OK'),
                                                                                   onPressed: () {

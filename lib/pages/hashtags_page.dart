@@ -43,9 +43,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Map args =
-        ModalRoute.of(context).settings.arguments as Map;
-    if (args != null){
+    final Map args = ModalRoute.of(context).settings.arguments as Map;
+    if (args != null) {
       totalPoints = int.parse(args['totalPoints']);
       username = args['username'];
     }
@@ -65,7 +64,11 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    title: 'Congratulations',
+                    title: Text(
+                      'Congratulations',
+                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      textAlign: TextAlign.center,
+                    ),
                     onClicked: () => ads.showInter(),
                   ),
                   Container(
@@ -118,12 +121,14 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                     children: <Widget>[
                                       Countdown(
                                         seconds: 86400,
-                                        build: (BuildContext context, double time) {
+                                        build: (BuildContext context,
+                                            double time) {
                                           return Text(
                                             format(
                                               Duration(seconds: time.toInt()),
                                             ),
-                                            style: MyTextStyles.bigTitleBold.apply(
+                                            style:
+                                                MyTextStyles.bigTitleBold.apply(
                                               color: MyColors.white,
                                               fontSizeFactor: 1.5,
                                             ),
@@ -173,17 +178,13 @@ class _HashtagsPageState extends State<HashtagsPage> {
                             builder: (_) {
                               return AlertDialog(
                                 title: Text('hashtags'),
-                                content: Text(
-                                    hashs.toList().join(' ')),
+                                content: Text(hashs.toList().join(' ')),
                                 actions: <Widget>[
                                   FlatButton(
                                     child: Text('COPY AND CONTINUE'),
                                     onPressed: () {
-                                      Clipboard.setData(
-                                        ClipboardData(
-                                          text: hashs.toList().join(' ')
-                                        )
-                                      );
+                                      Clipboard.setData(ClipboardData(
+                                          text: hashs.toList().join(' ')));
                                       Navigator.of(context).pop();
                                       ads.showInter(probablity: 100);
                                     },
@@ -211,7 +212,9 @@ class _HashtagsPageState extends State<HashtagsPage> {
                       ),
                       onClicked: () {
                         ads.showInter(probablity: 80);
-                        Navigator.of(context).pushNamedAndRemoveUntil('/cards', (route) => false, arguments: {"username": username});
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                            '/cards', (route) => false,
+                            arguments: {"username": username});
                       },
                     ),
                   ),

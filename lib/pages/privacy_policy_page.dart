@@ -34,7 +34,6 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       key: scaffoldKey,
       drawer: customDrawer.buildDrawer(context),
@@ -57,10 +56,24 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               children: <Widget>[
                 CustomAppBar(
                   scaffoldKey: scaffoldKey,
-                  title: Strings.privacy,
-                  ads: ads.getFbNativeBanner(
+                  leading: IconButton(
+                    icon: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Icon(Icons.arrow_back_ios, color: Colors.white),
+                    ),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  title: Text(
+                    Strings.privacy,
+                    style: MyTextStyles.bigTitleBold,
+                    textAlign: TextAlign.center,
+                  ),
+                  bannerAd: ads.getFbNativeBanner(
                       AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_50),
                   onClicked: () => ads.showInter(),
+                  bgColor: Colors.black38,
                 ),
                 Expanded(
                   child: Padding(
@@ -73,20 +86,6 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                     ),
                   ),
                 ),
-                MainButton(
-                  title: Text(
-                    'Return',
-                    style: MyTextStyles.bigTitle
-                        .apply(color: MyColors.white),
-                  ),
-                  svgIcon: 'assets/icons/back.svg',
-                  bgColor: MyColors.primary,
-                  textColor: MyColors.white,
-                  onClicked: () {
-                    ads.showInter(probablity: 80);
-                    Navigator.pop(context);
-                  },
-                )
               ],
             ),
           ),
