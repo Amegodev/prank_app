@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -64,6 +65,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
+                    bannerAd: ads.getAdmobBanner(AdsHelper.admobBannerId_1, AdmobBannerSize.BANNER),
                     title: Text(
                       'Congratulations',
                       style: MyTextStyles.title.apply(color: MyColors.white),
@@ -212,9 +214,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
                       ),
                       onClicked: () {
                         ads.showInter(probablity: 80);
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            '/cards', (route) => false,
-                            arguments: {"username": username});
+                        Navigator.of(context).popUntil(
+                            ModalRoute.withName("/cards"));
                       },
                     ),
                   ),

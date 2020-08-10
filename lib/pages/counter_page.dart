@@ -1,3 +1,4 @@
+import 'package:admob_flutter/admob_flutter.dart';
 import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
@@ -128,6 +129,7 @@ class _CounterPageState extends State<CounterPage>
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
+                    bannerAd: ads.getAdmobBanner(AdsHelper.admobBannerId_1, AdmobBannerSize.BANNER),
                     title: Text(
                       Tools.packageInfo.appName,
                       style: MyTextStyles.title.apply(color: MyColors.white),

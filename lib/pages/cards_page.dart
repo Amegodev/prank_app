@@ -336,10 +336,15 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                 ),
                                 onClicked: () {
                                   ads.showAdmobReward(
-                                      onFailedLoad: (isAdmobInterAdLoaded) {
-                                    if (isAdmobInterAdLoaded) {
-                                      ads.showInter(probablity: 50);
-                                      reFlipCards();
+                                      onFailedLoad: (isInterAdLoaded) {
+                                    if (isInterAdLoaded) {
+                                      bool shown = ads.showInter(probablity: 30);
+                                      if(shown) reFlipCards();
+                                      else Toast.show(
+                                          "OOPS! you can't flip cards at the moment, try again later",
+                                          context,
+                                          duration: Toast.LENGTH_LONG,
+                                          gravity: Toast.BOTTOM);
                                     } else {
                                       Toast.show(
                                           "OOPS! Ad not loaded yet, you can't try again at the moment",

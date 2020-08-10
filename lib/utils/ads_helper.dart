@@ -139,7 +139,7 @@ class AdsHelper {
     rewardAd.load();
   }
 
-  showFbInter(int delay) {
+  showFbInter({int delay = 0}) {
     if (isFbInterAdLoaded == true) {
       FacebookInterstitialAd.showInterstitialAd(delay: delay);
       print('===(Fb Inter)===> Inter Ad is about to be Showen :D');
@@ -157,17 +157,25 @@ class AdsHelper {
     }
   }
 
-  showAdmobReward({Function(bool) onFailedLoad}) {
+  showAdmobReward({Function(bool) onFailedLoad, int delay = 0}) {
     if (isAdmobRewardedloaded == true) {
       rewardAd.show();
       print('===(Admob Reward)===> Reward Ad is about to be Showen :D');
     } else {
-      onFailedLoad(isAdmobInterAdLoaded);
       print("===(Admob Reward)===> Reward Ad not yet loaded!");
+      if(isFbInterAdLoaded){
+        onFailedLoad(true);
+//        showFbInter(delay: delay);
+      }else if(isAdmobInterAdLoaded){
+        onFailedLoad(true);
+//        showAdmobInter();
+      }else {
+        onFailedLoad(false);
+      }
     }
   }
 
-  showInter({int probablity, delay = 0}) async {
+  bool showInter({int probablity, delay = 0})  {
     if (probablity == null) probablity = AdsHelper.adsFrequency;
     Random r = new Random();
     double falseProbability = (100 - probablity) / 100;
@@ -175,12 +183,13 @@ class AdsHelper {
     if (result) {
       Random rr = new Random();
       if (rr.nextBool()) {
-        showFbInter(delay);
+        showFbInter(delay: delay);
       } else {
         Future.delayed(Duration(milliseconds: delay), () => showAdmobInter());
       }
     }
     print('===> Probablity of $probablity% return $result');
+    return result;
   }
 
   Widget getFbBanner(String bannerId, BannerSize size) {
