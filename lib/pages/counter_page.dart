@@ -36,7 +36,7 @@ class _CounterPageState extends State<CounterPage>
     customDrawer = new CustomDrawer(() => ads.showInter());
 
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 10));
+        AnimationController(vsync: this, duration: Duration(seconds: 60));
 
     _animation = Tween(begin: 0.0, end: 100.0).animate(_animationController)
       ..addListener(() {
