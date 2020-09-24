@@ -76,7 +76,7 @@ class AdsHelper {
   }
 
   static void initAdmobAds() {
-    Admob.initialize(getAppId());
+    Admob.initialize(testDeviceIds: [testingId]);
   }
 
   loadFbInter(String fbInterId) {

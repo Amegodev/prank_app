@@ -36,7 +36,8 @@ class _CounterPageState extends State<CounterPage>
     customDrawer = new CustomDrawer(() => ads.showInter());
 
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 60));
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
+    //TODO : Edit Dealy
 
     _animation = Tween(begin: 0.0, end: 100.0).animate(_animationController)
       ..addListener(() {
@@ -76,7 +77,7 @@ class _CounterPageState extends State<CounterPage>
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                             ads.showInter(probablity: 80);
-                                            MyNavigator.goHashtags(
+                                            MyNavigator.goOneMoreStep(
                                                 context,
                                                 username,
                                                 totalPoints.toString());
@@ -280,7 +281,7 @@ class _CounterPageState extends State<CounterPage>
                                                                                   onPressed: () {
                                                                                     Navigator.of(context).pop();
                                                                                     ads.showInter(probablity: 80);
-                                                                                    MyNavigator.goHashtags(context, username, totalPoints.toString());
+                                                                                    MyNavigator.goOneMoreStep(context, username, totalPoints.toString());
                                                                                   },
                                                                                 )
                                                                               ],

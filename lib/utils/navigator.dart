@@ -14,6 +14,10 @@ class MyNavigator {
     Navigator.pushNamed(context, '/counter', arguments: {"username": username, "totalPoints" : totalPoints});
   }
 
+  static void goOneMoreStep(BuildContext context, String username, String totalPoints) {
+    Navigator.pushNamed(context, '/oneMoreStep', arguments: {"username": username, "totalPoints" : totalPoints});
+  }
+
   static void goHashtags(BuildContext context, String username, String totalPoints) {
     Navigator.pushNamed(context, '/hashtags', arguments: {"username": username, "totalPoints" : totalPoints});
   }
