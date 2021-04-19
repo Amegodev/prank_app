@@ -1,12 +1,64 @@
 import 'dart:math';
 
+
+import 'package:logger/logger.dart';
+import 'package:device_info/device_info.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:prank_app/utils/strings.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:prank_app/utils/ads_helper.dart';
 
 class Tools {
+  static double height = 781.0909090909091;
+  static double width = 392.72727272727275;
+  static AndroidDeviceInfo androidInfo;
+  static RemoteConfig remoteConfig;
+
+
+  static initAppSettings() async {
+    await Firebase.initializeApp();
+    await initAppInfo();
+    await getDeviceInfo();
+    await AdsHelper.init();
+    cleanStatusBar();
+
+    logger.i("""
+    height      : $height
+    width       : $width
+    packageName : ${packageInfo.packageName}(${packageInfo.packageName.replaceAll('.','_')})
+    appName     : ${packageInfo.appName}
+    buildNumber : ${packageInfo.buildNumber}
+    version     : ${packageInfo.version}""");
+  }
+
+  static Future<void> initAppInfo() async {
+    final PackageInfo info = await PackageInfo.fromPlatform();
+    packageInfo = info;
+  }
+
+  static Future<void> getDeviceInfo() async {
+    androidInfo = await DeviceInfoPlugin().androidInfo;
+    var release = androidInfo.version.release;
+    var sdkInt = androidInfo.version.sdkInt;
+    var manufacturer = androidInfo.manufacturer;
+    var model = androidInfo.model;
+    Tools.logger.i(
+        'Android: $release, SDK: $sdkInt, manufacturer: $manufacturer ,model: $model');
+  }
+
+  static cleanStatusBar() {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    ));
+  }
+
   static PackageInfo packageInfo = PackageInfo(
     appName: ' ',
     packageName: ' ',
@@ -18,6 +70,9 @@ class Tools {
     final PackageInfo info = await PackageInfo.fromPlatform();
     packageInfo = info;
   }
+  static var logger = Logger(
+    printer: PrettyPrinter(methodCount: 1, colors: false, prefix: true),
+  );
 
   static launchURLRate() async {
     var url = 'https://play.google.com/store/apps/details?id=' +
@@ -43,6 +98,21 @@ class Tools {
       throw 'Could not launch $url';
     }
   }
+
+  static Future<String> fetchRemoteConfig(String key) async {
+    try {
+      remoteConfig = await RemoteConfig.instance;
+      await remoteConfig.fetch(expiration: const Duration(seconds: 0));
+      await remoteConfig.activateFetched();
+      String body = remoteConfig.getString(key);
+      logger.i('fetched config: $body');
+      return body;
+    } catch (e) {
+      logger.e(e.toString());
+      return '';
+    }
+  }
+
 
   static openInInternalBrowser({String link, VoidCallback onClosed}) async {
     ChromeSafariBrowser browser = MyChromeSafariBrowser(() => onClosed(),browserFallback: InAppBrowser());

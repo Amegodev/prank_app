@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyColors {
+class Palette {
   static Color white = Color(0XFFFFFFFF);
 
   static Color primary = Color(0XFFFF2C52);
@@ -18,19 +18,19 @@ class MyTextStyles {
   //Bold
   static TextStyle bigTitleBold = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 20.0,
     fontWeight: FontWeight.bold,
   );
   static TextStyle titleBold = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 18.0,
     fontWeight: FontWeight.bold,
   );
   static TextStyle subTitleBold = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 16.0,
     fontWeight: FontWeight.bold,
   );
@@ -38,36 +38,36 @@ class MyTextStyles {
   //Normal
   static TextStyle bigTitle = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 20.0,
   );
   static TextStyle title = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 18.0,
   );
   static TextStyle subTitle = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 16.0,
   );
 
   //Thin
   static TextStyle bigTitleThin = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 20.0,
     fontWeight: FontWeight.w100,
   );
   static TextStyle titleThin = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 18.0,
     fontWeight: FontWeight.w100,
   );
   static TextStyle subTitleThin = TextStyle(
     fontFamily: 'Montserrat',
-    color: MyColors.black,
+    color: Palette.black,
     fontSize: 16.0,
     fontWeight: FontWeight.w100,
   );

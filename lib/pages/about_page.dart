@@ -1,4 +1,3 @@
-import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
@@ -21,14 +20,12 @@ class _AboutPageState extends State<AboutPage> {
   void initState() {
     super.initState();
     ads = new AdsHelper();
-    ads.loadFbInter(AdsHelper.fbInterId_1);
-    ads.loadAdmobInter(AdsHelper.admobInterId_1);
-    customDrawer = new CustomDrawer(() => ads.showInter());
+    ads.loadInter();
+    customDrawer = new CustomDrawer();
   }
 
   @override
   void dispose() {
-    ads.disposeAllAds();
     super.dispose();
   }
 
@@ -37,7 +34,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       key: scaffoldKey,
       drawer: customDrawer.buildDrawer(context),
-      backgroundColor: MyColors.primary,
+      backgroundColor: Palette.primary,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -65,11 +62,10 @@ class _AboutPageState extends State<AboutPage> {
                   ),
                   title: Text(
                     Strings.privacy,
-                    style: MyTextStyles.title.apply(color: MyColors.white),
+                    style: MyTextStyles.title.apply(color: Palette.white),
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getFbNativeBanner(
-                      AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_50),
+                  bannerAd: ads.getBannerAd(),
                   onClicked: () => ads.showInter(),
                 ),
                 Expanded(
@@ -86,13 +82,13 @@ class _AboutPageState extends State<AboutPage> {
                 MainButton(
                   title: Text(
                     'Return',
-                    style: MyTextStyles.bigTitle.apply(color: MyColors.white),
+                    style: MyTextStyles.bigTitle.apply(color: Palette.white),
                   ),
                   svgIcon: 'assets/icons/back.svg',
-                  bgColor: MyColors.black,
-                  textColor: MyColors.white,
+                  bgColor: Palette.black,
+                  textColor: Palette.white,
                   onClicked: () {
-                    ads.showInter(probablity: 80);
+                    ads.showInter();
                     Navigator.pop(context);
                   },
                 )

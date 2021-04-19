@@ -1,4 +1,3 @@
-import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
@@ -21,14 +20,14 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
   void initState() {
     super.initState();
     ads = new AdsHelper();
-    ads.loadFbInter(AdsHelper.fbInterId_1);
-    ads.loadAdmobInter(AdsHelper.admobInterId_1);
-    customDrawer = new CustomDrawer(() => ads.showInter());
+    ads.loadInter();
+
+
+    customDrawer = new CustomDrawer();
   }
 
   @override
   void dispose() {
-    ads.disposeAllAds();
     super.dispose();
   }
 
@@ -37,7 +36,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
     return Scaffold(
       key: scaffoldKey,
       drawer: customDrawer.buildDrawer(context),
-      backgroundColor: MyColors.white,
+      backgroundColor: Palette.white,
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -59,7 +58,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                   leading: IconButton(
                     icon: Padding(
                       padding: const EdgeInsets.all(4.0),
-                      child: Icon(Icons.arrow_back_ios, color: Colors.white),
+                      child: Icon(Icons.arrow_back_ios, color: Colors.black),
                     ),
                     onPressed: () {
                       Navigator.pop(context);
@@ -70,18 +69,19 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                     style: MyTextStyles.bigTitleBold,
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getFbNativeBanner(
-                      AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_50),
+                  bannerAd: ads.getBannerAd(),
                   onClicked: () => ads.showInter(),
-                  bgColor: Colors.black38,
+                  bgColor: Colors.transparent,
                 ),
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: SingleChildScrollView(
-                      child: HtmlWidget(
-                        Strings.privacyText,
-                        textStyle: TextStyle(fontSize: 18.0),
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: HtmlWidget(
+                          Strings.privacyText,
+                          textStyle: TextStyle(fontSize: 18.0),
+                        ),
                       ),
                     ),
                   ),

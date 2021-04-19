@@ -31,13 +31,13 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(color: this.bgColor ?? MyColors.primary),
+      decoration: BoxDecoration(color: this.bgColor ?? Palette.primary),
       child: SafeArea(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             this.bannerAd != null
-                ? SizedBox(height: 60.0, child: this.bannerAd)
+                ? SizedBox(height: 50.0, child: this.bannerAd)
                 : SizedBox(),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget {
                             padding: const EdgeInsets.all(4.0),
                             child: SvgPicture.asset(
                               'assets/icons/burger_menu.svg',
-                              color: MyColors.white,
+                              color: Palette.white,
                             ),
                           ),
                           onPressed: () =>
@@ -66,7 +66,7 @@ class CustomAppBar extends StatelessWidget {
                             padding: const EdgeInsets.all(4.0),
                             child: Icon(
                               Icons.star,
-                              color: MyColors.white,
+                              color: Palette.white,
                             ),
                           ),
                           onPressed: () async {
@@ -102,14 +102,11 @@ class CustomAppBar extends StatelessWidget {
 }
 
 class CustomDrawer {
-  final VoidCallback onClicked;
-
-  CustomDrawer(this.onClicked);
 
   Drawer buildDrawer(BuildContext context) {
     return Drawer(
       child: Container(
-        color: MyColors.white,
+        color: Palette.white,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -126,7 +123,7 @@ class CustomDrawer {
                       height: MediaQuery.of(context).size.width * 1.5,
                       width: MediaQuery.of(context).size.width * 1.5,
                       decoration: BoxDecoration(
-                        color: MyColors.black.withOpacity(0.8),
+                        color: Palette.black.withOpacity(0.8),
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -138,7 +135,7 @@ class CustomDrawer {
                       height: MediaQuery.of(context).size.width * 1.5,
                       width: MediaQuery.of(context).size.width * 1.5,
                       decoration: BoxDecoration(
-                        color: MyColors.primary.withOpacity(0.8),
+                        color: Palette.primary.withOpacity(0.8),
                         shape: BoxShape.circle,
                       ),
                     ),
@@ -161,7 +158,7 @@ class CustomDrawer {
                             child: Text(
                               Tools.packageInfo.appName,
                               style: MyTextStyles.bigTitleBold
-                                  .apply(color: MyColors.white),
+                                  .apply(color: Palette.white),
                               textAlign: TextAlign.center,
                             ),
                           ),
@@ -181,8 +178,7 @@ class CustomDrawer {
                         borderRadius: new BorderRadius.circular(100.0),
                       ),
                       onPressed: () {
-                        this.onClicked();
-                        MyNavigator.goHome(context);
+                        MyNavigator.goUserNamePage(context);
                       },
                       child: Row(
                         children: <Widget>[
@@ -276,7 +272,6 @@ class CustomDrawer {
                       ),
                       onPressed: () {
                         Navigator.pop(context);
-                        this.onClicked();
                         MyNavigator.goPrivacy(context);
                       },
                       child: Row(
@@ -309,7 +304,6 @@ class CustomDrawer {
                       ),
                       onPressed: () async {
                         Navigator.pop(context);
-                        this.onClicked();
                         /*int count = */
                         await showDialog(
                             context: context, builder: (_) => RatingDialog());
@@ -379,9 +373,9 @@ class MainButton extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: this.bgColor == null ? MyColors.primary : this.bgColor,
+        color: this.bgColor == null ? Palette.primary : this.bgColor,
         borderRadius: BorderRadius.circular(14.0),
-        border: Border.all(color: MyColors.black),
+        border: Border.all(color: Palette.black),
       ),
       child: FlatButton(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
@@ -417,7 +411,7 @@ class ButtonFilled extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: this.bgColor == null ? MyColors.primary : this.bgColor,
+        color: this.bgColor == null ? Palette.primary : this.bgColor,
         borderRadius: BorderRadius.circular(14.0),
       ),
       child: FlatButton(
@@ -445,7 +439,7 @@ class ButtonOutlined extends StatelessWidget {
           borderRadius: BorderRadius.circular(14.0),
           border: Border.all(
             color:
-                this.borderColor == null ? MyColors.primary : this.borderColor,
+                this.borderColor == null ? Palette.primary : this.borderColor,
             width: 2.0,
           )),
       child: FlatButton(

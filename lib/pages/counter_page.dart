@@ -1,5 +1,3 @@
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:prank_app/utils/ads_helper.dart';
@@ -31,12 +29,12 @@ class _CounterPageState extends State<CounterPage>
   void initState() {
     super.initState();
     ads = new AdsHelper();
-    ads.loadFbInter(AdsHelper.fbInterId_1);
-    ads.loadAdmobInter(AdsHelper.admobInterId_1);
-    customDrawer = new CustomDrawer(() => ads.showInter());
+    ads.loadInter();
+
+    customDrawer = new CustomDrawer();
 
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: Duration(seconds: 50));
     //TODO : Edit Dealy
 
     _animation = Tween(begin: 0.0, end: 100.0).animate(_animationController)
@@ -60,7 +58,28 @@ class _CounterPageState extends State<CounterPage>
                       child: Text('OK'),
                       onPressed: () {
                         Navigator.of(context).pop();
-                        Tools.openInInternalBrowser(
+                        showDialog(
+                            barrierDismissible: false,
+                            context: context,
+                            builder: (_) {
+                              return AlertDialog(
+                                title: Text('Process finished'),
+                                content: Text(
+                                    'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
+                                actions: <Widget>[
+                                  FlatButton(
+                                    child: Text('OK'),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                      ads.showInter();
+                                      MyNavigator.goOneMoreStep(context,
+                                          username, totalPoints.toString());
+                                    },
+                                  )
+                                ],
+                              );
+                            });
+                        /*Tools.openInInternalBrowser(
                             link: Strings.link,
                             onClosed: () {
                               showDialog(
@@ -76,7 +95,7 @@ class _CounterPageState extends State<CounterPage>
                                           child: Text('OK'),
                                           onPressed: () {
                                             Navigator.of(context).pop();
-                                            ads.showInter(probablity: 80);
+                                            ads.showInter();
                                             MyNavigator.goOneMoreStep(
                                                 context,
                                                 username,
@@ -86,7 +105,7 @@ class _CounterPageState extends State<CounterPage>
                                       ],
                                     );
                                   });
-                            });
+                            });*/
                       },
                     ),
                   ],
@@ -102,7 +121,6 @@ class _CounterPageState extends State<CounterPage>
 
   @override
   void dispose() {
-    ads.disposeAllAds();
     _animationController.dispose();
     super.dispose();
   }
@@ -130,10 +148,10 @@ class _CounterPageState extends State<CounterPage>
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getAdmobBanner(AdsHelper.admobBannerId_1, AdmobBannerSize.BANNER),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       Tools.packageInfo.appName,
-                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
                     onClicked: () => ads.showInter(),
@@ -150,7 +168,7 @@ class _CounterPageState extends State<CounterPage>
                             height: MediaQuery.of(context).size.width * 1.5,
                             width: MediaQuery.of(context).size.width * 1.5,
                             decoration: BoxDecoration(
-                              color: MyColors.accent,
+                              color: Palette.accent,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -161,7 +179,7 @@ class _CounterPageState extends State<CounterPage>
                             height: MediaQuery.of(context).size.width * 1.485,
                             width: MediaQuery.of(context).size.width * 1.485,
                             decoration: BoxDecoration(
-                              color: MyColors.primary,
+                              color: Palette.primary,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -175,7 +193,7 @@ class _CounterPageState extends State<CounterPage>
                                 child: Text(
                                   'Sharing profile',
                                   style: MyTextStyles.bigTitle.apply(
-                                    color: MyColors.white,
+                                    color: Palette.white,
                                     fontSizeFactor: 1.5,
                                   ),
                                   textAlign: TextAlign.center,
@@ -191,7 +209,7 @@ class _CounterPageState extends State<CounterPage>
                                       radius: 80.0,
                                       lineWidth: 8.0,
                                       backgroundColor:
-                                          MyColors.black.withOpacity(0.1),
+                                          Palette.black.withOpacity(0.1),
                                       percent: _animation.value * 0.01,
                                       center: Text(
                                         _animation.value.toStringAsFixed(0) +
@@ -236,7 +254,7 @@ class _CounterPageState extends State<CounterPage>
                                             textAlign: TextAlign.center,
                                           )
                                         : ButtonFilled(
-                                            bgColor: MyColors.primary,
+                                            bgColor: Palette.primary,
                                             title: Text(
                                               'Next',
                                               style: MyTextStyles.title
@@ -259,35 +277,28 @@ class _CounterPageState extends State<CounterPage>
                                                             Navigator.of(
                                                                     context)
                                                                 .pop();
-                                                            Tools
-                                                                .openInInternalBrowser(
-                                                                    link: Strings
-                                                                        .link,
-                                                                    onClosed:
-                                                                        () {
-                                                                      showDialog(
-                                                                          barrierDismissible:
-                                                                              false,
-                                                                          context:
-                                                                              context,
-                                                                          builder:
-                                                                              (_) {
-                                                                            return AlertDialog(
-                                                                              title: Text('Process finished'),
-                                                                              content: Text('Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
-                                                                              actions: <Widget>[
-                                                                                FlatButton(
-                                                                                  child: Text('OK'),
-                                                                                  onPressed: () {
-                                                                                    Navigator.of(context).pop();
-                                                                                    ads.showInter(probablity: 80);
-                                                                                    MyNavigator.goOneMoreStep(context, username, totalPoints.toString());
-                                                                                  },
-                                                                                )
-                                                                              ],
-                                                                            );
-                                                                          });
-                                                                    });
+                                                            showDialog(
+                                                                barrierDismissible:
+                                                                false,
+                                                                context:
+                                                                context,
+                                                                builder:
+                                                                    (_) {
+                                                                  return AlertDialog(
+                                                                    title: Text('Process finished'),
+                                                                    content: Text('Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
+                                                                    actions: <Widget>[
+                                                                      FlatButton(
+                                                                        child: Text('OK'),
+                                                                        onPressed: () {
+                                                                          Navigator.of(context).pop();
+                                                                          ads.showInter();
+                                                                          MyNavigator.goOneMoreStep(context, username, totalPoints.toString());
+                                                                        },
+                                                                      )
+                                                                    ],
+                                                                  );
+                                                                });
                                                           },
                                                         ),
                                                       ],
@@ -320,7 +331,6 @@ class _CounterPageState extends State<CounterPage>
                                   child: Text('OK'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
-                                    ads.showInter(probablity: 10);
                                   },
                                 )
                               ],
@@ -331,12 +341,11 @@ class _CounterPageState extends State<CounterPage>
                 ],
               ),
               Container(
-                height: 120.0,
+                height: 250.0,
                 decoration: BoxDecoration(
                   border: Border(top: BorderSide(color: Colors.grey)),
                 ),
-                child: ads.getFbNativeBanner(
-                    AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_120),
+                child: ads.getNativeAd(),
               ),
             ],
           ),

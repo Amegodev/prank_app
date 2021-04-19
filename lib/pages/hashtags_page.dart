@@ -1,5 +1,3 @@
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -10,6 +8,7 @@ import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:prank_app/widgets/widgets.dart';
 import 'package:timer_count_down/timer_count_down.dart';
+import 'package:toast/toast.dart';
 
 class HashtagsPage extends StatefulWidget {
   @override
@@ -28,9 +27,10 @@ class _HashtagsPageState extends State<HashtagsPage> {
   void initState() {
     super.initState();
     ads = new AdsHelper();
-    ads.loadFbInter(AdsHelper.fbInterId_1);
-    ads.loadAdmobInter(AdsHelper.admobInterId_1);
-    customDrawer = new CustomDrawer(() => ads.showInter());
+    ads.loadInter();
+
+
+    customDrawer = new CustomDrawer();
     hashs = Tools.shuffle(Strings.hashtag, 40, 60);
   }
 
@@ -38,7 +38,6 @@ class _HashtagsPageState extends State<HashtagsPage> {
 
   @override
   void dispose() {
-    ads.disposeAllAds();
     super.dispose();
   }
 
@@ -65,10 +64,10 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getAdmobBanner(AdsHelper.admobBannerId_1, AdmobBannerSize.BANNER),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       'Congratulations',
-                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
                     onClicked: () => ads.showInter(),
@@ -85,7 +84,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                             height: MediaQuery.of(context).size.width * 1.5,
                             width: MediaQuery.of(context).size.width * 1.5,
                             decoration: BoxDecoration(
-                              color: MyColors.accent,
+                              color: Palette.accent,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -96,7 +95,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                             height: MediaQuery.of(context).size.width * 1.485,
                             width: MediaQuery.of(context).size.width * 1.485,
                             decoration: BoxDecoration(
-                              color: MyColors.primary,
+                              color: Palette.primary,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -107,11 +106,11 @@ class _HashtagsPageState extends State<HashtagsPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 25.0),
                                 child: Text(
-                                  'Profile shared with $totalPoints users',
+                                  'Profile @$username shared with $totalPoints users',
                                   style: MyTextStyles.title.apply(
-                                    color: MyColors.white,
+                                    color: Palette.white,
                                   ),
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.fade,
@@ -131,7 +130,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                             ),
                                             style:
                                                 MyTextStyles.bigTitleBold.apply(
-                                              color: MyColors.white,
+                                              color: Palette.white,
                                               fontSizeFactor: 1.5,
                                             ),
                                             textAlign: TextAlign.center,
@@ -172,7 +171,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                       title: Text(
                         'View HASHTAGS',
                         style:
-                            MyTextStyles.title.apply(color: MyColors.primary),
+                            MyTextStyles.title.apply(color: Palette.primary),
                       ),
                       onClicked: () {
                         showDialog(
@@ -188,7 +187,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                       Clipboard.setData(ClipboardData(
                                           text: hashs.toList().join(' ')));
                                       Navigator.of(context).pop();
-                                      ads.showInter(probablity: 100);
+                                      Toast.show('Hashtags copied to the clipboard successfully 🎉', context, gravity: Toast.BOTTOM);
+                                      ads.showInter();
                                     },
                                   )
                                 ],
@@ -213,7 +213,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                         style: MyTextStyles.title.apply(color: Colors.white),
                       ),
                       onClicked: () {
-                        ads.showInter(probablity: 80);
+                        ads.showInter();
                         Navigator.of(context).popUntil(
                             ModalRoute.withName("/cards"));
                       },
@@ -239,7 +239,6 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                   child: Text('OK'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
-                                    ads.showInter(probablity: 20);
                                   },
                                 )
                               ],
@@ -250,12 +249,11 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 ],
               ),
               Container(
-                height: 120.0,
+                height: 200.0,
                 decoration: BoxDecoration(
                   border: Border(top: BorderSide(color: Colors.grey)),
                 ),
-                child: ads.getFbNativeBanner(
-                    AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_120),
+                child: ads.getNativeAd(),
               ),
             ],
           ),

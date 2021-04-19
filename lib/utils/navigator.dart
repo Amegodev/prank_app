@@ -6,6 +6,10 @@ class MyNavigator {
     Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
   }
 
+  static void goUserNamePage(BuildContext context) {
+    Navigator.pushNamed(context, "/username");
+  }
+
   static void goCards(BuildContext context, String username) {
     Navigator.pushNamed(context, '/cards', arguments: {"username": username});
   }

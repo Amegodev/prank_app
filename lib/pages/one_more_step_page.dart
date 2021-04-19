@@ -1,9 +1,5 @@
-import 'package:admob_flutter/admob_flutter.dart';
-import 'package:facebook_audience_network/ad/ad_native.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/strings.dart';
@@ -29,9 +25,9 @@ class _OneMoreStepState extends State<OneMoreStep> {
   void initState() {
     super.initState();
     ads = new AdsHelper();
-    ads.loadFbInter(AdsHelper.fbInterId_1);
-    ads.loadAdmobInter(AdsHelper.admobInterId_1);
-    customDrawer = new CustomDrawer(() => ads.showInter());
+
+
+    customDrawer = new CustomDrawer();
     hashs = Tools.shuffle(Strings.hashtag, 40, 60);
   }
 
@@ -39,7 +35,6 @@ class _OneMoreStepState extends State<OneMoreStep> {
 
   @override
   void dispose() {
-    ads.disposeAllAds();
     super.dispose();
   }
 
@@ -66,14 +61,12 @@ class _OneMoreStepState extends State<OneMoreStep> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getAdmobBanner(
-                        AdsHelper.admobBannerId_1, AdmobBannerSize.BANNER),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       'Almost done',
-                      style: MyTextStyles.title.apply(color: MyColors.white),
+                      style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
-                    onClicked: () => ads.showInter(),
                   ),
                   Container(
                     height: MediaQuery.of(context).size.width * 0.5,
@@ -87,7 +80,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             height: MediaQuery.of(context).size.width * 1.5,
                             width: MediaQuery.of(context).size.width * 1.5,
                             decoration: BoxDecoration(
-                              color: MyColors.accent,
+                              color: Palette.accent,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -98,7 +91,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             height: MediaQuery.of(context).size.width * 1.485,
                             width: MediaQuery.of(context).size.width * 1.485,
                             decoration: BoxDecoration(
-                              color: MyColors.primary,
+                              color: Palette.primary,
                               shape: BoxShape.circle,
                             ),
                           ),
@@ -113,7 +106,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                 child: Text(
                                   'Verifiyng previous step !',
                                   style: MyTextStyles.title.apply(
-                                    color: MyColors.white,
+                                    color: Palette.white,
                                   ),
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.fade,
@@ -124,7 +117,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                   child: Column(
                                     children: <Widget>[
                                       Countdown(
-                                        seconds: 20,
+                                        seconds: 40,
                                         build: (BuildContext context,
                                             double time) {
                                           return Text(
@@ -133,7 +126,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                             ),
                                             style:
                                                 MyTextStyles.bigTitleBold.apply(
-                                              color: MyColors.white,
+                                              color: Palette.white,
                                               fontSizeFactor: 1.5,
                                             ),
                                             textAlign: TextAlign.center,
@@ -169,13 +162,13 @@ class _OneMoreStepState extends State<OneMoreStep> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: const EdgeInsets.all(10.0),
                     child: Text(
                       "Make sure that you complet the previous step, it\'s very important ⚠ to complet the process",
                       style: new TextStyle(
                           color: Colors.red,
                           fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                          fontSize: 15),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -188,7 +181,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                           title: Text(
                             'Previous',
                             style:
-                            MyTextStyles.title.apply(color: MyColors.primary),
+                            MyTextStyles.title.apply(color: Palette.primary),
                           ),
                           onClicked: () {
                             Navigator.pop(context);
@@ -208,7 +201,6 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             style: MyTextStyles.title.apply(color: Colors.white),
                           ),
                           onClicked: () {
-                            ads.showInter(probablity: 80);
                             Navigator.of(context)
                                 .popUntil(ModalRoute.withName("/cards"));
                           },
@@ -217,7 +209,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                     ],
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
+                    padding: const EdgeInsets.only(top: 2.0),
                     child: InkWell(
                       child: Text(
                         "Not working?",
@@ -238,7 +230,6 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                     child: Text('OK'),
                                     onPressed: () {
                                       Navigator.of(context).pop();
-                                      ads.showInter(probablity: 20);
                                     },
                                   )
                                 ],
@@ -250,12 +241,11 @@ class _OneMoreStepState extends State<OneMoreStep> {
                 ],
               ),
               Container(
-                height: 120.0,
+                height: 250.0,
                 decoration: BoxDecoration(
                   border: Border(top: BorderSide(color: Colors.grey)),
                 ),
-                child: ads.getFbNativeBanner(
-                    AdsHelper.fbNativeBannerId, NativeBannerAdSize.HEIGHT_120),
+                child: ads.getNativeAd(),
               ),
             ],
           ),

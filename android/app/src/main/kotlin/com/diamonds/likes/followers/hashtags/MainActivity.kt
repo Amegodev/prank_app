@@ -1,4 +1,4 @@
-package com.tikbooster.followersbomber
+package com.diamonds.likes.followers.hashtags
 
 import io.flutter.embedding.android.FlutterActivity
 
