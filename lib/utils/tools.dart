@@ -24,7 +24,7 @@ class Tools {
     await Firebase.initializeApp();
     await initAppInfo();
     await getDeviceInfo();
-    await AdsHelper.init();
+    await Ads.init();
     cleanStatusBar();
 
     logger.i("""

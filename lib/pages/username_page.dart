@@ -11,7 +11,7 @@ class UsernamePage extends StatefulWidget {
 }
 
 class _UsernamePageState extends State<UsernamePage> {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
@@ -20,7 +20,7 @@ class _UsernamePageState extends State<UsernamePage> {
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
 
 
     customDrawer = new CustomDrawer();
@@ -125,7 +125,7 @@ class _UsernamePageState extends State<UsernamePage> {
                                         .apply(color: Palette.white),
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      hintText: '@Username',
+                                      hintText: 'Username',
                                       hintStyle: TextStyle(color: Colors.white),
                                       contentPadding: EdgeInsets.all(8.0),
                                       suffix: Container(
@@ -163,9 +163,9 @@ class _UsernamePageState extends State<UsernamePage> {
                         style: MyTextStyles.title.apply(color: Colors.white),
                       ),
                       onClicked: () async {
-                        if (usernameTextController.text.isNotEmpty && usernameTextController.text.startsWith('@')) {
+                        if (usernameTextController.text.isNotEmpty) {
                           MyNavigator.goCards(
-                              context, usernameTextController.text.replaceAll('@', '').replaceAll(' ', ''));
+                              context, usernameTextController.text.replaceAll('@', ''));
                         } else {
                           showDialog(
                               context: context,

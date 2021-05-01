@@ -16,7 +16,7 @@ class HashtagsPage extends StatefulWidget {
 }
 
 class _HashtagsPageState extends State<HashtagsPage> {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   int totalPoints;
   String username;
@@ -26,9 +26,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
     ads.loadInter();
-
 
     customDrawer = new CustomDrawer();
     hashs = Tools.shuffle(Strings.hashtag, 40, 60);
@@ -106,7 +105,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 25.0),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 8.0, horizontal: 25.0),
                                 child: Text(
                                   'Profile @$username shared with $totalPoints users',
                                   style: MyTextStyles.title.apply(
@@ -170,8 +170,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                     child: ButtonOutlined(
                       title: Text(
                         'View HASHTAGS',
-                        style:
-                            MyTextStyles.title.apply(color: Palette.primary),
+                        style: MyTextStyles.title.apply(color: Palette.primary),
                       ),
                       onClicked: () {
                         showDialog(
@@ -187,7 +186,12 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                       Clipboard.setData(ClipboardData(
                                           text: hashs.toList().join(' ')));
                                       Navigator.of(context).pop();
-                                      Toast.show('Hashtags copied to the clipboard successfully 🎉', context, gravity: Toast.BOTTOM);
+                                      Toast.show(
+                                        'Hashtags copied to the clipboard successfully 🎉',
+                                        context,
+                                        gravity: Toast.BOTTOM,
+                                        duration: Toast.LENGTH_LONG,
+                                      );
                                       ads.showInter();
                                     },
                                   )
@@ -214,8 +218,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
                       ),
                       onClicked: () {
                         ads.showInter();
-                        Navigator.of(context).popUntil(
-                            ModalRoute.withName("/cards"));
+                        Navigator.of(context)
+                            .popUntil(ModalRoute.withName("/cards"));
                       },
                     ),
                   ),

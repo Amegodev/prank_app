@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/navigator.dart';
-import 'package:prank_app/utils/strings.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:prank_app/widgets/widgets.dart';
@@ -18,7 +17,7 @@ class _CounterPageState extends State<CounterPage>
   AnimationController _animationController;
   AnimationStatus _animationStatus = AnimationStatus.dismissed;
 
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
@@ -28,7 +27,7 @@ class _CounterPageState extends State<CounterPage>
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
     ads.loadInter();
 
     customDrawer = new CustomDrawer();

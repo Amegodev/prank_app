@@ -22,11 +22,16 @@ dependencies:
   flutter_inappwebview: ^4.0.0+4
   timer_count_down: ^1.0.4+1
   flutter_svg: ^0.18.0
+  page_slider: ^0.0.2
+  getwidget: ^1.2.4
+  path_provider:
+  share:
 
   #Essentiel plugins
   device_info: ^1.0.0
   firebase_core: ^0.7.0
   firebase_remote_config: ^0.6.0
+  firebase_messaging:
 
   #Ads plugins
   native_admob_flutter:
@@ -49,7 +54,7 @@ flutter_icons:
   image_path: "assets/icon.png"
 
 flutter_launcher_name:
-  name: "Free Tango Diamonds"
+  name: "cafe Bazaar - کافه بازار"
 
 ##########################
 flutter:

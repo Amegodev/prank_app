@@ -17,7 +17,7 @@ class CardsPage extends StatefulWidget {
 }
 
 class _CardsPageState extends State with TickerProviderStateMixin {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
   var _random = new Random();
@@ -43,17 +43,15 @@ class _CardsPageState extends State with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
-    ads.loadInter();
+    ads = new Ads();
+    ads.loadInter(reloadOnClose: true);
     ads.loadReward(onRewarded: (val) {
-      if(val) {
+      if (val) {
         Future.delayed(Duration(seconds: 1), () => reFlipCards());
       } else {
-        Toast.show(
-            "Please Continue watching Ad, to get more flipping chances.",
+        Toast.show("Please Continue watching Ad, to get more flipping chances.",
             context,
-            duration: Toast.LENGTH_LONG,
-            gravity: Toast.BOTTOM);
+            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       }
     });
 
@@ -172,9 +170,11 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                'Flip card to win followers 😍',
-                                style: MyTextStyles.subTitle
-                                    .apply(color: Palette.white),
+                                '😍 Flip cards to win 🎁\n🃏🃏🃏🃏🃏🃏',
+                                style: MyTextStyles.bigTitleBold.apply(
+                                  color: Palette.white,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ),
@@ -308,6 +308,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                             child: Text('OK'),
                                             onPressed: () {
                                               Navigator.of(context).pop();
+                                              ads.showInter();
                                               MyNavigator.goCounter(
                                                   context,
                                                   username,
@@ -343,10 +344,11 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                         reFlipCards();
                                       } else {
                                         Toast.show(
-                                            "OOPS! Ad not loaded yet, you can't try again at the moment 😪.",
-                                            context,
-                                            duration: Toast.LENGTH_LONG,
-                                            gravity: Toast.BOTTOM);
+                                          "OOPS! The Server blocks us every so often due to the high number of requests\nPlease try again later 😪.",
+                                          context,
+                                          duration: Toast.LENGTH_LONG,
+                                          gravity: Toast.BOTTOM,
+                                        );
                                       }
                                     }
                                   },

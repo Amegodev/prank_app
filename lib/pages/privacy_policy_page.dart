@@ -12,14 +12,14 @@ class PrivacyPolicyPage extends StatefulWidget {
 }
 
 class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
     ads.loadInter();
 
 

@@ -73,21 +73,6 @@ class CustomAppBar extends StatelessWidget {
                             int count = await showDialog(
                                 context: context,
                                 builder: (_) => RatingDialog());
-                            String text = '';
-                            if (count != null) {
-                              if (count <= 2)
-                                text =
-                                    'Your rating was $count ☹ alright, thank you.';
-                              if (count == 3)
-                                text = 'Thanks for your rating 🙂';
-                              if (count >= 4)
-                                text = 'Thanks for your rating 😀';
-                              scaffoldKey.currentState.showSnackBar(
-                                new SnackBar(
-                                  content: Text(text),
-                                ),
-                              );
-                            }
                             if (count != null && count <= 3) this.onClicked();
                           },
                         ),
@@ -240,7 +225,7 @@ class CustomDrawer {
                         borderRadius: new BorderRadius.circular(100.0),
                       ),
                       onPressed: () {
-                        Tools.launchURLMore();
+                        MyNavigator.moreApps(context);
                       },
                       child: Row(
                         children: <Widget>[

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:prank_app/utils/strings.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
+import 'package:toast/toast.dart';
 
 class RatingDialog extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _RatingDialogState extends State<RatingDialog> {
     return InkWell(
       child: Icon(
         _stars >= starCount ? Icons.star : Icons.star_border,
-         size: 30.0,
+        size: 30.0,
         color: _stars >= starCount ? Colors.orange : Colors.grey,
       ),
       onTap: () {
@@ -44,17 +45,29 @@ class _RatingDialogState extends State<RatingDialog> {
                   width: 80,
                   child: Image.asset('assets/icon.png'),
                 ),
-                SizedBox(width: 10.0,),
+                SizedBox(
+                  width: 10.0,
+                ),
                 Expanded(
                     child: Text(
-                      Tools.packageInfo.appName,
-                      style: MyTextStyles.bigTitleBold,
-                    ))
+                  Tools.packageInfo.appName,
+                  style: MyTextStyles.bigTitleBold,
+                ))
               ],
             ),
-            SizedBox(height: 20.0,),
-            Text(Strings.aboutText, textAlign: TextAlign.center, style: MyTextStyles.subTitle,),
-            Text('👇 Please Rate Us 👇', textAlign: TextAlign.center, style: MyTextStyles.subTitle,),
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              Strings.aboutText,
+              textAlign: TextAlign.center,
+              style: MyTextStyles.subTitle,
+            ),
+            Text(
+              '👇 Please Rate Us 👇',
+              textAlign: TextAlign.center,
+              style: MyTextStyles.subTitle,
+            ),
           ],
         ),
       ),
@@ -72,12 +85,24 @@ class _RatingDialogState extends State<RatingDialog> {
         FlatButton(
           child: Text('CANCEL'),
           onPressed: () {
+            Toast.show("No rating 😢", context,
+                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
             Navigator.of(context).pop(0);
           },
         ),
         FlatButton(
           child: Text('OK'),
           onPressed: () {
+            int count = _stars;
+            String text = '';
+            if (count != null) {
+              if (count <= 2)
+                text = 'Your rating was $count ☹ alright, thank you.';
+              if (count == 3) text = 'Thanks for your rating 🙂';
+              if (count >= 4) text = 'Thanks for your rating 😀';
+              Toast.show("$text", context,
+                  duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+            }
             Navigator.of(context).pop(_stars);
           },
         )

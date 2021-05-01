@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Palette {
-  static Color white = Color(0XFFFFFFFF);
+  static const Color primary = Color(0XFF009B52);
+  static const Color accent = Color(0XFF009BF1);
 
-  static Color primary = Color(0XFFFF2C52);
-  static Color accent = Color(0XFF29ECE5);
+  static const Color white = Color(0XFFFFFFFF);
+  static const Color black = Color(0XFF050505);
 
-  static Color black = Color(0XFF050505);
-
-  static Map<String, Color> darklight = {
+  static const Map<String, Color> darklight = {
     "dark": Color(0XFF171717),
     "light": Color(0XFFEBEBEB),
   };

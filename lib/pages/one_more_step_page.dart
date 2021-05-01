@@ -14,7 +14,7 @@ class OneMoreStep extends StatefulWidget {
 }
 
 class _OneMoreStepState extends State<OneMoreStep> {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   int totalPoints;
   String username;
@@ -24,7 +24,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
 
 
     customDrawer = new CustomDrawer();
@@ -106,6 +106,17 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                 child: Text(
                                   'Verifiyng previous step !',
                                   style: MyTextStyles.title.apply(
+                                    color: Palette.white,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.fade,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text(
+                                  'PLEASE WAIT...',
+                                  style: MyTextStyles.titleBold.apply(
                                     color: Palette.white,
                                   ),
                                   textAlign: TextAlign.center,

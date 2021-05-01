@@ -12,14 +12,14 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
     ads.loadInter();
     customDrawer = new CustomDrawer();
   }

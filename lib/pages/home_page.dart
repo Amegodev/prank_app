@@ -4,6 +4,7 @@ import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
+import 'package:prank_app/widgets/dialogs.dart';
 import 'package:prank_app/widgets/widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,14 +13,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  AdsHelper ads;
+  Ads ads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    ads = new AdsHelper();
+    ads = new Ads();
     ads.loadInter();
     customDrawer = new CustomDrawer();
   }
@@ -92,7 +93,9 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(height: Tools.width * 0.2,),
+              SizedBox(
+                height: Tools.width * 0.2,
+              ),
               ads.getNativeAd(height: 200.0),
               Expanded(
                 child: Column(
@@ -101,12 +104,33 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
-                        // bgColor: Colors.black,
-                        bgColor: Palette.accent,
                         title: Text(
-                          'Tango',
+                          '🤔 Start Walkthrough 💭',
                           style:
-                              MyTextStyles.titleBold.apply(color: Colors.black),
+                              MyTextStyles.titleBold.apply(color: Colors.white),
+                        ),
+                        onClicked: () {
+                          ads.showInter();
+                          MyNavigator.start(context);
+                        },
+                      ),
+                    ),
+                    Text(
+                      "Or",
+                      style: new TextStyle(
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: ButtonFilled(
+                        // bgColor: Colors.black,
+                        bgColor: Palette.black,
+                        title: Text(
+                          '🛒 Play And Earn 🎉',
+                          style:
+                              MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
                         onClicked: () {
                           ads.showInter();
@@ -115,20 +139,26 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Text(
-                      "- Or -",
+                      "Or",
                       style: new TextStyle(
-                          color: Colors.grey),
+                        color: Colors.grey,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
+                        // bgColor: Colors.black,
+                        bgColor: Palette.white,
                         title: Text(
-                          'Tango Lite',
-                          style: MyTextStyles.titleBold.apply(color: Colors.white),
+                          '😍 Rate us ⭐',
+                          style:
+                              MyTextStyles.titleBold.apply(color: Colors.black),
                         ),
-                        onClicked: () {
-                          ads.showInter();
-                          MyNavigator.goUserNamePage(context);
+                        onClicked: () async {
+                          int count = await showDialog(
+                              context: context, builder: (_) => RatingDialog());
+                          if(count != null && count <= 3) ads.showInter();
                         },
                       ),
                     ),

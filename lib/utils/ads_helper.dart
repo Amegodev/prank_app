@@ -8,7 +8,7 @@ import 'package:native_admob_flutter/native_admob_flutter.dart' as admob;
 import 'package:flutter/material.dart';
 import 'package:unity_ads_plugin/unity_ads.dart';
 
-class AdsHelper {
+class Ads {
   //static String testDeviceId ="a47d5108-ce0c-4f2b-bb22-d7eea19727cd"; //Real device
   static String testDeviceId = "e5c56faf-6e34-4a4c-8f5a-e8cd07f43b2a"; //AVD
 
@@ -16,32 +16,37 @@ class AdsHelper {
 
   // TODO: Change this please $$
   // static final bool debugMode = true;
-  static final bool debugMode = /*kDebugMode ? true : */false;
+  static final bool debugMode = kDebugMode;
 
   static String admobBanner = kDebugMode
       ? MobileAds.bannerAdTestUnitId
-      : "ca-app-pub-8644958469423958/1028115173";
+      : "ca-app-pub-8644958469423958/2887839799";
   static String admobInter = kDebugMode
       ? MobileAds.interstitialAdTestUnitId
-      : "ca-app-pub-8644958469423958/8490498768";
+      : "ca-app-pub-8644958469423958/1574758120";
   static String admobNative = kDebugMode
       ? MobileAds.nativeAdTestUnitId
-      : "ca-app-pub-8644958469423958/6662411775";
+      : "ca-app-pub-8644958469423958/4009349771";
   static String admobReward = kDebugMode
       ? MobileAds.rewardedAdTestUnitId
-      : "ca-app-pub-8644958469423958/5349330101";
+      : "ca-app-pub-8644958469423958/6635513118";
 
   InterstitialAd interstitialAd = InterstitialAd(unitId: admobInter);
   RewardedAd rewardedAd = RewardedAd();
   final controller = BannerAdController();
 
-  String fbBanner = "270370711409170_270371308075777";
-  String fbInter = "270370711409170_270372834742291";
-  String fbNative = "270370711409170_270373158075592";
+  //Facebook Ads
+  String fbBanner = kDebugMode
+      ? "IMG_16_9_APP_INSTALL#979549719249821_979549772583149"
+      : "979549719249821_979549772583149";
+  String fbInter = kDebugMode
+      ? "IMG_16_9_APP_INSTALL#979549719249821_979549782583148"
+      : "979549719249821_979549782583148";
+  String fbNative = kDebugMode
+      ? "IMG_16_9_APP_INSTALL#979549719249821_979549769249816"
+      : "979549719249821_979549769249816";
 
-  String startAppId = "";
-
-  static String unityGameId = "4078103";
+  static String unityGameId = "4111845";
   String unityAdId = "video";
 
   Widget bannerAd = SizedBox();
@@ -56,7 +61,8 @@ class AdsHelper {
   }
 
   static init() async {
-    adNetwork = await Tools.fetchRemoteConfig('${Tools.packageInfo.packageName.replaceAll('.','_')}_adNetwork');
+    adNetwork = await Tools.fetchRemoteConfig(
+        '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads');
     Tools.logger.i('Initialized Ad Network: $adNetwork');
     switch (adNetwork) {
       case "fb":
@@ -73,10 +79,6 @@ class AdsHelper {
         );
         MobileAds.setTestDeviceIds([testDeviceId]);
         break;
-      case "unity":
-        break;
-      case "startapp":
-        break;
       default:
         break;
     }
@@ -84,13 +86,12 @@ class AdsHelper {
     if (isVersionUpToLOLLIPOP() && !kDebugMode) {
       UnityAds.init(
         gameId: unityGameId,
-        listener: (state, args) => print('Init Listener: $state => $args'),
+        listener: (state, args) => Tools.logger.i('Unity Ads: $state => $args'),
       );
-
     }
   }
 
-  loadInter() async {
+  loadInter({bool reloadOnClose = false}) async {
     switch (adNetwork) {
       case "fb":
         FacebookInterstitialAd.loadInterstitialAd(
@@ -99,11 +100,9 @@ class AdsHelper {
             Tools.logger.i('Fb Inter: $result\nvalue: $value');
             switch (result) {
               case InterstitialAdResult.DISMISSED:
-                if(value["invalidated"] == true) {
-                  isInterLoaded = false;
-                  // FacebookInterstitialAd.loadInterstitialAd();
-                  loadInter();
-                }
+                isInterLoaded = false;
+                // FacebookInterstitialAd.loadInterstitialAd();
+                if(reloadOnClose) loadInter();
                 break;
               case InterstitialAdResult.LOADED:
                 isInterLoaded = true;
@@ -111,6 +110,8 @@ class AdsHelper {
               default:
                 break;
             }
+
+            Tools.logger.wtf('isInterLoaded: $isInterLoaded');
           },
         );
         break;
@@ -118,12 +119,11 @@ class AdsHelper {
         interstitialAd.load();
         interstitialAd.onEvent.listen((e) {
           final event = e.keys.first;
-          Tools.logger.i('Admob Inter: $event');
+          Tools.logger.e('Admob Inter: $event');
           switch (event) {
             case FullScreenAdEvent.closed:
-              isInterLoaded = false;
               // interstitialAd.load();
-              loadInter();
+              isInterLoaded = false;
               break;
             case FullScreenAdEvent.loaded:
               isInterLoaded = true;
@@ -132,10 +132,6 @@ class AdsHelper {
               break;
           }
         });
-        break;
-      case "unity":
-        break;
-      case "startapp":
         break;
       default:
         break;
@@ -151,11 +147,9 @@ class AdsHelper {
           Tools.logger.i('Admob Reward: $event\nKes: ${e.keys}');
           switch (event) {
             case RewardedAdEvent.closed:
-              // loadReward();
               rewardedAd.load(unitId: admobReward);
               break;
             case RewardedAdEvent.loaded:
-              // isInterLoaded = true;
               break;
             case RewardedAdEvent.earnedReward:
               final reward = e.values.first;
@@ -175,71 +169,85 @@ class AdsHelper {
   showInter() async {
     switch (adNetwork) {
       case "fb":
-        if (!isInterLoaded) await loadInter();
-        if (isInterLoaded) FacebookInterstitialAd.showInterstitialAd();
+        if (isInterLoaded)
+          FacebookInterstitialAd.showInterstitialAd();
+        else
+          Tools.logger.e('Fb Inter Not Loaded');
         break;
       case "admob":
-        if (!interstitialAd.isLoaded) await loadInter();
-        if (interstitialAd.isLoaded) interstitialAd.show();
+        if (interstitialAd.isLoaded)
+          interstitialAd.show();
+        else
+          Tools.logger.e('Admob Inter Not Loaded');
         break;
       default:
         break;
     }
 
-    if (isVersionUpToLOLLIPOP() && !isInterLoaded && !interstitialAd.isLoaded) {
-      if (!kDebugMode) {
-        await UnityAds.showVideoAd(
-          placementId: 'video',
-          listener: (state, args) {
-            if (state == UnityAdState.complete) {
-              Tools.logger.i('User watched a video. User should get a reward!');
-            } else if (state == UnityAdState.skipped) {
-              Tools.logger.i('User cancel video.');
-            }
-          },
-        );
-      } else{
-        Tools.logger.wtf('Unity Ads');
+    if (isVersionUpToLOLLIPOP()) {
+      if (!isInterLoaded /* && !interstitialAd.isLoaded*/) {
+        if (!kDebugMode) {
+          await UnityAds.showVideoAd(
+            placementId: 'video',
+            listener: (state, args) {
+              if (state == UnityAdState.complete) {
+                Tools.logger
+                    .i('User watched a video. User should get a reward!');
+              } else if (state == UnityAdState.skipped) {
+                Tools.logger.i('User cancel video.');
+              }
+            },
+          );
+        } else {
+          Tools.logger
+              .d('Unity Ads (kDebugMode: $kDebugMode) = Blocking Unity ads');
+        }
       }
+    } else {
+      Tools.logger
+          .wtf('Unity Ads instead (SDK blocking) (isVersionUpToLOLLIPOP)');
     }
   }
 
   showRewardAd() async {
     switch (adNetwork) {
       case "fb":
-        if(isInterLoaded) {
-          showInter();
-        }
+        showInter();
         break;
       case "admob":
-        if(!rewardedAd.isLoaded) await loadReward();
-        if(rewardedAd.isLoaded) {
+        if (rewardedAd.isLoaded) {
           rewardedAd.show();
+        } else {
+          showInter();
         }
-        break;
-      case "unity":
-        break;
-      case "startapp":
         break;
       default:
         break;
     }
 
-    if (!isInterLoaded && isVersionUpToLOLLIPOP() && !debugMode) {
-      if (!kDebugMode) {
-        await UnityAds.showVideoAd(
-          placementId: 'video',
-          listener: (state, args) {
-            if (state == UnityAdState.complete) {
-              Tools.logger.i('User watched a video. User should get a reward!');
-            } else if (state == UnityAdState.skipped) {
-              Tools.logger.i('User cancel video.');
-            }
-          },
-        );
-      } else{
-        Tools.logger.wtf('Unity Reward Ads');
+    if (isVersionUpToLOLLIPOP()) {
+      if (!isInterLoaded && !interstitialAd.isLoaded) {
+        Tools.logger.wtf(
+            "Adsssssss: isInterLoaded: $isInterLoaded interstitialAd.isLoaded: ${interstitialAd.isLoaded}");
+        if (!kDebugMode) {
+          await UnityAds.showVideoAd(
+            placementId: 'video',
+            listener: (state, args) {
+              if (state == UnityAdState.complete) {
+                Tools.logger
+                    .i('User watched a video. User should get a reward!');
+              } else if (state == UnityAdState.skipped) {
+                Tools.logger.i('User cancel video.');
+              }
+            },
+          );
+        } else {
+          Tools.logger.wtf('Unity Ads (Debug blocking) (kDebugMode)');
+        }
       }
+    } else {
+      Tools.logger
+          .wtf('Unity Ads instead (SDK blocking) (isVersionUpToLOLLIPOP)');
     }
   }
 
@@ -332,10 +340,11 @@ class AdsHelper {
     return bannerAd;
   }
 
-  Widget getNativeAd({double height, double width}) {
+  Widget getNativeAd({double height = 300, double width}) {
     switch (adNetwork) {
       case 'fb':
         nativeAd = Container(
+          height: height,
           decoration: BoxDecoration(
             color: Colors.white,
             border: Border.all(
@@ -346,7 +355,7 @@ class AdsHelper {
           child: FacebookNativeAd(
             placementId: fbNative,
             adType: NativeAdType.NATIVE_AD,
-            height: height ?? 300,
+            height: height,
             width: width ?? Tools.width * 0.9,
             backgroundColor: Colors.blue,
             titleColor: Colors.white,
@@ -361,7 +370,7 @@ class AdsHelper {
             expandAnimationDuraion: 300,
             //in milliseconds. Expands the adview with animation when ad is loaded
             listener: (result, value) {
-              Tools.logger.i("Fb Native Ad: $result --> $value");
+              Tools.logger.i("Fb Native Ad: $result");
             },
           ),
         );
