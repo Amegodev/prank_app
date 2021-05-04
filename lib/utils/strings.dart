@@ -9,12 +9,10 @@ class Strings {
   static final String about = "About";
   static final String privacy = "Privacy Policy";
   static final String storeId = ""; //TODO : Store ID
-  static final String storeName = "WII";
+  static final String storeName = "AmegoDev";
   static final String aboutText = """
       ${Strings.storeName} Built ${Tools.packageInfo.appName} \nVersion ${Tools.packageInfo.version}
   """;
-  static final String link =
-      "https://play.google.com/store/apps/dev?id=6782303090044555721";
   static final String privacyText = """
 <p class=MsoNormal style='margin-top:0cm;margin-right:86.8pt;margin-bottom:
 0cm;margin-left:70.9pt;margin-bottom:.0001pt;line-height:normal;vertical-align:

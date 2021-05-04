@@ -163,7 +163,7 @@ class CustomDrawer {
                         borderRadius: new BorderRadius.circular(100.0),
                       ),
                       onPressed: () {
-                        MyNavigator.goUserNamePage(context);
+                        MyNavigator.goHome(context);
                       },
                       child: Row(
                         children: <Widget>[

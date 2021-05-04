@@ -28,17 +28,17 @@ class _ContentScreenState extends State<ContentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.primary.withOpacity(0.9),
+      backgroundColor: Palette.primary.withOpacity(0.95),
       body: Stack(
         children: [
           Positioned(
-            bottom: - Tools.width * 0.8,
-            right: - Tools.width * 0.9,
+            bottom: -Tools.width * 0.2,
+            right: -Tools.width * 0.2,
             child: Opacity(
-              opacity: 0.1,
+              opacity: 0.4,
               child: Image.asset(
                 'assets/icon.png',
-                width: Tools.width * 2,
+                width: Tools.width * 1.2,
               ),
             ),
           ),
@@ -46,7 +46,7 @@ class _ContentScreenState extends State<ContentScreen> {
             top: Tools.width * 0.5,
             right: Tools.width * 0.1,
             child: Opacity(
-              opacity: 0.08,
+              opacity: 0.2,
               child: Image.asset(
                 'assets/icon.png',
                 width: Tools.width * 0.5,
@@ -71,8 +71,20 @@ class _ContentScreenState extends State<ContentScreen> {
                               alignment: Alignment.topCenter,
                               child: HtmlWidget(
                                 e,
-                                hyperlinkColor: Palette.white,
-                                textStyle: TextStyle(fontSize: 20.0),
+                                customWidgetBuilder: (element) {
+                                  if (element.id.contains("NativeAd"))
+                                    return ads.getNativeAd(
+                                      height: Tools.height * 0.8,
+                                      width: Tools.width,
+                                    );
+                                  else
+                                    return null;
+                                },
+                                hyperlinkColor: Palette.black,
+                                textStyle: TextStyle(
+                                  fontSize: 20.0,
+                                  color: Palette.white,
+                                ),
                               ),
                             ),
                           ),
@@ -117,6 +129,7 @@ class _ContentScreenState extends State<ContentScreen> {
                           size: GFSize.LARGE,
                           fullWidthButton: true,
                           color: Palette.primary,
+                          textStyle: MyTextStyles.bigTitleBold.apply(color: Colors.white),
                         ),
                       ),
                       SizedBox(
@@ -159,6 +172,7 @@ class _ContentScreenState extends State<ContentScreen> {
                           size: GFSize.LARGE,
                           fullWidthButton: true,
                           color: Palette.primary,
+                          textStyle: MyTextStyles.bigTitleBold.apply(color: Colors.white),
                         ),
                       ),
                     ],

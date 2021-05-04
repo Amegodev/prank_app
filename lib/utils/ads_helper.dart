@@ -20,16 +20,18 @@ class Ads {
 
   static String admobBanner = kDebugMode
       ? MobileAds.bannerAdTestUnitId
-      : "ca-app-pub-8644958469423958/2887839799";
+      : "ca-app-pub-8644958469423958/4881957053";
   static String admobInter = kDebugMode
       ? MobileAds.interstitialAdTestUnitId
-      : "ca-app-pub-8644958469423958/1574758120";
+      : "ca-app-pub-8644958469423958/4689551215";
   static String admobNative = kDebugMode
       ? MobileAds.nativeAdTestUnitId
-      : "ca-app-pub-8644958469423958/4009349771";
+      : "ca-app-pub-8644958469423958/8960996386";
   static String admobReward = kDebugMode
       ? MobileAds.rewardedAdTestUnitId
-      : "ca-app-pub-8644958469423958/6635513118";
+      : "ca-app-pub-8644958469423958/3900241394";
+
+  //TODO: Change AppId Too in AndroidManifest
 
   InterstitialAd interstitialAd = InterstitialAd(unitId: admobInter);
   RewardedAd rewardedAd = RewardedAd();
@@ -37,16 +39,16 @@ class Ads {
 
   //Facebook Ads
   String fbBanner = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#979549719249821_979549772583149"
-      : "979549719249821_979549772583149";
+      ? "IMG_16_9_APP_INSTALL#136922901697989_136922928364653"
+      : "136922901697989_136922928364653";
   String fbInter = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#979549719249821_979549782583148"
-      : "979549719249821_979549782583148";
+      ? "IMG_16_9_APP_INSTALL#136922901697989_136922935031319"
+      : "136922901697989_136922935031319";
   String fbNative = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#979549719249821_979549769249816"
-      : "979549719249821_979549769249816";
+      ? "IMG_16_9_APP_INSTALL#136922901697989_136922938364652"
+      : "136922901697989_136922938364652";
 
-  static String unityGameId = "4111845";
+  static String unityGameId = "4115359";
   String unityAdId = "video";
 
   Widget bannerAd = SizedBox();
@@ -110,8 +112,7 @@ class Ads {
               default:
                 break;
             }
-
-            Tools.logger.wtf('isInterLoaded: $isInterLoaded');
+            Tools.logger.i('isInterLoaded: $isInterLoaded');
           },
         );
         break;

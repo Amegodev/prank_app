@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/theme.dart';
@@ -21,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     ads = new Ads();
+    Tools.checkAppVersion(context);
     ads.loadInter();
     customDrawer = new CustomDrawer();
   }
@@ -29,6 +31,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      drawer: customDrawer.buildDrawer(context),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -43,6 +46,38 @@ class _HomePageState extends State<HomePage> {
                   overflow: Overflow.visible,
                   alignment: Alignment.topCenter,
                   children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: IconButton(
+                        icon: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: SvgPicture.asset(
+                            'assets/icons/burger_menu.svg',
+                            color: Palette.black,
+                          ),
+                        ),
+                        onPressed: () =>
+                            scaffoldKey.currentState.openDrawer(),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(
+                        icon: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Icon(
+                            Icons.star,
+                            color: Palette.black,
+                          ),
+                        ),
+                        onPressed: () async {
+                          int count = await showDialog(
+                              context: context,
+                              builder: (_) => RatingDialog());
+                          if (count != null && count <= 3) ads.showInter();
+                        },
+                      ),
+                    ),
                     Positioned(
                       top: -MediaQuery.of(context).size.width,
                       child: Container(
@@ -67,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SafeArea(
                       child: Align(
-                        alignment: Alignment.topCenter,
+                        alignment: Alignment.center,
                         child: Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Text(
@@ -105,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
                         title: Text(
-                          '🤔 Start Walkthrough 💭',
+                          '🤔 Tips 💭',
                           style:
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
@@ -126,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
                         // bgColor: Colors.black,
-                        bgColor: Palette.black,
+                        bgColor: Palette.accent,
                         title: Text(
                           '🛒 Play And Earn 🎉',
                           style:

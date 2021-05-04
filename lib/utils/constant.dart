@@ -2,93 +2,59 @@
 
 List<String> articles = [
   """
-  <div><h1 style="text-align: justify;"><span>User guide:</span></h1>
-<p dir="ltr">You can see the thorough user guide here on this page. If you are still using the previous version, you can find a brief user guide <a href="https://s.cafebazaar.ir/1/docs/User_Guide.pdf">here</a>.</p>
-<p><span><span>&nbsp;</span></span></p>
-<h3 dir="ltr"><strong>Bazaar installation:</strong></h3>
-<p dir="ltr">Get it and install it using the step-by-step <a href="https://cafebazaar.ir/install/?l=en">tutorial</a>.</p>
-<p dir="ltr"><span>How to create a user account:</span></p>
-<p dir="ltr"><span>In case you want to buy a paid application, rate an application, comment, use a gift card and using other features, it is necessary to create a user account. Signing up is so simple in version 7.</span></p>
-<p dir="ltr"><span>1. &nbsp;&nbsp;&nbsp;After opening the application, in the top right corner, choose the icon for the user account.</span></p>
-<p dir="ltr"><span>2. &nbsp;&nbsp;&nbsp;You see a page saying: “Enter your email or your phone number”. Enter your email or phone number and then continue.</span></p>
-<p dir="ltr"><span>3. &nbsp;&nbsp;&nbsp;A verification code will be sent to your email or your phone.</span></p>
-<p dir="ltr"><span>4. &nbsp;&nbsp;&nbsp;Enter the code in the corresponding section.</span></p>
-<p dir="ltr">If you have not updated Cafebazaar yet, watch the tutorial in this <a href="http://www.aparat.com/v/BFl5n">video</a>.</p>
- <h3 dir="ltr"><strong>Adding phone number to user account:</strong></h3>
-<p dir="ltr"><span>In case you have created your account using your email, add your phone number to your account as explained here:</span></p>
-<p dir="ltr"><span>1. &nbsp;&nbsp;&nbsp;After opening the application and signing into your account via email, in the top right corner of the page, choose the icon for the user account.</span></p>
-<p dir="ltr"><span>2. &nbsp;&nbsp;&nbsp;Choose to enter your phone number and then enter your phone number.</span></p>
-<p dir="ltr"><span>3. &nbsp;&nbsp;&nbsp;A verification code will be sent to your phone.</span></p>
-<p dir="ltr"><span>4. &nbsp;&nbsp;&nbsp;Enter the code in the corresponding section, the phone number will be added to your account.</span></p>
-<h3 dir="ltr"><strong>Cafebazaar credit:</strong></h3>
-<p dir="ltr"><span>Some of the applications are completely free and some need In-app-purchase. The easiest way to buy a paid application or for in-app-purchase is by increasing your Cafebazaar credit and paying via it. You can increase your credit in two ways:</span></p>
-<p dir="ltr"><span>If you have a gift card, choose "redeem gift card" and then enter the code.</span></p>
-<p dir="ltr"><span>Otherwise, choose buy Cafebazaar credit and determine the amount you want to charge and then go through the bank API.</span></p>
- <h3 dir="ltr"><strong>Adding phone number to user account:</strong></h3>
-<p dir="ltr"><span>In case you have created your account using your email, add your phone number to your account as explained here:</span></p>
-<p dir="ltr"><span>1. &nbsp;&nbsp;&nbsp;After opening the application and signing into your account via email, in the top right corner of the page, choose the icon for the user account.</span></p>
-<p dir="ltr"><span>2. &nbsp;&nbsp;&nbsp;Choose to enter your phone number and then enter your phone number.</span></p>
-<p dir="ltr"><span>3. &nbsp;&nbsp;&nbsp;A verification code will be sent to your phone.</span></p>
-<p dir="ltr"><span>4. &nbsp;&nbsp;&nbsp;Enter the code in the corresponding section, the phone number will be added to your account.</span></p>
-<h3 dir="ltr"><strong>Cafebazaar credit:</strong></h3>
-<p dir="ltr"><span>Some of the applications are completely free and some need In-app-purchase. The easiest way to buy a paid application or for in-app-purchase is by increasing your Cafebazaar credit and paying via it. You can increase your credit in two ways:</span></p>
-<p dir="ltr"><span>If you have a gift card, choose "redeem gift card" and then enter the code.</span></p>
-<p dir="ltr"><span>Otherwise, choose buy Cafebazaar credit and determine the amount you want to charge and then go through the bank API.</span></p>
+<div class="description">Download Zpatcher Injector Mod APK – Latest version – Free for Android and instantly increase your in-game MLBB items, characters, animations and more! Dominate the game now!</div>
+<img src="/uploads/2020/12/zpatcher-injector.jpg" alt="ZPatcher Injector">
+<p>All mobile gamers strive to get more wins and get better every time. For this reason, they spend countless hours playing and practicing game theories and high-level strategies over and over again. This is to get to the level of the pros and Mythic players that involves high-level gaming.</p>
+<p>But for normal players who aren’t gifted with incredible gaming skills, this is just a dream. Since there are so many skilled players right now in the game Mobile Legends, it gets harder to climb the rankings even more. But thanks to a unique tool called Zpatcher Injector, all players now have a shot at glory. In this post, we’ll take a look at what this is all about and how it can impact your game significantly.</p>
 """,
   """
- <h3 dir="ltr"><strong>Adding phone number to user account:</strong></h3>
-<p dir="ltr"><span>In case you have created your account using your email, add your phone number to your account as explained here:</span></p>
-<p dir="ltr"><span>1. &nbsp;&nbsp;&nbsp;After opening the application and signing into your account via email, in the top right corner of the page, choose the icon for the user account.</span></p>
-<p dir="ltr"><span>2. &nbsp;&nbsp;&nbsp;Choose to enter your phone number and then enter your phone number.</span></p>
-<p dir="ltr"><span>3. &nbsp;&nbsp;&nbsp;A verification code will be sent to your phone.</span></p>
-<p dir="ltr"><span>4. &nbsp;&nbsp;&nbsp;Enter the code in the corresponding section, the phone number will be added to your account.</span></p>
-<h3 dir="ltr"><strong>Cafebazaar credit:</strong></h3>
-<p dir="ltr"><span>Some of the applications are completely free and some need In-app-purchase. The easiest way to buy a paid application or for in-app-purchase is by increasing your Cafebazaar credit and paying via it. You can increase your credit in two ways:</span></p>
-<p dir="ltr"><span>If you have a gift card, choose "redeem gift card" and then enter the code.</span></p>
-<p dir="ltr"><span>Otherwise, choose buy Cafebazaar credit and determine the amount you want to charge and then go through the bank API.</span></p>
+  <div id="NativeAd"></div>
+  """,
+  """
+<h2>A Tool to Dominate the Game</h2>
+<p>If you’re a long-time player now, it makes sense that you know some tools that give you unfair advantages. These tools are usually forbidden but they are so in-demand that the game just has no choice but to put an update every time just to prevent people from using them.</p>
+<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/zpacther-injector-mod-apk.jpg" srcset="https://techbigs.com/uploads/2020/12/zpacther-injector-mod-apk.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
+<p>But that doesn’t stop tools such as Zpatcher Injector from helping regular players get insanely good instantly. This tool is the newest one that you can use today in order to dominate the game of Mobile Legends. It’s available for multiple countries such as Malaysia, Brazil, Vietnam, China, Indonesia and many more.</p>
+<p>The way this works is that you install the apk and it will do its job. It’s designed to give you all these features that you are hard-pressed to get normally. Not only that but it also gives you some unique features that you can’t find elsewhere. Basically, it’s the holy grail of all tools!</p>
 """,
   """
-  <h3 dir="ltr"><strong>Access to applications:</strong></h3>
-<p dir="ltr"><span>It is possible through three ways:</span></p>
-<p dir="ltr"><strong>a) &nbsp;&nbsp;&nbsp;Using categories</strong></p>
-<p dir="ltr"><span>By choosing the icon of category from the main page of the Cafebazaar, you can find 25 categories such as social, education, communication and 18 categories of the game such as sport, board, adventure and so on. After choosing the desired category you can filter the newest applications according to rating, the number of installs and etc. </span></p>
-<p dir="ltr"><strong>b) &nbsp;&nbsp;&nbsp;Using selective criteria:</strong></p>
-<p dir="ltr"><span>Cafebazaar provides a combination of the best and newest applications on the main page and you can find varied lists with different criteria.</span></p>
-<p dir="ltr"><strong>c) &nbsp;&nbsp;&nbsp;Search</strong></p>
-<p dir="ltr"><span>You can choose the search icon on the main page and then you can search the keywords of the applications you are looking for.</span></p>
-<h3 dir="ltr"><strong>Application information:</strong></h3>
-<p dir="ltr"><span>After clicking on each application, a page is opened including the detail of the application, users’ comments, and similar applications. You can decide about the application using this information. Under the details, you can share the application or bookmark it. To access the list of bookmarked app, in the bottom of the main page, choose my applications and the see the bookmarked applications. &nbsp;&nbsp;&nbsp;</span></p>
+<h2>What Can You Get from this Powerful Tool?</h2>
+<p>We’ve talked about what this tool is basically and how it operates. Now, let’s dive deep into what it can offer for regular players who wishes to become stronger in Mobile Legends. Let’s get into it!</p>
+<p><strong>Get all the powerful heroes instantly – </strong>Most games today are free to download and play. But the developers still make a ton of money through in-game items. In Mobile Legends, you’ll use different heroes (characters) to play the game. While there are some free heroes available, the stronger ones usually need to be unlocked with gold. Most heroes in the game are 32,000 gold which are roughly equivalent to \$20 - \$30. Imagine just spending that absurd amount of money on one hero that you’re not even sure if you can climb the ranks with.</p>
+<p>But thankfully, with the existence of Zpatcher Injector APK, you can unlock all the heroes in the game within the snap of a finger. As soon as you use the app, you can now use more than 100 available heroes currently in the game. This will instantly give players an edge over those who don’t use the tool or those who don’t have money.</p>
+<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-latest-version.jpg" srcset="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-latest-version.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
 """,
   """
-  <h3 dir="ltr"><span>Installing free application:</span></h3>
-<p dir="ltr"><span>There are two ways to install a free application.</span></p>
-<p dir="ltr"><strong>a) &nbsp;&nbsp;&nbsp;Cafebazaar application:</strong></p>
-<p dir="ltr"><span>Click on your desired application and then click to install. Download begins and you can install the application when the download is completed.</span></p>
-<p dir="ltr"><strong>b) &nbsp;&nbsp;&nbsp;Cafebazaar website:</strong></p>
-<p dir="ltr"><span>Cafebazaar website has been established to let users browse easily among the applications, finding what they are looking for easily. If you want to first find the application, you are looking for, on the website and then install it on your device. Do the following steps:</span></p>
-<p dir="ltr">1) &nbsp;&nbsp;&nbsp;Go to the <a href="http://cafebazaar.ir/?l=en">website</a> and find the page you are looking for.</p>
-<p dir="ltr"><span>2) &nbsp;&nbsp;&nbsp;Choose the green tab left the side to get the application. The QR code will be shown then.</span></p>
-<p dir="ltr">3) &nbsp;&nbsp;&nbsp;In order to install an application on your android device, it is previously necessary to install one of the QR code reader applications (to see an example of one these applications click <a href="https://cafebazaar.ir/app/com.google.zxing.client.android/?l=en">here</a>). Open the QR code reader application and keep the camera in front of the QR code and then click on the link that the app suggests.</p>
-<p dir="ltr"><span>4) &nbsp;&nbsp;&nbsp;Now you can easily install the application</span></p>
+<p><strong>Unlocks a ton of skins for all types of heroes – </strong>Although we all know skins are mostly just for decoration, they still hold value. It gives players a sense of cool and intimidation factor unlike the default skin that you get. But since there are multiple skins available in most heroes, most players can’t afford to but all of them.</p>
+<p>This problem can easily be solved thanks to Zpatcher Injector that allows you to unlock all the skins in the game for all types of heroes: Assassin, MM, Fighter, mage, Support, and Tank. This means you’ll never look outdated anymore and you can now fight with all you’ve got!</p>
+<p><strong>Emotes and cool recall animations – </strong>One of the newest additions to the game Mobile Legends is the emote feature. Although it doesn’t add to your offensive or defensive capabilities, it has its own benefits. For players, the emote is like a symbol of status. A symbol that you have money and that you can flaunt it however you like through emotes.</p>
+<p>In the game, the emotes are usually logos of Mobile Legends e-sports teams all over the globe. They also have unique sound effects that make them likeable. But the problem is that each of them costs 109 dollars which could be expensive for most players. That is not the case anymore if you use Zpatcher Injector which allows you to instantly get all the emotes available in the game!</p>
+<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/download-zpacther-injector-for-android.jpg" srcset="https://techbigs.com/uploads/2020/12/download-zpacther-injector-for-android.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
 """,
   """
-  <h3 dir="ltr"><strong>Installing paid applications:</strong></h3>
-<p dir="ltr"><span>If you want to install a paid application, you can follow two ways:</span></p>
-<p dir="ltr"><strong>1) &nbsp;&nbsp;&nbsp;Cafebazaar application:</strong></p>
-<p dir="ltr"><span>Open the page of the app and click on the price. If you have enough Cafebazaar credit to buy, Cafebazaar asks you to verify the purchase else you should one the four ways below to do the payment.</span></p>
-<p dir="ltr"><span>a) &nbsp;&nbsp;&nbsp;Increasing Cafebazaar credit and purchase: </span></p>
-<p dir="ltr"><span>If you’d rather increasing the credit of your account and then purchase your desired application, choose this option and determine the amount on the next page. Finally, choose purchase option and after selecting the payment method you prefer, increase the credit. The advantage of this way is that you do not have to enter your debit card specifications on each purchase after you increase the credit once.</span></p>
-<p dir="ltr"><span>b) &nbsp;&nbsp;&nbsp;Payment through the internet inside the application:</span></p>
-<p dir="ltr"><span>If you prefer to purchase the application directly from your bank account, after selecting internet payment, follow the bank instruction. Cafebazaar never decreases your credit twice for one application. If any problem occurs the money will be back to your account after three days.</span></p>
-<p dir="ltr"><span>c) &nbsp;&nbsp;&nbsp;Payment via 720 and Asanpardakht</span></p>
-<p><span><span>&nbsp;</span></span></p>
+  <div id="NativeAd"></div>
+  """,
+  """
+<p><strong>A free powerful tool for everyone – </strong>We all know how powerful Zpatcher Injector can be. But the most surprising part is that it’s 100% free to use! You don’t need to sell your information or pay money just to use it. It’s for everyone to use. It’s for regular players who just want to experience what it’s like to have all the resources in the game without limits.</p>
+<p><strong>Compatible with all MLBB version and all Android devices – </strong>Another great thing about this app is that it’s compatible with all version of Mobile Legends. This means that even if you still haven’t updated your game, you can still use it. Aside from that, you can use it in almost every Android device. You just need to make sure that you have Android 4.0 and higher before downloading.</p>
+<p><strong>Easy to use APK – </strong>Nowadays, most tools like this one allows you to easily use it for your convenience. You don’t need to have technical knowledge just to properly utilize a powerful tool like this. Everything is straightforward which means you can use it even if you have no prior experience using these tools. But for maximum convenience, we’ve laid out all the steps on how to use this tool below!</p>
+<p><strong>A completely ad-free experience – </strong>We all know that most free tools and apps are riddled with ads. But the developers of Zpatcher Injector know that this is counterintuitive and only ruins the whole experience. To combat this, they’ve decided to create the app completely ad-free! This means no annoying clickbait popups, fake links or anything of that sort.</p>
 """,
   """
-  <p dir="ltr"><strong>2) &nbsp;&nbsp;&nbsp;Cafebazaar website:</strong></p>
-<p dir="ltr">If you prefer to buy from the internet, you can log in your Cafebazaar account on the website. From “credit” icon click on purchasing credit and follow the internet payment procedure after increasing your credit you can use your credit the same as the previous way.</p>
-<p dir="ltr">After the purchase is done, you can install the application and enjoy it. In case you are not satisfied with the purchased app, you can have your money back through this <a href="https://cafebazaar.ir/help/refund/">guide</a> up to three days.</p>
-<p dir="ltr"><span>Some of the free applications provide you extra features after in-app-purchase. In order to purchase inside an app, you are led to the payment page and after the process is done you will return to the application.</span></p>
-<h3 dir="ltr"><strong>Support:</strong></h3>
-<p>In case you face any problems during payment or other parts, you can take appropriate action by choosing support button from the menu on the main page or you can directly contact Support@cafebazaar.ir. If you have any complaints or need support from the developer of the application, in the end of the application page you can find contact information.</p></div>
+<h2>How to install and use the ZPatcher Injector APK?</h2>
+<p>With a powerful tool such as this, you might think that it only takes a genius to operate it. But the surprising thing is that it’s extremely easy to use this! Here are the simple steps you just need to follow:</p>
+<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-free-download.jpg" srcset="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-free-download.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
+<ol> <li>Download the Zpatcher Injector APK below.</li> <li>Install it and launch the app. Note: you should enable allow installation for unknown sources in the settings before doing so.</li> <li>Open the app.</li> <li>Allow the app to access photos.</li> <li>Then, select from the heroes, skins, emotes, and recall animation which you’d like to inject.</li> <li>If you click one, it will automatically inject it to your game account. Then you can now play to your heart’s content!</li></ol>
+<h2>Pros and Cons of Using this Tool</h2>
+<p>A tool like this can a controversial subject for a lot of players. But that shouldn’t be the case! In any case, we’ve listed down the pros and cons of using Zpatcher Injector so you can weigh them down and come up with a decision.</p>
+
+""",
+  """
+<h3>Pros</h3>
+<ul> <li>You’ll instantly access all heroes, skins, emotes and recall animations in the game.</li> <li>You don’t have to pay a single cent ever again.</li> <li>You can level the playing field or even have an extreme advantage when playing.</li> <li>Climb the ranks easily.</li> <li>Enjoy the game to its limits.</li></ul>
+<h3>Cons</h3>
+<ul> <li>There’s a risk that you’ll get caught and get banned if you’re not careful.</li> <li>You still need to put in an effort of actually learning how the new hero’s work.</li></ul>
+<h3>Final Thoughts</h3>
+<p>There are millions of Mobile Legends players that are currently struggling right now. But with this powerful tool, they can easily dominate the leaderboards overnight!</p>
 """
 ];
