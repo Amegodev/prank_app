@@ -2,59 +2,88 @@
 
 List<String> articles = [
   """
-<div class="description">Download Zpatcher Injector Mod APK – Latest version – Free for Android and instantly increase your in-game MLBB items, characters, animations and more! Dominate the game now!</div>
-<img src="/uploads/2020/12/zpatcher-injector.jpg" alt="ZPatcher Injector">
-<p>All mobile gamers strive to get more wins and get better every time. For this reason, they spend countless hours playing and practicing game theories and high-level strategies over and over again. This is to get to the level of the pros and Mythic players that involves high-level gaming.</p>
-<p>But for normal players who aren’t gifted with incredible gaming skills, this is just a dream. Since there are so many skilled players right now in the game Mobile Legends, it gets harder to climb the rankings even more. But thanks to a unique tool called Zpatcher Injector, all players now have a shot at glory. In this post, we’ll take a look at what this is all about and how it can impact your game significantly.</p>
+<h1 itemprop="name" class="game_title">Tentacle Locker</h1>
+<p>See a girl you like? Get her in your locker! <br>Use the arrow keys (or A and D) to move around, and Space to grab. <br>Once you've caught a girl, you can take a peak at whats going on inside ;)<br>While watching, use the arrows to advance, or esc to force out. </p>
 """,
   """
-  <div id="NativeAd"></div>
-  """,
-  """
-<h2>A Tool to Dominate the Game</h2>
-<p>If you’re a long-time player now, it makes sense that you know some tools that give you unfair advantages. These tools are usually forbidden but they are so in-demand that the game just has no choice but to put an update every time just to prevent people from using them.</p>
-<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/zpacther-injector-mod-apk.jpg" srcset="https://techbigs.com/uploads/2020/12/zpacther-injector-mod-apk.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
-<p>But that doesn’t stop tools such as Zpatcher Injector from helping regular players get insanely good instantly. This tool is the newest one that you can use today in order to dominate the game of Mobile Legends. It’s available for multiple countries such as Malaysia, Brazil, Vietnam, China, Indonesia and many more.</p>
-<p>The way this works is that you install the apk and it will do its job. It’s designed to give you all these features that you are hard-pressed to get normally. Not only that but it also gives you some unique features that you can’t find elsewhere. Basically, it’s the holy grail of all tools!</p>
+<h3>Tentacle Locker Mobile Download Play Tentacle Locker For Android Apk.</h3><br>
+<br>
+Tentacle Locker Mobile is available on Android and iOS. Do not wait, choose your software and play Tentacle Locker Mobile apk on your phone!<br>
+<br>
+<br>
+Tentacle Locker Mobile is a play on the impression that young ladies have to go to school and lock and wear skirts without encouraging you. Can hypnotize young women and trap them into the pool.<br>
+<br>
+Its interactivity is crucial. The young ladies must be taken with them. If you have a young lady, you should find out what’s going on indoors. In this case, on the one hand you use keys like bolt keys, and on the other hand, the ESC key. It seemed amazing, but there was no equal consensus among the young ladies, but you should do all the more. Is it conceivable in future reforms, such that young women (and future accomplices), who need training to remain in the face of contributions, will have a tent on their heads or in their hearts and, whether they are given, the amazing ‘they.’<br>
+<br>
+<br>
+Tentacle Locker Mobile is a romantic game in which girls have to get back to school and lock them and wear their dresses. They could hypnotize and trap girls in their water.<br>
+<br>
+It’s very important to play games. She’s gotta lock you in with kids. If you catch a kid, you can look at what is going on inside.<br>
+<br>
+<br>
+Tentacle Locker Mobile is a very simple principle, a tentacle power that strives for schoolchildren to be taken easily and placed in a locker in order to wreck them. You are not limited to just one office in this role, and instead are in the center of each office of your machine. And if it is fairly easy to find a female, it will warn the girls around them and make them run. Another child is also caused by the sight of a freshly goddamn girl.<br>
 """,
   """
-<h2>What Can You Get from this Powerful Tool?</h2>
-<p>We’ve talked about what this tool is basically and how it operates. Now, let’s dive deep into what it can offer for regular players who wishes to become stronger in Mobile Legends. Let’s get into it!</p>
-<p><strong>Get all the powerful heroes instantly – </strong>Most games today are free to download and play. But the developers still make a ton of money through in-game items. In Mobile Legends, you’ll use different heroes (characters) to play the game. While there are some free heroes available, the stronger ones usually need to be unlocked with gold. Most heroes in the game are 32,000 gold which are roughly equivalent to \$20 - \$30. Imagine just spending that absurd amount of money on one hero that you’re not even sure if you can climb the ranks with.</p>
-<p>But thankfully, with the existence of Zpatcher Injector APK, you can unlock all the heroes in the game within the snap of a finger. As soon as you use the app, you can now use more than 100 available heroes currently in the game. This will instantly give players an edge over those who don’t use the tool or those who don’t have money.</p>
-<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-latest-version.jpg" srcset="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-latest-version.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
+<h2><span class="ez-toc-section" id="Download_Tentacle_Locker_APK_For_Android"></span><strong>Download Tentacle Locker APK For Android</strong><span class="ez-toc-section-end"></span></h2>
+<h2><span class="ez-toc-section" id="Tentacle_Locker_Review"></span>Tentacle Locker Review:<span class="ez-toc-section-end"></span></h2>
+<p><a href="https://www.nervefilter.com/tentacleelocker-apk"><strong>Tentacle Locker Apk</strong></a>: When ad*lts enter the fantastic world of gaming we find well-crafted titles, Tentacle Locker, some with questionable tastes but otherwise harmless, some that will call you cops, and others like Tentacle Locker wherever you go. Don’t know how to make it.</p><p><b>Kidnap schoolgirls and lock them in your Tentacle Locker&nbsp;</b></p>
+<p>So we know from the beginning that the game is a joke … or at least that’s what we want to think. It’s in the corridor of the Girls’ School (Horn Warning) and we control the unusual set instead of the unusual. When students pass by us, we have to open the locker to trap them and push against their will.</p><p>Once the lakers get into the curses, the Lovecraft-type creature forces its tentacles (hence the name) to have sex. By the way, if you like a movie like Peter Jackson’s Brandade or John Carpenter’s Thing, pay attention to the sound effects.</p><p>A lame game for a while and to see if you are able to hit the space bar at the right time, which can be fine for a chimpanzee, but not too much for it. If you are looking for a special sport here, then you can ask your mom to compress you as much as possible.</p>
+""",
+"""
+<div id="NativeAd"></div>
 """,
   """
-<p><strong>Unlocks a ton of skins for all types of heroes – </strong>Although we all know skins are mostly just for decoration, they still hold value. It gives players a sense of cool and intimidation factor unlike the default skin that you get. But since there are multiple skins available in most heroes, most players can’t afford to but all of them.</p>
-<p>This problem can easily be solved thanks to Zpatcher Injector that allows you to unlock all the skins in the game for all types of heroes: Assassin, MM, Fighter, mage, Support, and Tank. This means you’ll never look outdated anymore and you can now fight with all you’ve got!</p>
-<p><strong>Emotes and cool recall animations – </strong>One of the newest additions to the game Mobile Legends is the emote feature. Although it doesn’t add to your offensive or defensive capabilities, it has its own benefits. For players, the emote is like a symbol of status. A symbol that you have money and that you can flaunt it however you like through emotes.</p>
-<p>In the game, the emotes are usually logos of Mobile Legends e-sports teams all over the globe. They also have unique sound effects that make them likeable. But the problem is that each of them costs 109 dollars which could be expensive for most players. That is not the case anymore if you use Zpatcher Injector which allows you to instantly get all the emotes available in the game!</p>
-<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/download-zpacther-injector-for-android.jpg" srcset="https://techbigs.com/uploads/2020/12/download-zpacther-injector-for-android.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
+<h3><span class="ez-toc-section" id="How_does_it_work"></span>How does it work?<span class="ez-toc-section-end"></span></h3>
+<p>We use Lutris as a runner. Runners are programs that clients can control and initiate. Our favorite runners include RetroArch, Dozab BoxX, FS-UAE, Schumvam, Mess, Dolphin, and of course Wine TKG, which is an optimized wine composition to give the best performance from your system. It is also possible to start native Linux games. We have a huge selection of free and open-source games that can be installed by the client. Download the client and play in minutes!</p>
 """,
   """
-  <div id="NativeAd"></div>
-  """,
-  """
-<p><strong>A free powerful tool for everyone – </strong>We all know how powerful Zpatcher Injector can be. But the most surprising part is that it’s 100% free to use! You don’t need to sell your information or pay money just to use it. It’s for everyone to use. It’s for regular players who just want to experience what it’s like to have all the resources in the game without limits.</p>
-<p><strong>Compatible with all MLBB version and all Android devices – </strong>Another great thing about this app is that it’s compatible with all version of Mobile Legends. This means that even if you still haven’t updated your game, you can still use it. Aside from that, you can use it in almost every Android device. You just need to make sure that you have Android 4.0 and higher before downloading.</p>
-<p><strong>Easy to use APK – </strong>Nowadays, most tools like this one allows you to easily use it for your convenience. You don’t need to have technical knowledge just to properly utilize a powerful tool like this. Everything is straightforward which means you can use it even if you have no prior experience using these tools. But for maximum convenience, we’ve laid out all the steps on how to use this tool below!</p>
-<p><strong>A completely ad-free experience – </strong>We all know that most free tools and apps are riddled with ads. But the developers of Zpatcher Injector know that this is counterintuitive and only ruins the whole experience. To combat this, they’ve decided to create the app completely ad-free! This means no annoying clickbait popups, fake links or anything of that sort.</p>
+<h3><span class="ez-toc-section" id="Descargar_Tentacle_Locker_Android_Features"></span>Descargar Tentacle Locker Android Features<span class="ez-toc-section-end"></span></h3>
+<ul>
+<li>Support Google Fit.</li>
+<li>Phrasebook;</li>
+<li>Adjust the circuit according to your situation;</li>
+<li>Adjust the rest period.</li>
+<li>You need to put on the training screen;</li>
+<li>Very nice and UI design;</li>
+<li>Log training with your total training time;</li>
+<li>The ability to pause training and skip previous or next workouts;</li>
+</ul>
 """,
   """
-<h2>How to install and use the ZPatcher Injector APK?</h2>
-<p>With a powerful tool such as this, you might think that it only takes a genius to operate it. But the surprising thing is that it’s extremely easy to use this! Here are the simple steps you just need to follow:</p>
-<img title="Zpatcher Injector Apk Mod" src="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-free-download.jpg" srcset="https://techbigs.com/uploads/2020/12/zpacther-injector-apk-free-download.jpg 350w" alt="Zpatcher Injector Apk Mod" width="350px">
-<ol> <li>Download the Zpatcher Injector APK below.</li> <li>Install it and launch the app. Note: you should enable allow installation for unknown sources in the settings before doing so.</li> <li>Open the app.</li> <li>Allow the app to access photos.</li> <li>Then, select from the heroes, skins, emotes, and recall animation which you’d like to inject.</li> <li>If you click one, it will automatically inject it to your game account. Then you can now play to your heart’s content!</li></ol>
-<h2>Pros and Cons of Using this Tool</h2>
-<p>A tool like this can a controversial subject for a lot of players. But that shouldn’t be the case! In any case, we’ve listed down the pros and cons of using Zpatcher Injector so you can weigh them down and come up with a decision.</p>
-
+<h3><span class="ez-toc-section" id="How_To_Install_Tentacle_Locker_Apk_On_My_Android"></span>How To Install Tentacle Locker Apk On My Android<span class="ez-toc-section-end"></span></h3>
+<ul>
+<li>You can download Tentacle Locker Apk by clicking the button above to start the download. Once the download is complete, you will find the APK in the “Downloads” section of your browser. Before you can install it on your phone, you need to make sure that third-party apps are allowed on your device.</li>
+<li>To make this possible, the steps are mostly the same as below. Open Menu&gt; Settings&gt; Security&gt; and check for unknown sources so that your phone can install applications from sources other than the Google Play Store.</li>
+<li>Once you have completed the above step, you can go to “Download” in your browser and tap the file once downloaded. An installation prompt will appear asking for permission and you can complete the installation steps.</li>
+<li>Once the installation is complete, you can use the application as usual.</li>
+</ul>
 """,
   """
-<h3>Pros</h3>
-<ul> <li>You’ll instantly access all heroes, skins, emotes and recall animations in the game.</li> <li>You don’t have to pay a single cent ever again.</li> <li>You can level the playing field or even have an extreme advantage when playing.</li> <li>Climb the ranks easily.</li> <li>Enjoy the game to its limits.</li></ul>
-<h3>Cons</h3>
-<ul> <li>There’s a risk that you’ll get caught and get banned if you’re not careful.</li> <li>You still need to put in an effort of actually learning how the new hero’s work.</li></ul>
-<h3>Final Thoughts</h3>
-<p>There are millions of Mobile Legends players that are currently struggling right now. But with this powerful tool, they can easily dominate the leaderboards overnight!</p>
+<h3><span class="ez-toc-section" id="Good"></span>Good:<span class="ez-toc-section-end"></span></h3>
+<p>You can download any version of the application directly from the third party website. You can have the app archives of most versions and you can download them according to your needs.</p>
+<p>After downloading, there is an APK file on your memory card/system memory. So you can uninstall and reinstall them many times without downloading.</p>
+""",
+  """
+<div id="NativeAd"></div>
+""",
+  """
+<h3><span class="ez-toc-section" id="Bad"></span>Bad:<span class="ez-toc-section-end"></span></h3>
+<p>Downloading apps from third-party sources are not usually checked by Google. So it can be harmful to your phone.</p>
+<p>APK files may contain viruses that steal data from your phone or damage your phone.</p>
+<p>Your apps won’t automatically update because they don’t usually have access to the Google Play Store.</p>
+""",
+  """
+<h3><span class="ez-toc-section" id="Conclusion"></span>Conclusion<span class="ez-toc-section-end"></span></h3>
+<p>Tentacle Locker Apk is an amazing app for android. Your all queries must have fulfilled after reading this review. Now download and enjoy this app with all the features in the latest version.</p>
+""",
+  """
+<h3><span class="ez-toc-section" id="Frequently_Asked_Questions"></span>Frequently Asked Questions<span class="ez-toc-section-end"></span></h3>
+<h4><span class="ez-toc-section" id="Q_What_is_an_APK_File"></span><b>Q: What is an APK File?</b><span class="ez-toc-section-end"></span></h4>
+<p>Ans: An Android package kit (abbreviated APK) is a package file format used by the Android operating system for the distribution and installation of mobile applications. Just as a Windows (PC) system uses an EXE file to install software, so does Android.</p>
+<h4><span class="ez-toc-section" id="Q_Can_I_update_the_Tentacle_Locker_Apk_from_the_Play_Store_when_I_install_APK_from_nervefiltercom"></span><b>Q: Can I update the Tentacle Locker Apk from the Play Store when I install APK from nervefilter.com?</b><span class="ez-toc-section-end"></span></h4>
+<p>Ans: Yes, of course. The Play Store installs downloads from Google’s servers, with the exception of downloading and installing your service (page loading), and page loading from websites like nervefilter.com is the same.</p>
+<p>An update will begin as soon as you get the version of the Play Store app in the new version of the Play Store.</p>
+<h4><span class="ez-toc-section" id="Q_Why_is_Android_App_Permission_needed_to_download_Tentacle_Locker_Apk"></span><b>Q: Why is Android App Permission needed to download Tentacle Locker Apk?</b><span class="ez-toc-section-end"></span></h4>
+<p>Ans: Applications require access to some of your device’s systems. When you install an application, you will be notified of all the permissions required to run that application.</p>
 """
 ];

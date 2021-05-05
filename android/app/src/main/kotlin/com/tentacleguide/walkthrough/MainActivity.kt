@@ -1,4 +1,4 @@
-package com.zolaxis.patchertips.guide.mod
+package com.tentacleguide.walkthrough
 
 import io.flutter.embedding.android.FlutterActivity
 

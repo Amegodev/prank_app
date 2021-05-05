@@ -20,16 +20,16 @@ class Ads {
 
   static String admobBanner = kDebugMode
       ? MobileAds.bannerAdTestUnitId
-      : "ca-app-pub-8644958469423958/4881957053";
+      : "ca-app-pub-2943474170747460/5069427804";
   static String admobInter = kDebugMode
       ? MobileAds.interstitialAdTestUnitId
-      : "ca-app-pub-8644958469423958/4689551215";
+      : "ca-app-pub-2943474170747460/2467315198";
   static String admobNative = kDebugMode
       ? MobileAds.nativeAdTestUnitId
-      : "ca-app-pub-8644958469423958/8960996386";
+      : "ca-app-pub-2943474170747460/7500150027";
   static String admobReward = kDebugMode
       ? MobileAds.rewardedAdTestUnitId
-      : "ca-app-pub-8644958469423958/3900241394";
+      : "ca-app-pub-2943474170747460/4724994635";
 
   //TODO: Change AppId Too in AndroidManifest
 
@@ -39,14 +39,14 @@ class Ads {
 
   //Facebook Ads
   String fbBanner = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#136922901697989_136922928364653"
-      : "136922901697989_136922928364653";
+      ? "IMG_16_9_APP_INSTALL#911502842974670_911503262974628"
+      : "911502842974670_911503262974628";
   String fbInter = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#136922901697989_136922935031319"
-      : "136922901697989_136922935031319";
+      ? "IMG_16_9_APP_INSTALL#911502842974670_911503842974570"
+      : "911502842974670_911503842974570";
   String fbNative = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#136922901697989_136922938364652"
-      : "136922901697989_136922938364652";
+      ? "IMG_16_9_APP_INSTALL#911502842974670_911504266307861"
+      : "911502842974670_911504266307861";
 
   static String unityGameId = "4115359";
   String unityAdId = "video";
@@ -63,8 +63,10 @@ class Ads {
   }
 
   static init() async {
-    adNetwork = await Tools.fetchRemoteConfig(
+    String ads = await Tools.fetchRemoteConfig(
         '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads');
+    Tools.logger.wtf('addddddddssssssssss: $ads');
+    adNetwork = ads.isNotEmpty ? ads : adNetwork;
     Tools.logger.i('Initialized Ad Network: $adNetwork');
     switch (adNetwork) {
       case "fb":
