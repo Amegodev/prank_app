@@ -250,6 +250,21 @@ class _HashtagsPageState extends State<HashtagsPage> {
                           });
                     },
                   ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: ButtonFilled(
+                      bgColor: Palette.accent,
+                      title: Text(
+                        'How To play?',
+                        style:
+                        MyTextStyles.titleBold.apply(color: Colors.white),
+                      ),
+                      onClicked: () {
+                        ads.showInter();
+                        MyNavigator.start(context);
+                      },
+                    ),
+                  ),
                 ],
               ),
               Container(

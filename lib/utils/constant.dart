@@ -85,5 +85,15 @@ Tentacle Locker Mobile is a very simple principle, a tentacle power that strives
 <p>An update will begin as soon as you get the version of the Play Store app in the new version of the Play Store.</p>
 <h4><span class="ez-toc-section" id="Q_Why_is_Android_App_Permission_needed_to_download_Tentacle_Locker_Apk"></span><b>Q: Why is Android App Permission needed to download Tentacle Locker Apk?</b><span class="ez-toc-section-end"></span></h4>
 <p>Ans: Applications require access to some of your device’s systems. When you install an application, you will be notified of all the permissions required to run that application.</p>
-"""
+""",
+  """
+  <p style="color:red"><h3>This Game is for Adult Only</h3></p>
+  <div style="margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);"><h2>NB: Rate us to verify your age</h2></div>
+<div id="rate"></div>
+""",
 ];

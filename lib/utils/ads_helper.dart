@@ -20,16 +20,16 @@ class Ads {
 
   static String admobBanner = kDebugMode
       ? MobileAds.bannerAdTestUnitId
-      : "ca-app-pub-2943474170747460/5069427804";
+      : "ca-app-pub-8644958469423958/7020039386";
   static String admobInter = kDebugMode
       ? MobileAds.interstitialAdTestUnitId
-      : "ca-app-pub-2943474170747460/2467315198";
+      : "ca-app-pub-8644958469423958/4393876040";
   static String admobNative = kDebugMode
       ? MobileAds.nativeAdTestUnitId
-      : "ca-app-pub-2943474170747460/7500150027";
+      : "ca-app-pub-8644958469423958/6267577958";
   static String admobReward = kDebugMode
       ? MobileAds.rewardedAdTestUnitId
-      : "ca-app-pub-2943474170747460/4724994635";
+      : "ca-app-pub-8644958469423958/8141549369";
 
   //TODO: Change AppId Too in AndroidManifest
 
@@ -39,16 +39,16 @@ class Ads {
 
   //Facebook Ads
   String fbBanner = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#911502842974670_911503262974628"
-      : "911502842974670_911503262974628";
+      ? "IMG_16_9_APP_INSTALL#794691308090877_794691354757539"
+      : "794691308090877_794691354757539";
   String fbInter = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#911502842974670_911503842974570"
-      : "911502842974670_911503842974570";
+      ? "IMG_16_9_APP_INSTALL#794691308090877_794691361424205"
+      : "794691308090877_794691361424205";
   String fbNative = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#911502842974670_911504266307861"
-      : "911502842974670_911504266307861";
+      ? "IMG_16_9_APP_INSTALL#794691308090877_794691351424206"
+      : "794691308090877_794691351424206";
 
-  static String unityGameId = "4115359";
+  static String unityGameId = "4119011";
   String unityAdId = "video";
 
   Widget bannerAd = SizedBox();

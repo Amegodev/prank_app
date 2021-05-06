@@ -9,7 +9,7 @@ class Strings {
   static final String about = "About";
   static final String privacy = "Privacy Policy";
   static final String storeId = ""; //TODO : Store ID
-  static final String storeName = "AmegoDev";
+  static final String storeName = "BElEIÄCH-TECH .Inc";
   static final String aboutText = """
       ${Strings.storeName} Built ${Tools.packageInfo.appName} \nVersion ${Tools.packageInfo.version}
   """;

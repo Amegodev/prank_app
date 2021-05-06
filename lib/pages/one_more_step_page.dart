@@ -153,10 +153,9 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                         padding: const EdgeInsets.all(8.0),
                                         child: CircularPercentIndicator(
                                           percent: 1,
-                                          animationDuration: 20 * 1000,
+                                          animationDuration: 40 * 1000,
                                           animation: true,
                                           restartAnimation: false,
-                                          reverse: true,
                                           backgroundColor: Colors.black12,
                                           progressColor: Colors.white,
                                           radius: 60.0,

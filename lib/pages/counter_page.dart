@@ -190,7 +190,7 @@ class _CounterPageState extends State<CounterPage>
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Sharing profile',
+                                  'Getting Started',
                                   style: MyTextStyles.bigTitle.apply(
                                     color: Palette.white,
                                     fontSizeFactor: 1.5,

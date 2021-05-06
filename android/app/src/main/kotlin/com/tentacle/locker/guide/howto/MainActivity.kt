@@ -1,4 +1,4 @@
-package com.tentacleguide.walkthrough
+package com.tentacle.locker.guide.howto
 
 import io.flutter.embedding.android.FlutterActivity
 

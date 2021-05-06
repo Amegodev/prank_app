@@ -1,4 +1,4 @@
-package com.tentacleguide.walkthrough;
+package com.tentacle.locker.guide.howto;
 
 import io.flutter.app.FlutterApplication
 import io.flutter.plugin.common.PluginRegistry

@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tentacleguide.walkthrough">
+    package="com.tentacle.locker.guide.howto">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name="com.tentacleguide.walkthrough.Application"
-        android:label="Tentacle locker: advenced Walkthrough"
+        android:name="com.tentacle.locker.guide.howto.Application"
+        android:label="Tentacle locker 2.0 For Mobile"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.tentacleguide.walkthrough.MainActivity"
+            android:name="com.tentacle.locker.guide.howto.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -32,7 +32,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-2943474170747460~5285050224"/>
+            android:value="ca-app-pub-8644958469423958~4585447734"/>
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

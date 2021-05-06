@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId "com.tentacleguide.walkthrough"
+        applicationId "com.tentacle.locker.guide.howto"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()
