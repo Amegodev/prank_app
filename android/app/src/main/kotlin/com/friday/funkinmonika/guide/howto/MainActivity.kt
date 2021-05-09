@@ -1,4 +1,4 @@
-package com.tentacle.locker.guide.howto
+package com.friday.funkinmonika.guide.howto
 
 import io.flutter.embedding.android.FlutterActivity
 

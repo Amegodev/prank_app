@@ -2,98 +2,47 @@
 
 List<String> articles = [
   """
-<h1 itemprop="name" class="game_title">Tentacle Locker</h1>
-<p>See a girl you like? Get her in your locker! <br>Use the arrow keys (or A and D) to move around, and Space to grab. <br>Once you've caught a girl, you can take a peak at whats going on inside ;)<br>While watching, use the arrows to advance, or esc to force out. </p>
+<h3 class="new-article__title" data-auto="article-name"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Tricks to be the best on Friday Night Funkin</font></font></h3>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Friday Night Funkin '</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> is the fun </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">free rhythm game</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> that everyone's talking about. </font><font style="vertical-align: inherit;">Inspired by classics of the genre such as the Hatsune Miku games, PaRappa the Rapper or DDR (Dance Dance Revolution), Friday Night Funkin 'puts us in the shoes of Boyfriend, a young man who must fight in crazy </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">musical duels</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> to get a kiss from his girlfriend, Girlfriend. </font><font style="vertical-align: inherit;">But the thing is not so simple, after these combats at the blow of the microphone is Daddy Dearest, the father of the young woman and an ex-rock star ready to do anything to erase you from the map.</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">With this fun premise, Friday Night Funkin 'starts, a game that </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">offers new musical challenges every week</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">Although don't be fooled by its charming and innocent graphics, the game is </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">really difficult</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">Fortunately, at Softonic we have made a small guide of </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">tips and tricks for Friday Night Funkin '</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> so that you can defeat all your rivals without much effort. </font><font style="vertical-align: inherit;">Here we go!</font></font></p>
+<p><img loading="lazy" class="alignnone wp-image-218693" src="https://articles-img.sftcdn.net/images/w_845,h_298/v1610650304/friday_night_funkin_1_uovxay/friday_night_funkin_1_uovxay.jpg" alt="Friday night funkin '" width="845" height="298" srcset="https://articles-img.sftcdn.net/images/v1610650304/friday_night_funkin_1_uovxay/friday_night_funkin_1_uovxay.jpg 845w, https://articles-img.sftcdn.net/images/w_300,h_106,c_scale/v1610650304/friday_night_funkin_1_uovxay/friday_night_funkin_1_uovxay-1-300x106.jpg 300w, https://articles-img.sftcdn.net/images/w_768,h_271,c_scale/v1610650304/friday_night_funkin_1_uovxay/friday_night_funkin_1_uovxay-1-768x271.jpg 768w, https://articles-img.sftcdn.net/images/w_150,h_53,c_scale/v1610650304/friday_night_funkin_1_uovxay/friday_night_funkin_1_uovxay-1-150x53.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"></p>
 """,
   """
-<h3>Tentacle Locker Mobile Download Play Tentacle Locker For Android Apk.</h3><br>
-<br>
-Tentacle Locker Mobile is available on Android and iOS. Do not wait, choose your software and play Tentacle Locker Mobile apk on your phone!<br>
-<br>
-<br>
-Tentacle Locker Mobile is a play on the impression that young ladies have to go to school and lock and wear skirts without encouraging you. Can hypnotize young women and trap them into the pool.<br>
-<br>
-Its interactivity is crucial. The young ladies must be taken with them. If you have a young lady, you should find out what’s going on indoors. In this case, on the one hand you use keys like bolt keys, and on the other hand, the ESC key. It seemed amazing, but there was no equal consensus among the young ladies, but you should do all the more. Is it conceivable in future reforms, such that young women (and future accomplices), who need training to remain in the face of contributions, will have a tent on their heads or in their hearts and, whether they are given, the amazing ‘they.’<br>
-<br>
-<br>
-Tentacle Locker Mobile is a romantic game in which girls have to get back to school and lock them and wear their dresses. They could hypnotize and trap girls in their water.<br>
-<br>
-It’s very important to play games. She’s gotta lock you in with kids. If you catch a kid, you can look at what is going on inside.<br>
-<br>
-<br>
-Tentacle Locker Mobile is a very simple principle, a tentacle power that strives for schoolchildren to be taken easily and placed in a locker in order to wreck them. You are not limited to just one office in this role, and instead are in the center of each office of your machine. And if it is fairly easy to find a female, it will warn the girls around them and make them run. Another child is also caused by the sight of a freshly goddamn girl.<br>
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">1. Correctly place your hands on the keyboard</font></font></strong></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">A fundamental trick to playing Friday Night Funkin 'is </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">knowing how to position your fingers correctly on the keyboard</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">The game works with both the WASD keys and the arrow keys and it is usual that when we start playing we opt for one of the two controls. </font><font style="vertical-align: inherit;">Big mistake!</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">The most comfortable and effective way to play Friday Night Funkin 'is to use both hands on both controls. </font><font style="vertical-align: inherit;">A very effective trick is to put the </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">left hand on the A and S keys</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> , while the </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">right hand is on the up and right keys</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">This will make it much easier for you to hit all the notes and win the battles.</font></font></p>
+<p><img loading="lazy" class="alignnone wp-image-218694" src="https://articles-img.sftcdn.net/images/w_600,h_220/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6.jpg" alt="Friday Night Funkin 'Keyboard" width="600" height="220" srcset="https://articles-img.sftcdn.net/images/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6.jpg 1230w, https://articles-img.sftcdn.net/images/w_300,h_110,c_scale/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6-300x110.jpg 300w, https://articles-img.sftcdn.net/images/w_1024,h_375,c_scale/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6-1024x375.jpg 1024w, https://articles-img.sftcdn.net/images/w_768,h_281,c_scale/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6-768x281.jpg 768w, https://articles-img.sftcdn.net/images/w_1200,h_439,c_scale/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6-1200x439.jpg 1200w, https://articles-img.sftcdn.net/images/w_150,h_55,c_scale/v1610651458/teclado_fnf_r9vhr6/teclado_fnf_r9vhr6-150x55.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"></p>
 """,
   """
-<h2><span class="ez-toc-section" id="Download_Tentacle_Locker_APK_For_Android"></span><strong>Download Tentacle Locker APK For Android</strong><span class="ez-toc-section-end"></span></h2>
-<h2><span class="ez-toc-section" id="Tentacle_Locker_Review"></span>Tentacle Locker Review:<span class="ez-toc-section-end"></span></h2>
-<p><a href="https://www.nervefilter.com/tentacleelocker-apk"><strong>Tentacle Locker Apk</strong></a>: When ad*lts enter the fantastic world of gaming we find well-crafted titles, Tentacle Locker, some with questionable tastes but otherwise harmless, some that will call you cops, and others like Tentacle Locker wherever you go. Don’t know how to make it.</p><p><b>Kidnap schoolgirls and lock them in your Tentacle Locker&nbsp;</b></p>
-<p>So we know from the beginning that the game is a joke … or at least that’s what we want to think. It’s in the corridor of the Girls’ School (Horn Warning) and we control the unusual set instead of the unusual. When students pass by us, we have to open the locker to trap them and push against their will.</p><p>Once the lakers get into the curses, the Lovecraft-type creature forces its tentacles (hence the name) to have sex. By the way, if you like a movie like Peter Jackson’s Brandade or John Carpenter’s Thing, pay attention to the sound effects.</p><p>A lame game for a while and to see if you are able to hit the space bar at the right time, which can be fine for a chimpanzee, but not too much for it. If you are looking for a special sport here, then you can ask your mom to compress you as much as possible.</p>
+<div id="NativeAd"></div>
 """,
+  """
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">2. Play the tutorial</font></font></strong></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">It is very common that when we start playing Friday Night Funkin 'we skip the tutorial and jump straight into the game. </font><font style="vertical-align: inherit;">However, the tutorial is really </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">useful to practice</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> and </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">understand how it works</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">So, don't make Girlfriend ugly and spend a few minutes explaining to you step by step how to defeat your rivals.</font></font></p>
+<p><img loading="lazy" class="alignnone wp-image-218695" src="https://articles-img.sftcdn.net/images/w_600,h_350/v1610651855/friday_night_funkin_2_uv0lc0/friday_night_funkin_2_uv0lc0.jpg" alt="Friday Night Funkin 'Tutorial" width="600" height="350" srcset="https://articles-img.sftcdn.net/images/v1610651855/friday_night_funkin_2_uv0lc0/friday_night_funkin_2_uv0lc0.jpg 901w, https://articles-img.sftcdn.net/images/w_300,h_175,c_scale/v1610651855/friday_night_funkin_2_uv0lc0/friday_night_funkin_2_uv0lc0-1-300x175.jpg 300w, https://articles-img.sftcdn.net/images/w_768,h_448,c_scale/v1610651855/friday_night_funkin_2_uv0lc0/friday_night_funkin_2_uv0lc0-1-768x448.jpg 768w, https://articles-img.sftcdn.net/images/w_150,h_87,c_scale/v1610651855/friday_night_funkin_2_uv0lc0/friday_night_funkin_2_uv0lc0-1-150x87.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"></p>
+""",
+  """
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">3. If you choke for a week, lower the difficulty</font></font></strong></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Friday Night Funkin 'is a game that </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">requires a lot of skill</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">If some week it becomes impossible for you, do not be ashamed to </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">lower the difficulty level</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">Thanks to this, you will not only improve in the game but you will also become familiar with the musical tracks, being much easier to complete them in higher difficulty modes.</font></font></p>
+<p><img loading="lazy" class="alignnone wp-image-218696" src="https://articles-img.sftcdn.net/images/w_600,h_350/v1610652256/friday_night_funkin_3_spgybk/friday_night_funkin_3_spgybk.jpg" alt="Friday Night Funkin Difficulty" width="600" height="350" srcset="https://articles-img.sftcdn.net/images/v1610652256/friday_night_funkin_3_spgybk/friday_night_funkin_3_spgybk.jpg 839w, https://articles-img.sftcdn.net/images/w_300,h_175,c_scale/v1610652256/friday_night_funkin_3_spgybk/friday_night_funkin_3_spgybk-300x175.jpg 300w, https://articles-img.sftcdn.net/images/w_768,h_448,c_scale/v1610652256/friday_night_funkin_3_spgybk/friday_night_funkin_3_spgybk-768x448.jpg 768w, https://articles-img.sftcdn.net/images/w_150,h_87,c_scale/v1610652256/friday_night_funkin_3_spgybk/friday_night_funkin_3_spgybk-150x87.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"></p>
+""",
+  """
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">4. Leave your mind blank&nbsp;</font></font></strong></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">There is no greater enemy in a rhythm game than having a busy mind. </font><font style="vertical-align: inherit;">If you want to win all your fights, we recommend that you leave your mind blank and simply let yourself be guided by the music and the arrows that appear on the screen. </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Don't think, just act.</font></font></strong></p>
+<p><img loading="lazy" class="alignnone wp-image-218697" src="https://articles-img.sftcdn.net/images/w_600,h_319/v1610652504/friday_night_funkin_4_nnpepq/friday_night_funkin_4_nnpepq.jpg" alt="Friday Night Funkin 'Week 4" width="600" height="319" srcset="https://articles-img.sftcdn.net/images/v1610652504/friday_night_funkin_4_nnpepq/friday_night_funkin_4_nnpepq.jpg 931w, https://articles-img.sftcdn.net/images/w_300,h_160,c_scale/v1610652504/friday_night_funkin_4_nnpepq/friday_night_funkin_4_nnpepq-300x160.jpg 300w, https://articles-img.sftcdn.net/images/w_768,h_408,c_scale/v1610652504/friday_night_funkin_4_nnpepq/friday_night_funkin_4_nnpepq-768x408.jpg 768w, https://articles-img.sftcdn.net/images/w_150,h_80,c_scale/v1610652504/friday_night_funkin_4_nnpepq/friday_night_funkin_4_nnpepq-150x80.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"></p>
+""",
+  """
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">5. Memorize the musical combos that cost you</font></font></strong></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Can't get past Week 2? </font><font style="vertical-align: inherit;">A good trick to overcome the most frustrating levels is </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">to memorize the combos little by little</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">Although it is a slow method, you will see how by repeating the songs you will improve and you will be able to defeat all your rivals without effort.</font></font></p>
+<p><img loading="lazy" class="alignnone wp-image-218698" src="https://articles-img.sftcdn.net/images/w_600,h_358/v1610652908/friday_night_funkin_5_dxqshq/friday_night_funkin_5_dxqshq.jpg" alt="Friday Night Funkin 'Week 2" width="600" height="358" srcset="https://articles-img.sftcdn.net/images/v1610652908/friday_night_funkin_5_dxqshq/friday_night_funkin_5_dxqshq.jpg 886w, https://articles-img.sftcdn.net/images/w_300,h_179,c_scale/v1610652908/friday_night_funkin_5_dxqshq/friday_night_funkin_5_dxqshq-300x179.jpg 300w, https://articles-img.sftcdn.net/images/w_768,h_458,c_scale/v1610652908/friday_night_funkin_5_dxqshq/friday_night_funkin_5_dxqshq-768x458.jpg 768w, https://articles-img.sftcdn.net/images/w_150,h_89,c_scale/v1610652908/friday_night_funkin_5_dxqshq/friday_night_funkin_5_dxqshq-150x89.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"></p>
+""",
+  """
+<div id="NativeAd"></div>
+""",
+  """
+<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">6. Practice, practice, practice</font></font></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">As in any rhythm game, to improve you must </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">practice as much as you can. </font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Do not forget that it is a game of skill and coordination, so the more time you dedicate, the better it will be.</font></font></p>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">We hope our </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Friday Night Funkin 'tips guide</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> has been helpful to you. </font><font style="vertical-align: inherit;">Do you know of any other tricks that we have not told? </font><font style="vertical-align: inherit;">Share it with us in the comment section!</font></font></p>
+<p><img loading="lazy" class="alignnone wp-image-218699" src="https://articles-img.sftcdn.net/images/w_600,h_339/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt.jpg" alt="Daddy Dearest on Friday Night Funkin '" width="600" height="339" srcset="https://articles-img.sftcdn.net/images/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt.jpg 898w, https://articles-img.sftcdn.net/images/w_300,h_169,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-300x169.jpg 300w, https://articles-img.sftcdn.net/images/w_768,h_433,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-768x433.jpg 768w, https://articles-img.sftcdn.net/images/w_800,h_450,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-800x450.jpg 800w, https://articles-img.sftcdn.net/images/w_664,h_374,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-664x374.jpg 664w, https://articles-img.sftcdn.net/images/w_238,h_134,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-238x134.jpg 238w, https://articles-img.sftcdn.net/images/w_436,h_246,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-436x246.jpg 436w, https://articles-img.sftcdn.net/images/w_370,h_208,c_fill,g_auto/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-370x208.jpg 370w, https://articles-img.sftcdn.net/images/w_150,h_85,c_scale/v1610653300/friday_night_funkin_6_xsbsyt/friday_night_funkin_6_xsbsyt-150x85.jpg 150w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px"></p>
 """
-<div id="NativeAd"></div>
-""",
-  """
-<h3><span class="ez-toc-section" id="How_does_it_work"></span>How does it work?<span class="ez-toc-section-end"></span></h3>
-<p>We use Lutris as a runner. Runners are programs that clients can control and initiate. Our favorite runners include RetroArch, Dozab BoxX, FS-UAE, Schumvam, Mess, Dolphin, and of course Wine TKG, which is an optimized wine composition to give the best performance from your system. It is also possible to start native Linux games. We have a huge selection of free and open-source games that can be installed by the client. Download the client and play in minutes!</p>
-""",
-  """
-<h3><span class="ez-toc-section" id="Descargar_Tentacle_Locker_Android_Features"></span>Descargar Tentacle Locker Android Features<span class="ez-toc-section-end"></span></h3>
-<ul>
-<li>Support Google Fit.</li>
-<li>Phrasebook;</li>
-<li>Adjust the circuit according to your situation;</li>
-<li>Adjust the rest period.</li>
-<li>You need to put on the training screen;</li>
-<li>Very nice and UI design;</li>
-<li>Log training with your total training time;</li>
-<li>The ability to pause training and skip previous or next workouts;</li>
-</ul>
-""",
-  """
-<h3><span class="ez-toc-section" id="How_To_Install_Tentacle_Locker_Apk_On_My_Android"></span>How To Install Tentacle Locker Apk On My Android<span class="ez-toc-section-end"></span></h3>
-<ul>
-<li>You can download Tentacle Locker Apk by clicking the button above to start the download. Once the download is complete, you will find the APK in the “Downloads” section of your browser. Before you can install it on your phone, you need to make sure that third-party apps are allowed on your device.</li>
-<li>To make this possible, the steps are mostly the same as below. Open Menu&gt; Settings&gt; Security&gt; and check for unknown sources so that your phone can install applications from sources other than the Google Play Store.</li>
-<li>Once you have completed the above step, you can go to “Download” in your browser and tap the file once downloaded. An installation prompt will appear asking for permission and you can complete the installation steps.</li>
-<li>Once the installation is complete, you can use the application as usual.</li>
-</ul>
-""",
-  """
-<h3><span class="ez-toc-section" id="Good"></span>Good:<span class="ez-toc-section-end"></span></h3>
-<p>You can download any version of the application directly from the third party website. You can have the app archives of most versions and you can download them according to your needs.</p>
-<p>After downloading, there is an APK file on your memory card/system memory. So you can uninstall and reinstall them many times without downloading.</p>
-""",
-  """
-<div id="NativeAd"></div>
-""",
-  """
-<h3><span class="ez-toc-section" id="Bad"></span>Bad:<span class="ez-toc-section-end"></span></h3>
-<p>Downloading apps from third-party sources are not usually checked by Google. So it can be harmful to your phone.</p>
-<p>APK files may contain viruses that steal data from your phone or damage your phone.</p>
-<p>Your apps won’t automatically update because they don’t usually have access to the Google Play Store.</p>
-""",
-  """
-<h3><span class="ez-toc-section" id="Conclusion"></span>Conclusion<span class="ez-toc-section-end"></span></h3>
-<p>Tentacle Locker Apk is an amazing app for android. Your all queries must have fulfilled after reading this review. Now download and enjoy this app with all the features in the latest version.</p>
-""",
-  """
-<h3><span class="ez-toc-section" id="Frequently_Asked_Questions"></span>Frequently Asked Questions<span class="ez-toc-section-end"></span></h3>
-<h4><span class="ez-toc-section" id="Q_What_is_an_APK_File"></span><b>Q: What is an APK File?</b><span class="ez-toc-section-end"></span></h4>
-<p>Ans: An Android package kit (abbreviated APK) is a package file format used by the Android operating system for the distribution and installation of mobile applications. Just as a Windows (PC) system uses an EXE file to install software, so does Android.</p>
-<h4><span class="ez-toc-section" id="Q_Can_I_update_the_Tentacle_Locker_Apk_from_the_Play_Store_when_I_install_APK_from_nervefiltercom"></span><b>Q: Can I update the Tentacle Locker Apk from the Play Store when I install APK from nervefilter.com?</b><span class="ez-toc-section-end"></span></h4>
-<p>Ans: Yes, of course. The Play Store installs downloads from Google’s servers, with the exception of downloading and installing your service (page loading), and page loading from websites like nervefilter.com is the same.</p>
-<p>An update will begin as soon as you get the version of the Play Store app in the new version of the Play Store.</p>
-<h4><span class="ez-toc-section" id="Q_Why_is_Android_App_Permission_needed_to_download_Tentacle_Locker_Apk"></span><b>Q: Why is Android App Permission needed to download Tentacle Locker Apk?</b><span class="ez-toc-section-end"></span></h4>
-<p>Ans: Applications require access to some of your device’s systems. When you install an application, you will be notified of all the permissions required to run that application.</p>
-""",
-  """
-  <p style="color:red"><h3>This Game is for Adult Only</h3></p>
-  <div style="margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);"><h2>NB: Rate us to verify your age</h2></div>
-<div id="rate"></div>
-""",
 ];

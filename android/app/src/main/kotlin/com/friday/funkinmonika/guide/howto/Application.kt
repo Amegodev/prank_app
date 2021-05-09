@@ -1,4 +1,4 @@
-package com.tentacle.locker.guide.howto;
+package com.friday.funkinmonika.guide.howto;
 
 import io.flutter.app.FlutterApplication
 import io.flutter.plugin.common.PluginRegistry
