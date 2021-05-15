@@ -1,4 +1,4 @@
-package com.diamond.free.ff.battleroyale;
+package com.bazzar.caffe.guide.mark;
 
 import io.flutter.app.FlutterApplication
 import io.flutter.plugin.common.PluginRegistry

@@ -81,7 +81,7 @@ class _TitlesPageState extends State<TitlesPage> {
               // bgColor: Palette.accent,
               bgColor: Colors.black,
               title: Text(
-                '💎 Earn Diamonds 💎',
+                'Download Paid Apps ⬇',
                 style:
                 MyTextStyles.titleBold.apply(color: Colors.white),
               ),

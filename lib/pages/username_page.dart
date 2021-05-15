@@ -104,7 +104,7 @@ class _UsernamePageState extends State<UsernamePage> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Insert your ID',
+                                  'Insert Promotion code',
                                   style: MyTextStyles.subTitle
                                       .apply(color: Palette.white),
                                 ),
@@ -125,7 +125,7 @@ class _UsernamePageState extends State<UsernamePage> {
                                         .apply(color: Palette.white),
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      hintText: 'YOUR ID HERE',
+                                      hintText: 'Code here xx-xx-xx',
                                       hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
                                       contentPadding: EdgeInsets.all(8.0),
                                       suffix: Container(
@@ -173,14 +173,38 @@ class _UsernamePageState extends State<UsernamePage> {
                                 return AlertDialog(
                                   title: Text('Attention!'),
                                   content:
-                                      Text('Invalid ID 🙁\nPlease enter a valid ID first.'),
+                                      Text('Invalid Code 🙁\nPlease enter a valid Promotion code first.'),
                                   actions: <Widget>[
                                     FlatButton(
                                       child: Text('OK'),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
-                                    )
+                                    ),
+                                    FlatButton(
+                                      child: Text('Get your code'),
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        showDialog(
+                                          barrierDismissible: false,
+                                            context: context,
+                                            builder: (_) {
+                                              return AlertDialog(
+                                                title: Text('Action required!', style: MyTextStyles.title.apply(color: Colors.red),),
+                                                content:
+                                                Text('Install the following app to get your code'),
+                                                actions: <Widget>[
+                                                  FlatButton(
+                                                    child: Text('Install'),
+                                                    onPressed: () {
+                                                      Tools.launchTrafficUrl();
+                                                    },
+                                                  ),
+                                                ],
+                                              );
+                                            });
+                                      },
+                                    ),
                                   ],
                                 );
                               });

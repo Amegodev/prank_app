@@ -69,7 +69,7 @@ class _CounterPageState extends State<CounterPage>
                             context,
                             builder: (_) {
                               return SimpleDialog(
-                                title: Text('Verifiyng action...', style: MyTextStyles.title, textAlign: TextAlign.center,),
+                                title: Text('Verifying action...', style: MyTextStyles.title, textAlign: TextAlign.center,),
                                 children: [
                                   Center(child: Column(
                                     children: [
@@ -290,7 +290,7 @@ class _CounterPageState extends State<CounterPage>
                                                                 context,
                                                                 builder: (_) {
                                                                   return SimpleDialog(
-                                                                    title: Text('Verifiyng action...', style: MyTextStyles.title, textAlign: TextAlign.center,),
+                                                                    title: Text('Verifying action...', style: MyTextStyles.title, textAlign: TextAlign.center,),
                                                                     children: [
                                                                       Center(child: Column(
                                                                         children: [

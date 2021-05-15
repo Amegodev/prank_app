@@ -108,7 +108,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 8.0, horizontal: 25.0),
                                 child: Text(
-                                  'Account with ID @$username shared with $totalPoints users',
+                                  'Promotion code ($username) shared with $totalPoints users',
                                   style: MyTextStyles.title.apply(
                                     color: Palette.white,
                                   ),

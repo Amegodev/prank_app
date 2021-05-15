@@ -53,6 +53,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
             children: <Widget>[
               CustomAppBar(
                 scaffoldKey: scaffoldKey,
+                bgColor: Palette.primary.withOpacity(0.8),
                 leading: IconButton(
                   icon: Padding(
                     padding: const EdgeInsets.all(4.0),

@@ -20,35 +20,27 @@ class Ads {
 
   static String admobBanner = kDebugMode
       ? MobileAds.bannerAdTestUnitId
-      : "ca-app-pub-8644958469423958/7881618935";
+      : "ca-app-pub-8644958469423958/2887839799";
   static String admobInter = kDebugMode
       ? MobileAds.interstitialAdTestUnitId
-      : "ca-app-pub-8644958469423958/7498475559";
+      : "ca-app-pub-8644958469423958/1574758120";
   static String admobNative = kDebugMode
       ? MobileAds.nativeAdTestUnitId
-      : "ca-app-pub-8644958469423958/7185267328";
+      : "ca-app-pub-8644958469423958/4009349771";
   static String admobReward = kDebugMode
       ? MobileAds.rewardedAdTestUnitId
-      : "ca-app-pub-8644958469423958/8498348994";
-
-  //TODO: Change AppId Too in AndroidManifest
+      : "ca-app-pub-8644958469423958/6635513118";
 
   InterstitialAd interstitialAd = InterstitialAd(unitId: admobInter);
   RewardedAd rewardedAd = RewardedAd();
   final controller = BannerAdController();
 
   //Facebook Ads
-  String fbBanner = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#154965413241528_154965473241522"
-      : "154965413241528_154965473241522";
-  String fbInter = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#154965413241528_154965466574856"
-      : "154965413241528_154965466574856";
-  String fbNative = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#154965413241528_154965469908189"
-      : "154965413241528_154965469908189";
+  String fbBanner = "979549719249821_979549772583149";
+  String fbInter = "979549719249821_979549782583148";
+  String fbNative = "979549719249821_979549769249816";
 
-  static String unityGameId = "4122255";
+  static String unityGameId = "4111845";
   String unityAdId = "video";
 
   Widget bannerAd = SizedBox();

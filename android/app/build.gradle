@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         multiDexEnabled true
-        applicationId "com.diamond.free.ff.battleroyale"
+        applicationId "com.bazzar.caffe.guide.mark"
         minSdkVersion 21
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()

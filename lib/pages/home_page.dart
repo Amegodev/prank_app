@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                         bgColor: Palette.accent,
                         // bgColor: Colors.black,
                         title: Text(
-                          '💎 Earn Diamonds 💎',
+                          'Download Paid Apps ⬇',
                           style:
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
