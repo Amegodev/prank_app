@@ -105,11 +105,11 @@ class Tools {
       await remoteConfig.fetch(expiration: const Duration(seconds: 0));
       await remoteConfig.activateFetched();
       String body = remoteConfig.getString(key);
-      logger.i('fetched config: $body');
-      return body;
+      logger.i('fetched config: ${body.isEmpty ? null : body}');
+      return body.isEmpty ? null : body;
     } catch (e) {
       logger.e(e.toString());
-      return '';
+      return null;
     }
   }
 

@@ -36,15 +36,9 @@ class Ads {
   final controller = BannerAdController();
 
   //Facebook Ads
-  String fbBanner = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#979549719249821_979549772583149"
-      : "979549719249821_979549772583149";
-  String fbInter = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#979549719249821_979549782583148"
-      : "979549719249821_979549782583148";
-  String fbNative = kDebugMode
-      ? "IMG_16_9_APP_INSTALL#979549719249821_979549769249816"
-      : "979549719249821_979549769249816";
+  String fbBanner = "979549719249821_979549772583149";
+  String fbInter = "979549719249821_979549782583148";
+  String fbNative = "979549719249821_979549769249816";
 
   static String unityGameId = "4111845";
   String unityAdId = "video";
@@ -62,8 +56,9 @@ class Ads {
 
   static init() async {
     adNetwork = await Tools.fetchRemoteConfig(
-        '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads');
-    Tools.logger.i('Initialized Ad Network: $adNetwork');
+        '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ?? "fb";
+
+    Tools.logger.wtf('addddddddssssssssss: $adNetwork');
     switch (adNetwork) {
       case "fb":
         await FacebookAudienceNetwork.init(
@@ -110,8 +105,7 @@ class Ads {
               default:
                 break;
             }
-
-            Tools.logger.wtf('isInterLoaded: $isInterLoaded');
+            Tools.logger.i('isInterLoaded: $isInterLoaded');
           },
         );
         break;
@@ -122,7 +116,7 @@ class Ads {
           Tools.logger.e('Admob Inter: $event');
           switch (event) {
             case FullScreenAdEvent.closed:
-              // interstitialAd.load();
+            // interstitialAd.load();
               isInterLoaded = false;
               break;
             case FullScreenAdEvent.loaded:
