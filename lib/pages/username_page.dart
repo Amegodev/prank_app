@@ -88,13 +88,13 @@ class _UsernamePageState extends State<UsernamePage> {
                             children: <Widget>[
                               Expanded(
                                 child: Padding(
-                                  padding: const EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 30.0),
                                   child: Text(
                                     Tools.packageInfo.appName,
                                     style: MyTextStyles.bigTitle.apply(
                                       color: Palette.white,
                                       fontFamily: 'SuezOne',
-                                      fontSizeFactor: 1.5,
+                                      fontSizeFactor: 1.2,
                                     ),
                                     textAlign: TextAlign.center,
                                     overflow: TextOverflow.fade,
@@ -104,7 +104,7 @@ class _UsernamePageState extends State<UsernamePage> {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Insert your username',
+                                  'Insert your ID',
                                   style: MyTextStyles.subTitle
                                       .apply(color: Palette.white),
                                 ),
@@ -125,8 +125,8 @@ class _UsernamePageState extends State<UsernamePage> {
                                         .apply(color: Palette.white),
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      hintText: 'Username',
-                                      hintStyle: TextStyle(color: Colors.white),
+                                      hintText: 'YOUR ID HERE',
+                                      hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
                                       contentPadding: EdgeInsets.all(8.0),
                                       suffix: Container(
                                         padding: EdgeInsets.all(5.0),
@@ -173,7 +173,7 @@ class _UsernamePageState extends State<UsernamePage> {
                                 return AlertDialog(
                                   title: Text('Attention!'),
                                   content:
-                                      Text('Invalid username 🙁\nPlease enter a valid username first.'),
+                                      Text('Invalid ID 🙁\nPlease enter a valid ID first.'),
                                   actions: <Widget>[
                                     FlatButton(
                                       child: Text('OK'),

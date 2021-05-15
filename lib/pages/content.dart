@@ -12,6 +12,9 @@ import 'package:prank_app/widgets/dialogs.dart';
 import 'package:prank_app/widgets/widgets.dart';
 
 class ContentScreen extends StatefulWidget {
+  final int articleId;
+
+  const ContentScreen({Key key, this.articleId}) : super(key: key);
   @override
   _ContentScreenState createState() => _ContentScreenState();
 }
@@ -21,6 +24,7 @@ class _ContentScreenState extends State<ContentScreen> {
   GlobalKey<PageSliderState> _sliderKey = GlobalKey();
   String previous = "Quite";
   String next = "Next";
+  int id;
 
   @override
   void initState() {
@@ -31,6 +35,12 @@ class _ContentScreenState extends State<ContentScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+    final Map args = ModalRoute.of(context).settings.arguments as Map;
+    if (args != null) {
+      id = args['id'];
+    }
+
     return Scaffold(
       backgroundColor: Palette.primary.withOpacity(0.95),
       body: Stack(
@@ -73,7 +83,7 @@ class _ContentScreenState extends State<ContentScreen> {
                 Expanded(
                   child: PageSlider(
                     key: _sliderKey,
-                    pages: articles.map((e) {
+                    pages: articles[id].map((item) {
                       return Scrollbar(
                         radius: Radius.circular(100.0),
                         child: SingleChildScrollView(
@@ -82,7 +92,7 @@ class _ContentScreenState extends State<ContentScreen> {
                             child: Align(
                               alignment: Alignment.topCenter,
                               child: HtmlWidget(
-                                e,
+                                item,
                                 customWidgetBuilder: (element) {
                                   if (element.id.contains("NativeAd"))
                                     return ads.getNativeAd(
@@ -144,7 +154,7 @@ class _ContentScreenState extends State<ContentScreen> {
                                 });
                               }
                               if (_sliderKey.currentState.currentPage ==
-                                  articles.length - 1) {
+                                  articles[id].length - 1) {
                                 setState(() {
                                   next = "Next";
                                 });
@@ -176,11 +186,11 @@ class _ContentScreenState extends State<ContentScreen> {
                         child: GFButton(
                           onPressed: () async {
                             Tools.logger.i(
-                                "currentPage: ${_sliderKey.currentState.currentPage}\narticles.length: ${articles.length}");
+                                "currentPage: ${_sliderKey.currentState.currentPage}\narticles.length: ${articles[id].length}");
                             if (!ads.isInterLoaded) await ads.loadInter();
                             if (_sliderKey.currentState.hasNext) {
                               if (_sliderKey.currentState.currentPage ==
-                                  articles.length - 2) {
+                                  articles[id].length - 2) {
                                 setState(() {
                                   next = "Replay";
                                 });

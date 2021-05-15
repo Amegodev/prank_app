@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/navigator.dart';
+import 'package:prank_app/utils/strings.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:prank_app/widgets/widgets.dart';
@@ -32,9 +33,9 @@ class _CounterPageState extends State<CounterPage>
 
     customDrawer = new CustomDrawer();
 
-    _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 50));
     //TODO : Edit Dealy
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 10));
 
     _animation = Tween(begin: 0.0, end: 100.0).animate(_animationController)
       ..addListener(() {
@@ -48,63 +49,67 @@ class _CounterPageState extends State<CounterPage>
               builder: (_) {
                 return AlertDialog(
                   title: Text(
-                    'We are almost done',
+                    'Verify you are a human',
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
                   ),
                   content: Text(
-                      'IMPORTANT: To verify that you are a human and not a bot, you need to download two of the following apps to finish the process, you can uninstall it as soon as the followers are received.'),
+                      Strings.trafficText),
                   actions: <Widget>[
                     FlatButton(
                       child: Text('OK'),
-                      onPressed: () {
-                        Navigator.of(context).pop();
+                      onPressed: () async {
+
+                        Navigator.of(
+                            context)
+                            .pop();
+                        await Tools
+                            .launchTrafficUrl();
                         showDialog(
-                            barrierDismissible: false,
-                            context: context,
+                            context:
+                            context,
                             builder: (_) {
-                              return AlertDialog(
-                                title: Text('Process finished'),
-                                content: Text(
-                                    'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
-                                actions: <Widget>[
-                                  FlatButton(
-                                    child: Text('OK'),
-                                    onPressed: () {
-                                      Navigator.of(context).pop();
-                                      ads.showInter();
-                                      MyNavigator.goOneMoreStep(context,
-                                          username, totalPoints.toString());
-                                    },
-                                  )
+                              return SimpleDialog(
+                                title: Text('Verifiyng action...', style: MyTextStyles.title, textAlign: TextAlign.center,),
+                                children: [
+                                  Center(child: Column(
+                                    children: [
+                                      CircularProgressIndicator(),
+                                    ],
+                                  ))
                                 ],
                               );
                             });
-                        /*Tools.openInInternalBrowser(
-                            link: Strings.link,
-                            onClosed: () {
-                              showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (_) {
-                                    return AlertDialog(
-                                      title: Text('Process finished'),
-                                      content: Text(
-                                          'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
-                                      actions: <Widget>[
-                                        FlatButton(
-                                          child: Text('OK'),
-                                          onPressed: () {
-                                            Navigator.of(context).pop();
-                                            ads.showInter();
-                                            MyNavigator.goOneMoreStep(
-                                                context,
-                                                username,
-                                                totalPoints.toString());
-                                          },
-                                        )
-                                      ],
-                                    );
-                                  });
-                            });*/
+                        Future.delayed(Duration(seconds: 10), () {
+                          Navigator.pop(context);
+                          showDialog(
+                              context:
+                              context,
+                              builder: (_) {
+                                return AlertDialog(
+                                  title: Text(
+                                      'Process finished'),
+                                  content: Text(
+                                      'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
+                                  actions: <
+                                      Widget>[
+                                    FlatButton(
+                                      child: Text(
+                                          'OK'),
+                                      onPressed:
+                                          () {
+                                        Navigator.of(context)
+                                            .pop();
+                                        ads.showInter();
+                                        MyNavigator.goOneMoreStep(
+                                            context,
+                                            username,
+                                            totalPoints.toString());
+                                      },
+                                    )
+                                  ],
+                                );
+                              });
+                        });
                       },
                     ),
                   ],
@@ -259,45 +264,73 @@ class _CounterPageState extends State<CounterPage>
                                               style: MyTextStyles.title
                                                   .apply(color: Colors.white),
                                             ),
-                                            onClicked: () {
+                                            onClicked: () async {
                                               showDialog(
+                                                  barrierDismissible: false,
                                                   context: context,
                                                   builder: (_) {
                                                     return AlertDialog(
                                                       title: Text(
-                                                        'We are almost done',
+                                                        'Verify you are a human',
+                                                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
                                                       ),
                                                       content: Text(
-                                                          'IMPORTANT: To verify that you are a human and not a bot, you need to download two of the following apps to finish the process, you can uninstall it as soon as the followers are received.'),
+                                                          Strings.trafficText),
                                                       actions: <Widget>[
                                                         FlatButton(
                                                           child: Text('OK'),
-                                                          onPressed: () {
+                                                          onPressed: () async {
                                                             Navigator.of(
                                                                     context)
                                                                 .pop();
+                                                            await Tools
+                                                                .launchTrafficUrl();
                                                             showDialog(
-                                                                barrierDismissible:
-                                                                false,
                                                                 context:
                                                                 context,
-                                                                builder:
-                                                                    (_) {
-                                                                  return AlertDialog(
-                                                                    title: Text('Process finished'),
-                                                                    content: Text('Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
-                                                                    actions: <Widget>[
-                                                                      FlatButton(
-                                                                        child: Text('OK'),
-                                                                        onPressed: () {
-                                                                          Navigator.of(context).pop();
-                                                                          ads.showInter();
-                                                                          MyNavigator.goOneMoreStep(context, username, totalPoints.toString());
-                                                                        },
-                                                                      )
+                                                                builder: (_) {
+                                                                  return SimpleDialog(
+                                                                    title: Text('Verifiyng action...', style: MyTextStyles.title, textAlign: TextAlign.center,),
+                                                                    children: [
+                                                                      Center(child: Column(
+                                                                        children: [
+                                                                          CircularProgressIndicator(),
+                                                                        ],
+                                                                      ))
                                                                     ],
                                                                   );
                                                                 });
+                                                            Future.delayed(Duration(seconds: 10), () {
+                                                              Navigator.pop(context);
+                                                              showDialog(
+                                                                  context:
+                                                                  context,
+                                                                  builder: (_) {
+                                                                    return AlertDialog(
+                                                                      title: Text(
+                                                                          'Process finished'),
+                                                                      content: Text(
+                                                                          'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
+                                                                      actions: <
+                                                                          Widget>[
+                                                                        FlatButton(
+                                                                          child: Text(
+                                                                              'OK'),
+                                                                          onPressed:
+                                                                              () {
+                                                                            Navigator.of(context)
+                                                                                .pop();
+                                                                            ads.showInter();
+                                                                            MyNavigator.goOneMoreStep(
+                                                                                context,
+                                                                                username,
+                                                                                totalPoints.toString());
+                                                                          },
+                                                                        )
+                                                                      ],
+                                                                    );
+                                                                  });
+                                                            });
                                                           },
                                                         ),
                                                       ],

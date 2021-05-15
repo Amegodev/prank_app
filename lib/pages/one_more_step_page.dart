@@ -128,7 +128,8 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                   child: Column(
                                     children: <Widget>[
                                       Countdown(
-                                        seconds: 40,
+                                        //TODO: Edit Delay
+                                        seconds: 10,
                                         build: (BuildContext context,
                                             double time) {
                                           return Text(

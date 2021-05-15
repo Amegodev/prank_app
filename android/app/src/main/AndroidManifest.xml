@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.friday.funkinmonika.guide.howto">
+    package="com.diamond.free.ff.battleroyale">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name="com.friday.funkinmonika.guide.howto.Application"
-        android:label="Friday Night Funkin Monika Mod"
+        android:name="com.diamond.free.ff.battleroyale.Application"
+        android:label="FF Best Tips To Win The BR 2021"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.friday.funkinmonika.guide.howto.MainActivity"
+            android:name="com.diamond.free.ff.battleroyale.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

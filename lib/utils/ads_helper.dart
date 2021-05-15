@@ -64,8 +64,7 @@ class Ads {
 
   static init() async {
     String ads = await Tools.fetchRemoteConfig(
-        '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads');
-    Tools.logger.wtf('addddddddssssssssss: $ads');
+        '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ?? 'fb';
     adNetwork = ads.isNotEmpty ? ads : adNetwork;
     Tools.logger.i('Initialized Ad Network: $adNetwork');
     switch (adNetwork) {

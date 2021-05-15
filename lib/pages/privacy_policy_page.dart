@@ -22,7 +22,6 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
     ads = new Ads();
     ads.loadInter();
 
-
     customDrawer = new CustomDrawer();
   }
 
@@ -50,44 +49,45 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
               opacity: 0.2,
             ),
           ),
-          SafeArea(
-            child: Column(
-              children: <Widget>[
-                CustomAppBar(
-                  scaffoldKey: scaffoldKey,
-                  leading: IconButton(
-                    icon: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Icon(Icons.arrow_back_ios, color: Colors.black),
+          Column(
+            children: <Widget>[
+              CustomAppBar(
+                scaffoldKey: scaffoldKey,
+                leading: IconButton(
+                  icon: Padding(
+                    padding: const EdgeInsets.all(4.0),
+                    child: Icon(
+                      Icons.arrow_back_rounded,
+                      color: Colors.white,
                     ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
                   ),
-                  title: Text(
-                    Strings.privacy,
-                    style: MyTextStyles.bigTitleBold,
-                    textAlign: TextAlign.center,
-                  ),
-                  bannerAd: ads.getBannerAd(),
-                  onClicked: () => ads.showInter(),
-                  bgColor: Colors.transparent,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Center(
-                      child: SingleChildScrollView(
-                        child: HtmlWidget(
-                          Strings.privacyText,
-                          textStyle: TextStyle(fontSize: 18.0),
-                        ),
+                title: Text(
+                  Strings.privacy,
+                  style: MyTextStyles.bigTitleBold.apply(
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                onClicked: () => ads.showInter(),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: HtmlWidget(
+                        Strings.privacyText,
+                        textStyle: TextStyle(fontSize: 18.0),
                       ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),

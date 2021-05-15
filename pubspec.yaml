@@ -45,6 +45,7 @@ dev_dependencies:
   logger: ^0.9.4
   flutter_launcher_icons: #flutter pub get & flutter pub run flutter_launcher_icons:main
   flutter_launcher_name: #flutter pub get & flutter pub run flutter_launcher_name:main
+  change_app_package_name: #flutter pub get & flutter pub run change_app_package_name:main com.diamond.free.ff.battleroyale
 
 
 ##########################
@@ -54,7 +55,7 @@ flutter_icons:
   image_path: "assets/icon.png"
 
 flutter_launcher_name:
-  name: "Friday Night Funkin Monika Mod"
+  name: "FF Best Tips To Win The BR 2021"
 
 ##########################
 flutter:

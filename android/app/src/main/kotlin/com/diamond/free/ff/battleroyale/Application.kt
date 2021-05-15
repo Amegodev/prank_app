@@ -1,4 +1,4 @@
-package com.friday.funkinmonika.guide.howto;
+package com.diamond.free.ff.battleroyale;
 
 import io.flutter.app.FlutterApplication
 import io.flutter.plugin.common.PluginRegistry

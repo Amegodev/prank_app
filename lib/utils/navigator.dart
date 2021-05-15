@@ -6,6 +6,7 @@ import 'package:prank_app/pages/counter_page.dart';
 import 'package:prank_app/pages/hashtags_page.dart';
 import 'package:prank_app/pages/home_page.dart';
 import 'package:prank_app/pages/more_apps.dart';
+import 'package:prank_app/pages/titles_pages.dart';
 import 'package:prank_app/pages/username_page.dart';
 import 'package:prank_app/pages/one_more_step_page.dart';
 import 'package:prank_app/pages/privacy_policy_page.dart';
@@ -16,8 +17,12 @@ class MyNavigator {
     Navigator.pushNamedAndRemoveUntil(context, "/home", (route) => false);
   }
 
-  static void start(BuildContext context) {
-    Navigator.pushNamed(context, '/start');
+  static void goTitles(BuildContext context) {
+    Navigator.pushNamed(context, '/titles');
+  }
+
+  static void goArticle(BuildContext context, int id) {
+    Navigator.pushNamed(context, '/article', arguments: {"id" : id});
   }
 
   static void goUserNamePage(BuildContext context) {
@@ -56,7 +61,8 @@ class MyNavigator {
 
 var routes = <String, WidgetBuilder>{
   "/home": (BuildContext context) => HomePage(),
-  '/start': (BuildContext context) => ContentScreen(),
+  '/titles': (BuildContext context) => TitlesPage(),
+  '/article': (BuildContext context) => ContentScreen(),
   "/username": (BuildContext context) => UsernamePage(),
   "/cards": (BuildContext context) => CardsPage(),
   "/counter": (BuildContext context) => CounterPage(),

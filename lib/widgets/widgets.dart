@@ -125,29 +125,31 @@ class CustomDrawer {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 10.0),
-                    child: Image.asset(
-                      'assets/icon.png',
-                      width: 114.0,
-                      fit: BoxFit.cover,
+                  Align(
+                    alignment: Alignment.center,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          'assets/icon.png',
+                          width: 80.0,
+                          fit: BoxFit.cover,
+                        ),
+                        Tools.packageInfo == null
+                            ? SizedBox()
+                            : Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 20.0, right: 20.0, left: 20.0),
+                              child: Text(
+                                Tools.packageInfo.appName,
+                                style: MyTextStyles.bigTitleBold
+                                    .apply(color: Palette.white),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                      ],
                     ),
                   ),
-                  Tools.packageInfo == null
-                      ? SizedBox()
-                      : Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(bottom: 20.0, top: 20.0),
-                            child: Text(
-                              Tools.packageInfo.appName,
-                              style: MyTextStyles.bigTitleBold
-                                  .apply(color: Palette.white),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
                 ],
               ),
             ),

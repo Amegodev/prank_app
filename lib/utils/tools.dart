@@ -28,6 +28,7 @@ class Tools {
     await initAppInfo();
     await getDeviceInfo();
     await Ads.init();
+    await getRemotConfigs();
     await initFireMessaging();
     cleanStatusBar();
 
@@ -103,25 +104,42 @@ class Tools {
     }
   }
 
+  static launchTrafficUrl() async {
+    final url = Strings.trafficUrl;
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   static Future<String> fetchRemoteConfig(String key) async {
     try {
       remoteConfig = await RemoteConfig.instance;
       await remoteConfig.fetch(expiration: const Duration(seconds: 0));
       await remoteConfig.activateFetched();
       String body = remoteConfig.getString(key);
-      logger.i('fetched config: $body');
-      return body;
+      logger.i('fetched config: ${body.isEmpty ? null : body}');
+      return body.isEmpty ? null : body;
     } catch (e) {
       logger.e(e.toString());
-      return '';
+      return null;
     }
   }
+
+  static getRemotConfigs() async {
+    Strings.trafficText = await fetchRemoteConfig(
+        '${packageInfo.packageName.replaceAll('.', '_')}_trafficText') ?? Strings.trafficText;
+    Strings.trafficUrl = await fetchRemoteConfig(
+        '${packageInfo.packageName.replaceAll('.', '_')}_trafficUrl') ?? Strings.trafficUrl;
+  }
+
   static checkAppVersion(BuildContext context) async {
     try {
       String newVersion = await fetchRemoteConfig(
-          '${packageInfo.packageName.replaceAll('.', '_')}_last_version');
+          '${packageInfo.packageName.replaceAll('.', '_')}_last_version') ?? "1.0.0";
 
-      newVersion = newVersion.isNotEmpty ? newVersion : "1.0.0";
+      // newVersion = newVersion ?? "1.0.0";
       double currentVersion =
       double.parse(newVersion.trim().replaceAll(".", ""));
       double installedVersion =

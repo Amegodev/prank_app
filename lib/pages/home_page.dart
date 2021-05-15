@@ -100,29 +100,33 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                    SafeArea(
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Text(
-                            Tools.packageInfo.appName,
-                            style: MyTextStyles.bigTitle.apply(
-                              color: Palette.white,
-                              fontFamily: 'SuezOne',
-                              fontSizeFactor: 1.5,
-                            ),
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.fade,
-                          ),
-                        ),
-                      ),
-                    ),
                     Positioned(
                       bottom: -Tools.width * 0.15,
-                      child: Image.asset(
-                        'assets/icon.png',
-                        width: Tools.width * 0.3,
+                      child: SafeArea(
+                        child: Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Container(
+                                width: Tools.width,
+                                child: Text(
+                                  Tools.packageInfo.appName,
+                                  style: MyTextStyles.bigTitle.apply(
+                                    color: Palette.white,
+                                    fontFamily: 'SuezOne',
+                                    fontSizeFactor: 1.5,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.fade,
+                                ),
+                              ),
+                            ),
+                            Image.asset(
+                              'assets/icon.png',
+                              width: Tools.width * 0.3,
+                            ),
+                          ],
+                        ),
                       ),
                     )
                   ],
@@ -140,13 +144,13 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
                         title: Text(
-                          '🤔 Tips 💭',
+                          'Guide & Tips 💡',
                           style:
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
                         onClicked: () {
                           ads.showInter();
-                          MyNavigator.start(context);
+                          MyNavigator.goTitles(context);
                         },
                       ),
                     ),
@@ -160,10 +164,10 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
-                        // bgColor: Colors.black,
                         bgColor: Palette.accent,
+                        // bgColor: Colors.black,
                         title: Text(
-                          '🛒 Play And Earn 🎉',
+                          '💎 Earn Diamonds 💎',
                           style:
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
@@ -183,12 +187,12 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: ButtonFilled(
-                        // bgColor: Colors.black,
-                        bgColor: Palette.white,
+                        bgColor: Colors.black,
                         title: Text(
-                          '😍 Rate us ⭐',
+                          '😍 Rate us 😍\n⭐⭐⭐⭐⭐',
                           style:
-                              MyTextStyles.titleBold.apply(color: Colors.black),
+                              MyTextStyles.titleBold.apply(color: Colors.white),
+                          textAlign: TextAlign.center,
                         ),
                         onClicked: () async {
                           int count = await showDialog(
