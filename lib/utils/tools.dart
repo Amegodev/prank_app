@@ -20,11 +20,15 @@ class Tools {
   static RemoteConfig remoteConfig;
 
 
-  static initAppSettings() async {
+  static Future initAppSettings() async {
     await Firebase.initializeApp();
+    logger.i("await Firebase.initializeApp();");
     await initAppInfo();
+    logger.i("await initAppInfo();");
     await getDeviceInfo();
+    logger.i("await getDeviceInfo();");
     await Ads.init();
+    logger.i("await Ads.init();");
     cleanStatusBar();
 
     logger.i("""

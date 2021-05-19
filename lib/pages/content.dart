@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:page_slider/page_slider.dart';
+import 'package:prank_app/widgets/dialogs.dart';
+import 'package:prank_app/widgets/widgets.dart';
 
 class ContentScreen extends StatefulWidget {
   @override
@@ -71,6 +73,36 @@ class _ContentScreenState extends State<ContentScreen> {
                               alignment: Alignment.topCenter,
                               child: HtmlWidget(
                                 e,
+                                customWidgetBuilder: (element) {
+                                  if (element.id.contains("NativeAd"))
+                                    return ads.getNativeAd(
+                                      height: Tools.height * 0.8,
+                                      width: Tools.width,
+                                    );
+                                  else if (element.id.contains("rate"))
+                                    return Padding(
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: ButtonFilled(
+                                        // bgColor: Colors.black,
+                                        bgColor: Palette.white,
+                                        title: Text(
+                                          'Click here to Rate\n⭐⭐⭐⭐⭐',
+                                          style: MyTextStyles.titleBold
+                                              .apply(color: Colors.black),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                        onClicked: () async {
+                                          int count = await showDialog(
+                                              context: context,
+                                              builder: (_) => RatingDialog());
+                                          if (count != null && count <= 3)
+                                            ads.showInter();
+                                        },
+                                      ),
+                                    );
+                                  else
+                                    return null;
+                                },
                                 hyperlinkColor: Palette.white,
                                 textStyle: TextStyle(fontSize: 20.0),
                               ),

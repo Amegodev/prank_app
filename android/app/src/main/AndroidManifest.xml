@@ -28,7 +28,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8644958469423958~6827084801"/>
+            android:value="ca-app-pub-8644958469423958~6103102012"/>
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

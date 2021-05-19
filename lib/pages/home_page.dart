@@ -85,9 +85,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     Positioned(
                       bottom: -Tools.width * 0.15,
-                      child: Image.asset(
-                        'assets/icon.png',
-                        width: Tools.width * 0.3,
+                      child: Hero(
+                        tag: 'logo',
+                        child: Image.asset(
+                          'assets/icon.png',
+                          width: Tools.width * 0.3,
+                        ),
                       ),
                     )
                   ],
@@ -158,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                         onClicked: () async {
                           int count = await showDialog(
                               context: context, builder: (_) => RatingDialog());
-                          if(count != null && count <= 3) ads.showInter();
+                          if (count != null && count <= 3) ads.showInter();
                         },
                       ),
                     ),

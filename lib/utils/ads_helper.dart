@@ -20,16 +20,16 @@ class Ads {
 
   static String admobBanner = kDebugMode
       ? MobileAds.bannerAdTestUnitId
-      : "ca-app-pub-8644958469423958/2887839799";
+      : "ca-app-pub-8644958469423958/4790020348";
   static String admobInter = kDebugMode
       ? MobileAds.interstitialAdTestUnitId
-      : "ca-app-pub-8644958469423958/1574758120";
+      : "ca-app-pub-8644958469423958/8294151083";
   static String admobNative = kDebugMode
       ? MobileAds.nativeAdTestUnitId
-      : "ca-app-pub-8644958469423958/4009349771";
+      : "ca-app-pub-8644958469423958/6849400990";
   static String admobReward = kDebugMode
       ? MobileAds.rewardedAdTestUnitId
-      : "ca-app-pub-8644958469423958/6635513118";
+      : "ca-app-pub-8644958469423958/2163857002";
 
   InterstitialAd interstitialAd = InterstitialAd(unitId: admobInter);
   RewardedAd rewardedAd = RewardedAd();
@@ -55,15 +55,19 @@ class Ads {
   }
 
   static init() async {
+    Tools.logger.i("Pre fetsh ads");
     adNetwork = await Tools.fetchRemoteConfig(
         '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ?? "fb";
+    Tools.logger.i("Post fetsh ads");
 
-    Tools.logger.wtf('addddddddssssssssss: $adNetwork');
+    Tools.logger.i('ads: $adNetwork');
     switch (adNetwork) {
       case "fb":
+        Tools.logger.i("Pre init ads");
         await FacebookAudienceNetwork.init(
           testingId: testDeviceId,
         );
+        Tools.logger.i("Post init ads");
         break;
       case "admob":
         await MobileAds.initialize(

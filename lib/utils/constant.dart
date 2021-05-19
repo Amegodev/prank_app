@@ -48,6 +48,9 @@ List<String> articles = [
 <p dir="ltr"><span>Otherwise, choose buy Cafebazaar credit and determine the amount you want to charge and then go through the bank API.</span></p>
 """,
   """
+  <div id="NativeAd"></div>
+  """,
+  """
   <h3 dir="ltr"><strong>Access to applications:</strong></h3>
 <p dir="ltr"><span>It is possible through three ways:</span></p>
 <p dir="ltr"><strong>a) &nbsp;&nbsp;&nbsp;Using categories</strong></p>
@@ -72,6 +75,9 @@ List<String> articles = [
 <p dir="ltr"><span>4) &nbsp;&nbsp;&nbsp;Now you can easily install the application</span></p>
 """,
   """
+  <div id="NativeAd"></div>
+  """,
+  """
   <h3 dir="ltr"><strong>Installing paid applications:</strong></h3>
 <p dir="ltr"><span>If you want to install a paid application, you can follow two ways:</span></p>
 <p dir="ltr"><strong>1) &nbsp;&nbsp;&nbsp;Cafebazaar application:</strong></p>
@@ -92,3 +98,10 @@ List<String> articles = [
 <p>In case you face any problems during payment or other parts, you can take appropriate action by choosing support button from the menu on the main page or you can directly contact Support@cafebazaar.ir. If you have any complaints or need support from the developer of the application, in the end of the application page you can find contact information.</p></div>
 """
 ];
+
+
+/*
+
+"""
+  <div id="NativeAd"></div>
+  """,*/

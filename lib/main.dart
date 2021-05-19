@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:prank_app/pages/Splash_page.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/pages/home_page.dart';
 import 'package:prank_app/utils/tools.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Tools.initAppSettings();
+  // await Tools.initAppSettings();
   runApp(MyApp());
 }
 
@@ -20,7 +21,13 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Montserrat'),
       routes: routes,
-      home: HomePage(),
+      home:FutureBuilder(
+        future: Tools.initAppSettings(),
+        builder: (context, snapshot) {
+          if(snapshot.connectionState == ConnectionState.waiting) return SplashScreen();
+          else return HomePage();
+        }
+      )  /*SplashScreen()*/,
     );
   }
 }
