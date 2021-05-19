@@ -35,7 +35,7 @@ class _CounterPageState extends State<CounterPage>
 
     //TODO : Edit Dealy
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 10));
+        AnimationController(vsync: this, duration: Duration(seconds: 50));
 
     _animation = Tween(begin: 0.0, end: 100.0).animate(_animationController)
       ..addListener(() {
@@ -56,7 +56,7 @@ class _CounterPageState extends State<CounterPage>
                       Strings.trafficText),
                   actions: <Widget>[
                     FlatButton(
-                      child: Text('OK'),
+                      child: Text('Verify'),
                       onPressed: () async {
 
                         Navigator.of(
@@ -278,7 +278,7 @@ class _CounterPageState extends State<CounterPage>
                                                           Strings.trafficText),
                                                       actions: <Widget>[
                                                         FlatButton(
-                                                          child: Text('OK'),
+                                                          child: Text('Verify'),
                                                           onPressed: () async {
                                                             Navigator.of(
                                                                     context)

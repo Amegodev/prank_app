@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.bazzar.caffe.guide.mark">
+    package="com.es.file.explorer.root">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name="com.bazzar.caffe.guide.mark.Application"
-        android:label="cafe Bazaar - کافه بازار"
+        android:name="com.es.file.explorer.root.Application"
+        android:label="Es File Explorer How to"
         android:icon="@mipmap/ic_launcher">
         <activity
-            android:name="com.bazzar.caffe.guide.mark.MainActivity"
+            android:name="com.es.file.explorer.root.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

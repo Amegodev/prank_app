@@ -129,7 +129,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                     children: <Widget>[
                                       Countdown(
                                         //TODO: Edit Delay
-                                        seconds: 10,
+                                        seconds: 50,
                                         build: (BuildContext context,
                                             double time) {
                                           return Text(
@@ -154,7 +154,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                         padding: const EdgeInsets.all(8.0),
                                         child: CircularPercentIndicator(
                                           percent: 1,
-                                          animationDuration: 40 * 1000,
+                                          animationDuration: 50 * 1000,
                                           animation: true,
                                           restartAnimation: false,
                                           backgroundColor: Colors.black12,
