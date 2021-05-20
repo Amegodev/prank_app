@@ -21,13 +21,18 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
           fontFamily: 'Montserrat'),
       routes: routes,
-      home:FutureBuilder(
+      home: FutureBuilder(
         future: Tools.initAppSettings(),
         builder: (context, snapshot) {
-          if(snapshot.connectionState == ConnectionState.waiting) return SplashScreen();
-          else return HomePage();
-        }
-      )  /*SplashScreen()*/,
+          if (snapshot.connectionState == ConnectionState.waiting)
+            return SplashScreen();
+          if (snapshot.hasError) {
+            Tools.logger.wtf(snapshot.error);
+            return SplashScreen();
+          } else
+            return HomePage();
+        },
+      ) /*SplashScreen()*/,
     );
   }
 }

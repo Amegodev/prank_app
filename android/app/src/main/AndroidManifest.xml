@@ -3,7 +3,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:name="io.flutter.app.FlutterApplication"
+        android:name=".Application"
         android:label="cafe Bazaar - کافه بازار"
         android:icon="@mipmap/ic_launcher">
         <activity
@@ -25,10 +25,17 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-8644958469423958~6103102012"/>
+        <meta-data android:name="com.startapp.sdk.APPLICATION_ID" android:value="204846575"/>
+        <!--<meta-data android:name="com.startapp.sdk.RETURN_ADS_ENABLED" android:value="false"/>
+        <meta-data android:name="vn.momo.plugin.startapp.SPLASH_AD_ENABLED" android:value="false"/>-->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />

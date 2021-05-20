@@ -7,6 +7,7 @@ import 'package:native_admob_flutter/native_admob_flutter.dart';
 import 'package:native_admob_flutter/native_admob_flutter.dart' as admob;
 import 'package:flutter/material.dart';
 import 'package:unity_ads_plugin/unity_ads.dart';
+import 'package:startapp/startapp.dart';
 
 class Ads {
   //static String testDeviceId ="a47d5108-ce0c-4f2b-bb22-d7eea19727cd"; //Real device
@@ -55,19 +56,29 @@ class Ads {
   }
 
   static init() async {
-    Tools.logger.i("Pre fetsh ads");
-    adNetwork = await Tools.fetchRemoteConfig(
-        '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ?? "fb";
-    Tools.logger.i("Post fetsh ads");
+
+    String localeName = await Tools.getCountryName();
+
+    Tools.logger.wtf("country: $localeName");
+
+    if(localeName.toLowerCase() != "iran") {
+      Tools.logger.i("Pre fetsh ads");
+      adNetwork = await Tools.fetchRemoteConfig(
+          '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ?? "fb";
+      Tools.logger.i("Post fetsh ads");
+    } else {
+      adNetwork = "unity";
+    }
+
 
     Tools.logger.i('ads: $adNetwork');
     switch (adNetwork) {
       case "fb":
-        Tools.logger.i("Pre init ads");
+        Tools.logger.i("Pre init fb ads");
         await FacebookAudienceNetwork.init(
           testingId: testDeviceId,
         );
-        Tools.logger.i("Post init ads");
+        Tools.logger.i("Post init fb ads");
         break;
       case "admob":
         await MobileAds.initialize(
@@ -328,10 +339,10 @@ class Ads {
         });
         break;
       case "unity":
-        break;
-      case "startapp":
+        bannerAd = AdBanner();
         break;
       default:
+        bannerAd = AdBanner();
         break;
     }
 
@@ -389,10 +400,10 @@ class Ads {
         );
         break;
       case "unity":
-        break;
-      case "startapp":
+        nativeAd = AdBanner();
         break;
       default:
+        nativeAd = AdBanner();
         break;
     }
     return nativeAd;

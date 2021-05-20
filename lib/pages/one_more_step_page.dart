@@ -153,10 +153,10 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                         padding: const EdgeInsets.all(8.0),
                                         child: CircularPercentIndicator(
                                           percent: 1,
-                                          animationDuration: 20 * 1000,
+                                          animationDuration: 40 * 1000,
                                           animation: true,
                                           restartAnimation: false,
-                                          reverse: true,
+                                          reverse: false,
                                           backgroundColor: Colors.black12,
                                           progressColor: Colors.white,
                                           radius: 60.0,
@@ -195,6 +195,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             MyTextStyles.title.apply(color: Palette.primary),
                           ),
                           onClicked: () {
+                            ads.showInter();
                             Navigator.pop(context);
                           },
                         ),
@@ -212,6 +213,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             style: MyTextStyles.title.apply(color: Colors.white),
                           ),
                           onClicked: () {
+                            ads.showInter();
                             Navigator.of(context)
                                 .popUntil(ModalRoute.withName("/cards"));
                           },
@@ -240,6 +242,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                   FlatButton(
                                     child: Text('OK'),
                                     onPressed: () {
+                                      ads.showInter();
                                       Navigator.of(context).pop();
                                     },
                                   )
