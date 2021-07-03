@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:prank_app/utils/ads_helper.dart';
+// import 'package:prank_app/utils/ads_helper.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/strings.dart';
 import 'package:prank_app/utils/theme.dart';

@@ -15,9 +15,9 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:prank_app/utils/strings.dart';
 import 'package:package_info/package_info.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:prank_app/utils/ads_helper.dart';
+// import 'package:prank_app/utils/ads_helper.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_messaging/firebase_messaging.dart';
 
 class Tools {
   static double height = 781.0909090909091;
@@ -318,12 +318,12 @@ class Tools {
     return items.sublist(start,end);
   }
 
-  static Future<String> getCountryName() async {
+  /*static Future<String> getCountryName() async {
     Network n = new Network("http://ip-api.com/json");
     final locationSTR = (await n.getData());
     final locationx = jsonDecode(locationSTR);
     return locationx["country"];
-  }
+  }*/
 }
 
 class MyChromeSafariBrowser extends ChromeSafariBrowser {

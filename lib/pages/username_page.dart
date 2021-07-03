@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prank_app/utils/ads_helper.dart';
+// import 'package:prank_app/utils/ads_helper.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';

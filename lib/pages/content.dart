@@ -1,4 +1,5 @@
-import 'package:prank_app/utils/ads_helper.dart';
+// import 'package:prank_app/utils/ads_helper.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/constant.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
@@ -76,8 +77,8 @@ class _ContentScreenState extends State<ContentScreen> {
                                 customWidgetBuilder: (element) {
                                   if (element.id.contains("NativeAd"))
                                     return ads.getNativeAd(
-                                      height: Tools.height * 0.8,
-                                      width: Tools.width,
+                                      /*height: Tools.height * 0.8,
+                                      width: Tools.width,*/
                                     );
                                   else if (element.id.contains("rate"))
                                     return Padding(
@@ -120,7 +121,7 @@ class _ContentScreenState extends State<ContentScreen> {
                       Expanded(
                         child: GFButton(
                           onPressed: () async {
-                            if (!ads.isInterLoaded) await ads.loadInter();
+                            if (!Ads.isInterLoaded) await ads.loadInter();
                             if (_sliderKey.currentState.hasPrevious) {
                               if (_sliderKey.currentState.currentPage == 1) {
                                 setState(() {
@@ -159,7 +160,7 @@ class _ContentScreenState extends State<ContentScreen> {
                           onPressed: () async {
                             Tools.logger.i(
                                 "currentPage: ${_sliderKey.currentState.currentPage}\narticles.length: ${articles.length}");
-                            if (!ads.isInterLoaded) await ads.loadInter();
+                            if (!Ads.isInterLoaded) await ads.loadInter();
                             if (_sliderKey.currentState.hasNext) {
                               if (_sliderKey.currentState.currentPage ==
                                   articles.length - 2) {

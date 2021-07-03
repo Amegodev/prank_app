@@ -3,7 +3,8 @@ import 'dart:math';
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
-import 'package:prank_app/utils/ads_helper.dart';
+// import 'package:prank_app/utils/ads_helper.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/strings.dart';
 import 'package:prank_app/utils/theme.dart';
@@ -44,8 +45,8 @@ class _CardsPageState extends State with TickerProviderStateMixin {
   void initState() {
     super.initState();
     ads = new Ads();
-    ads.loadInter(reloadOnClose: true);
-    ads.loadReward(onRewarded: (val) {
+    ads.loadInter(/*reloadOnClose: true*/);
+    ads.loadReward(/*onRewarded: (val) {
       if (val) {
         Future.delayed(Duration(seconds: 1), () => reFlipCards());
       } else {
@@ -53,7 +54,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
             context,
             duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       }
-    });
+    }*/);
 
     customDrawer = CustomDrawer();
 
@@ -335,11 +336,11 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                         .apply(color: Palette.primary),
                                   ),
                                   onClicked: () async {
-                                    if (ads.rewardedAd.isLoaded) {
+                                    if (Ads.rewardeVideoAvailable) {
                                       await ads.showRewardAd();
+                                      Future.delayed(Duration(seconds: 1), () => reFlipCards());
                                     } else {
-                                      if (ads.interstitialAd.isLoaded ||
-                                          ads.isInterLoaded) {
+                                      if (Ads.isInterLoaded) {
                                         ads.showInter();
                                         reFlipCards();
                                       } else {
@@ -349,6 +350,10 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                           duration: Toast.LENGTH_LONG,
                                           gravity: Toast.BOTTOM,
                                         );
+
+                                        /*Toast.show("Please Continue watching Ad, to get more flipping chances.",
+                                            context,
+                                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);*/
                                       }
                                     }
                                   },

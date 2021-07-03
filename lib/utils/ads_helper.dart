@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:facebook_audience_network/facebook_audience_network.dart';
@@ -9,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:unity_ads_plugin/unity_ads.dart';
 import 'package:startapp/startapp.dart';
 
-class Ads {
+class AdsHelper {
   //static String testDeviceId ="a47d5108-ce0c-4f2b-bb22-d7eea19727cd"; //Real device
   static String testDeviceId = "e5c56faf-6e34-4a4c-8f5a-e8cd07f43b2a"; //AVD
 
@@ -49,6 +50,8 @@ class Ads {
 
   bool isInterLoaded = false;
 
+  static bool useIrSourceAds = true;
+
   static bool isVersionUpToLOLLIPOP() {
     bool isVersionUp = true;
     if (Tools.androidInfo.version.sdkInt <= 23) isVersionUp = false;
@@ -56,48 +59,53 @@ class Ads {
   }
 
   static init() async {
+    if(useIrSourceAds){
+      Ads.init();
+    }  else {
 
-    String localeName = await Tools.getCountryName();
+      // String localeName = await Tools.getCountryName();
 
-    Tools.logger.wtf("country: $localeName");
+      // Tools.logger.wtf("country: $localeName");
 
-    if(localeName.toLowerCase() != "iran") {
+      // if(localeName.toLowerCase() != "iran") {
       Tools.logger.i("Pre fetsh ads");
       adNetwork = await Tools.fetchRemoteConfig(
-          '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ?? "fb";
+          '${Tools.packageInfo.packageName.replaceAll('.', '_')}_ads') ??
+          "fb";
       Tools.logger.i("Post fetsh ads");
-    } else {
-      adNetwork = "unity";
-    }
+      // } else {
+      //   adNetwork = "unity";
+      // }
 
+      Tools.logger.i('ads: $adNetwork');
+      switch (adNetwork) {
+        case "fb":
+          Tools.logger.i("Pre init fb ads");
+          await FacebookAudienceNetwork.init(
+            testingId: testDeviceId,
+          );
+          Tools.logger.i("Post init fb ads");
+          break;
+        case "admob":
+          await MobileAds.initialize(
+            bannerAdUnitId: admobBanner,
+            interstitialAdUnitId: admobInter,
+            nativeAdUnitId: admobNative,
+            rewardedAdUnitId: admobReward,
+          );
+          MobileAds.setTestDeviceIds([testDeviceId]);
+          break;
+        default:
+          break;
+      }
 
-    Tools.logger.i('ads: $adNetwork');
-    switch (adNetwork) {
-      case "fb":
-        Tools.logger.i("Pre init fb ads");
-        await FacebookAudienceNetwork.init(
-          testingId: testDeviceId,
+      if (isVersionUpToLOLLIPOP() && !kDebugMode) {
+        UnityAds.init(
+          gameId: unityGameId,
+          listener: (state, args) =>
+              Tools.logger.i('Unity Ads: $state => $args'),
         );
-        Tools.logger.i("Post init fb ads");
-        break;
-      case "admob":
-        await MobileAds.initialize(
-          bannerAdUnitId: admobBanner,
-          interstitialAdUnitId: admobInter,
-          nativeAdUnitId: admobNative,
-          rewardedAdUnitId: admobReward,
-        );
-        MobileAds.setTestDeviceIds([testDeviceId]);
-        break;
-      default:
-        break;
-    }
-
-    if (isVersionUpToLOLLIPOP() && !kDebugMode) {
-      UnityAds.init(
-        gameId: unityGameId,
-        listener: (state, args) => Tools.logger.i('Unity Ads: $state => $args'),
-      );
+      }
     }
   }
 

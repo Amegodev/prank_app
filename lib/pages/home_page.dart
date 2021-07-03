@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:prank_app/utils/ads_helper.dart';
+// import 'package:prank_app/utils/ads_helper.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
@@ -99,7 +100,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: Tools.width * 0.2,
               ),
-              ads.getNativeAd(height: 200.0),
+              ads.getNativeAd(/*height: 200.0*/),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
