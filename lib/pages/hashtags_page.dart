@@ -64,7 +64,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       'Congratulations',
                       style: MyTextStyles.title.apply(color: Palette.white),

@@ -153,7 +153,7 @@ class _CounterPageState extends State<CounterPage>
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       Tools.packageInfo.appName,
                       style: MyTextStyles.title.apply(color: Palette.white),

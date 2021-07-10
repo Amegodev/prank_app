@@ -168,9 +168,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                             textAlign: TextAlign.center,
                           ),
                           onClicked: () => ads.showInter(),
-                          bannerAd: ads.getBannerAd(
-                            rebuid: () => setState(() {}),
-                          ),
+                          bannerAd: ads.getBannerAd(),
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
@@ -386,7 +384,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       border: Border(top: BorderSide(color: Colors.grey)),
                     ),
-                    child: ads.getBannerAd(rebuid: () => setState(() {})),
+                    child: ads.getBannerAd(),
                   ),*/
                 ],
               ),

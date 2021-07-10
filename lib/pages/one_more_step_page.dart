@@ -62,7 +62,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       'Almost done',
                       style: MyTextStyles.title.apply(color: Palette.white),

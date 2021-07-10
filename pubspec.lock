@@ -181,6 +181,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_applovin_max:
+    dependency: "direct main"
+    description:
+      name: flutter_applovin_max
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -195,13 +202,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0+4"
-  flutter_ironsource_x:
-    dependency: "direct main"
-    description:
-      name: flutter_ironsource_x
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.3"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:
@@ -324,13 +324,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
-  native_admob_flutter:
-    dependency: "direct main"
-    description:
-      name: native_admob_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.4"
   onesignal_flutter:
     dependency: "direct main"
     description:
@@ -702,4 +695,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
-  flutter: ">=1.22.0 <2.0.0"
+  flutter: ">=1.20.0 <2.0.0"

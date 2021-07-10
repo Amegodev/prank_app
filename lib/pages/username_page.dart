@@ -54,7 +54,7 @@ class _UsernamePageState extends State<UsernamePage> {
                       style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                   ),
                   Container(
                     height: MediaQuery.of(context).size.width * 0.5,

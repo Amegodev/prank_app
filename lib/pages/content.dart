@@ -59,7 +59,7 @@ class _ContentScreenState extends State<ContentScreen> {
           SafeArea(
             child: Column(
               children: [
-                ads.getBannerAd(rebuid: () => setState(() {})),
+                ads.getBannerAd(),
                 Expanded(
                   child: PageSlider(
                     key: _sliderKey,

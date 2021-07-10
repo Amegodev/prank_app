@@ -66,7 +66,7 @@ class _AboutPageState extends State<AboutPage> {
                     style: MyTextStyles.title.apply(color: Palette.white),
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                  bannerAd: ads.getBannerAd(),
                   onClicked: () => ads.showInter(),
                 ),
                 Expanded(

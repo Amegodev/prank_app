@@ -45,27 +45,9 @@
             android:value="2" />
 
 
-        <!-- IronSource Config -->
-        <activity
-            android:name="com.ironsource.sdk.controller.ControllerActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true" />
-        <activity
-            android:name="com.ironsource.sdk.controller.InterstitialActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
-            android:name="com.ironsource.sdk.controller.OpenUrlActivity"
-            android:configChanges="orientation|screenSize"
-            android:hardwareAccelerated="true"
-            android:theme="@android:style/Theme.Translucent" />
-
-        <activity
-            android:name="com.facebook.ads.AudienceNetworkActivity"
-            android:hardwareAccelerated="true"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
-
+        <!-- AppLovin Config -->
+        <meta-data android:name="applovin.sdk.key"
+            android:value="YOUR_SDK_KEY"/>
 
     </application>
 </manifest>

@@ -92,6 +92,7 @@ class Tools {
       // this.setState(() {
       _debugLabelString =
           "Received notification: \n${notification.jsonRepresentation().replaceAll("\\n", "\n")}";
+      Tools.logger.i(_debugLabelString);
       // });
     });
 
