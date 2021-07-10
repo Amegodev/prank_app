@@ -2,7 +2,7 @@ import 'package:bordered_text/bordered_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:prank_app/utils/navigator.dart';
-import 'package:prank_app/utils/strings.dart';
+import 'package:prank_app/constants.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:prank_app/widgets/dialogs.dart';
@@ -178,7 +178,7 @@ class CustomDrawer {
                             width: 30.0,
                           ),
                           Text(
-                            Strings.home,
+                            Constants.home,
                             style: MyTextStyles.title,
                           ),
                         ],
@@ -209,7 +209,7 @@ class CustomDrawer {
                             width: 30.0,
                           ),
                           Text(
-                            Strings.rate,
+                            Constants.rate,
                             style: MyTextStyles.title,
                           ),
                         ],
@@ -240,7 +240,7 @@ class CustomDrawer {
                             width: 30.0,
                           ),
                           Text(
-                            Strings.more,
+                            Constants.more,
                             style: MyTextStyles.title,
                           ),
                         ],
@@ -272,7 +272,7 @@ class CustomDrawer {
                             width: 30.0,
                           ),
                           Text(
-                            Strings.privacy,
+                            Constants.privacy,
                             style: MyTextStyles.title,
                           ),
                         ],
@@ -306,7 +306,7 @@ class CustomDrawer {
                             width: 30.0,
                           ),
                           Text(
-                            Strings.about,
+                            Constants.about,
                             style: MyTextStyles.title,
                           ),
                         ],

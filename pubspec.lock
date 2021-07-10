@@ -127,13 +127,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
-  facebook_audience_network:
-    dependency: "direct main"
-    description:
-      name: facebook_audience_network
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.0"
   fake_async:
     dependency: transitive
     description:
@@ -338,6 +331,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.4"
+  onesignal_flutter:
+    dependency: "direct main"
+    description:
+      name: onesignal_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.6.4"
   open_iconic_flutter:
     dependency: transitive
     description:
@@ -532,13 +532,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.10.0-nullsafety.1"
-  startapp:
-    dependency: "direct main"
-    description:
-      name: startapp
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.1"
   stream_channel:
     dependency: transitive
     description:
@@ -602,13 +595,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.3"
-  unity_ads_plugin:
-    dependency: "direct main"
-    description:
-      name: unity_ads_plugin
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.2"
   url_launcher:
     dependency: "direct main"
     description:

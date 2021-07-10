@@ -1,6 +1,6 @@
 // import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
-import 'package:prank_app/utils/constant.dart';
+import 'package:prank_app/articles.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:flutter/material.dart';
@@ -35,8 +35,8 @@ class _ContentScreenState extends State<ContentScreen> {
       body: Stack(
         children: [
           Positioned(
-            bottom: - Tools.width * 0.8,
-            right: - Tools.width * 0.9,
+            bottom: -Tools.width * 0.8,
+            right: -Tools.width * 0.9,
             child: Opacity(
               opacity: 0.1,
               child: Image.asset(
@@ -59,9 +59,7 @@ class _ContentScreenState extends State<ContentScreen> {
           SafeArea(
             child: Column(
               children: [
-                Center(
-                  child: ads.getBannerAd(),
-                ),
+                ads.getBannerAd(rebuid: () => setState(() {})),
                 Expanded(
                   child: PageSlider(
                     key: _sliderKey,
@@ -75,12 +73,11 @@ class _ContentScreenState extends State<ContentScreen> {
                               child: HtmlWidget(
                                 e,
                                 customWidgetBuilder: (element) {
-                                  if (element.id.contains("NativeAd"))
+                                  /*if (element.id.contains("NativeAd"))
                                     return ads.getNativeAd(
-                                      /*height: Tools.height * 0.8,
-                                      width: Tools.width,*/
+                                      rebuid: () => setState(() {}),
                                     );
-                                  else if (element.id.contains("rate"))
+                                  else */if (element.id.contains("rate"))
                                     return Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: ButtonFilled(
@@ -138,7 +135,7 @@ class _ContentScreenState extends State<ContentScreen> {
                               if (_sliderKey.currentState.currentPage % 2 ==
                                   0) {
                                 ads.showInter();
-                                ads.loadInter();
+                                await ads.loadInter();
                               }
                             } else {
                               ads.showInter();
@@ -177,7 +174,7 @@ class _ContentScreenState extends State<ContentScreen> {
                               if (_sliderKey.currentState.currentPage % 2 ==
                                   0) {
                                 ads.showInter();
-                                ads.loadInter();
+                                await ads.loadInter();
                               }
                             } else {
                               _sliderKey.currentState.setPage(0);

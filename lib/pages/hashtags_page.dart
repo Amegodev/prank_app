@@ -4,7 +4,7 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 // import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
-import 'package:prank_app/utils/strings.dart';
+import 'package:prank_app/constants.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:prank_app/widgets/widgets.dart';
@@ -31,7 +31,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
     ads.loadInter();
 
     customDrawer = new CustomDrawer();
-    hashs = Tools.shuffle(Strings.hashtag, 40, 60);
+    hashs = Tools.shuffle(Constants.hashtag, 40, 60);
   }
 
   format(Duration d) => d.toString().split('.').first.padLeft(8, "0");
@@ -64,7 +64,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(),
+                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
                     title: Text(
                       'Congratulations',
                       style: MyTextStyles.title.apply(color: Palette.white),
@@ -252,13 +252,6 @@ class _HashtagsPageState extends State<HashtagsPage> {
                     },
                   ),
                 ],
-              ),
-              Container(
-                height: 200.0,
-                decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.grey)),
-                ),
-                child: ads.getNativeAd(),
               ),
             ],
           ),

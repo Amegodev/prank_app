@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prank_app/utils/strings.dart';
+import 'package:prank_app/constants.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:toast/toast.dart';
@@ -59,7 +59,7 @@ class _RatingDialogState extends State<RatingDialog> {
               height: 20.0,
             ),
             Text(
-              Strings.aboutText,
+              Constants.aboutText,
               textAlign: TextAlign.center,
               style: MyTextStyles.subTitle,
             ),

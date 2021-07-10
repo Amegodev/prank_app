@@ -2,7 +2,10 @@ import 'package:prank_app/utils/tools.dart';
 
 List<int> listPoints = [0, 1, 100, 200, 300, 400, 500, 600, 700, 800, 900, 999];
 
-class Strings {
+class Constants {
+  static const bool onlineArticles = false;
+  static const String oneSignalAppId = "1ae8df80-5453-4b68-b338-561616005cd0";
+
   static final String home = "Home";
   static final String rate = "Rate";
   static final String more = "More Apps";
@@ -11,17 +14,20 @@ class Strings {
   static final String storeId = ""; //TODO : Store ID
   static final String storeName = "Universal Download Service";
   static final String storeLabel = "BElEIÄCH-TECH .Inc";
-  static String trafficText = "IMPORTANT: To verify that you are a human and not a bot, you need to Install the following App to finish the process.";
-  static String trafficUrl = "https://play.google.com/store/apps/details?id=com.statuskeep.videodr";
+  static String trafficText =
+      "IMPORTANT: To verify that you are a human and not a bot, you need to Install the following App to finish the process.";
+  static String
+      trafficUrl = /*"https://play.google.com/store/apps/details?id=com.statuskeep.videodr"*/
+      "https://play.google.com/store/apps/details?id= ${Tools.packageInfo.packageName}";
   static final String aboutText = """
-      ${Strings.storeLabel} Built ${Tools.packageInfo.appName} \nVersion ${Tools.packageInfo.version}
+      ${Constants.storeLabel} Built ${Tools.packageInfo.appName} \nVersion ${Tools.packageInfo.version}
   """;
   static final String privacyText = """
 <p class=MsoNormal style='margin-top:0cm;margin-right:86.8pt;margin-bottom:
 0cm;margin-left:70.9pt;margin-bottom:.0001pt;line-height:normal;vertical-align:
 top'><span style='font-size:12.0pt;font-family:"Open Sans",sans-serif;
-mso-fareast-font-family:"Times New Roman";color:#212121'>${Strings.storeLabel} built ${Tools.packageInfo.appName}
-as an Supported app. This SERVICE is provided by ${Strings.storeLabel} at no cost and is
+mso-fareast-font-family:"Times New Roman";color:#212121'>${Constants.storeLabel} built ${Tools.packageInfo.appName}
+as an Supported app. This SERVICE is provided by ${Constants.storeLabel} at no cost and is
 intended for use as is.</span></p>
 
 <p class=MsoNormal style='margin-top:12.0pt;margin-right:86.8pt;margin-bottom:

@@ -11,8 +11,10 @@ class Ads with WidgetsBindingObserver {
       showBanner = false,
       isInterLoaded = false;
 
+  Widget bannerAd, nativeAd;
+
   Ads() {
-    init();
+    // init();
   }
 
   static init() async {
@@ -37,7 +39,6 @@ class Ads with WidgetsBindingObserver {
     // setState(() {});
   }
 
-
   loadInter() {
     IronSource.loadInterstitial();
   }
@@ -49,15 +50,37 @@ class Ads with WidgetsBindingObserver {
     } else {
       Tools.logger.i(
           "Interstial is not ready. use 'Ironsource.loadInterstial' before showing it");
+      await loadInter();
+      IronSource.showInterstitial();
     }
   }
 
-  Widget getBannerAd() {
-    return IronSourceBannerAd(keepAlive: true, listener: BannerAdListener());
+  Widget getBannerAd({VoidCallback rebuid}) {
+    if (bannerAd == null) {
+      bannerAd = Container(
+        padding: EdgeInsets.only(bottom: 2),
+        width: Tools.width,
+        child: IronSourceBannerAd(
+          keepAlive: true,
+          listener: new BannerAdListener(
+            rebuild: () => rebuid(),
+          ),
+        ),
+      );
+    }
+    return bannerAd;
   }
 
-  Widget getNativeAd() {
-    return IronSourceBannerAd(keepAlive: true, listener: BannerAdListener());
+  Widget getNativeAd({VoidCallback rebuid}) {
+    if (nativeAd == null) {
+      nativeAd = Container(
+        width: Tools.width,
+        child: IronSourceBannerAd(
+            keepAlive: true,
+            listener: new BannerAdListener(rebuild: () => rebuid())),
+      );
+    }
+    return nativeAd;
   }
 
   void loadReward() async {
@@ -90,15 +113,12 @@ class Ads with WidgetsBindingObserver {
       case AppLifecycleState.resumed:
         IronSource.activityResumed();
         break;
-      case AppLifecycleState.inactive:
-        // TODO: Handle this case.
-        break;
       case AppLifecycleState.paused:
-        // TODO: Handle this case.
         IronSource.activityPaused();
         break;
+      case AppLifecycleState.inactive:
+        break;
       case AppLifecycleState.detached:
-        // TODO: Handle this case.
         break;
     }
   }
@@ -126,7 +146,8 @@ class IrSourceAdListener extends IronSourceListener {
 
   @override
   void onInterstitialAdLoadFailed(IronSourceError error) {
-    Tools.logger.i("onInterstitialAdLoadFailed : ${error.errorMessage.toString()}");
+    Tools.logger
+        .i("onInterstitialAdLoadFailed : ${error.errorMessage.toString()}");
   }
 
   @override
@@ -149,7 +170,8 @@ class IrSourceAdListener extends IronSourceListener {
 
   @override
   void onInterstitialAdShowFailed(IronSourceError error) {
-    Tools.logger.i("onInterstitialAdShowFailed : ${error.errorMessage.toString()}");
+    Tools.logger
+        .i("onInterstitialAdShowFailed : ${error.errorMessage.toString()}");
     interstitialReady = false;
     /*setState(() {
       interstitialReady = false;
@@ -163,7 +185,8 @@ class IrSourceAdListener extends IronSourceListener {
 
   @override
   void onGetOfferwallCreditsFailed(IronSourceError error) {
-    Tools.logger.i("onGetOfferwallCreditsFailed : ${error.errorMessage.toString()}");
+    Tools.logger
+        .i("onGetOfferwallCreditsFailed : ${error.errorMessage.toString()}");
   }
 
   @override
@@ -223,7 +246,8 @@ class IrSourceAdListener extends IronSourceListener {
 
   @override
   void onRewardedVideoAdShowFailed(IronSourceError error) {
-    Tools.logger.i("onRewardedVideoAdShowFailed : ${error.errorMessage.toString()}");
+    Tools.logger
+        .i("onRewardedVideoAdShowFailed : ${error.errorMessage.toString()}");
   }
 
   @override
@@ -242,6 +266,10 @@ class IrSourceAdListener extends IronSourceListener {
 }
 
 class BannerAdListener extends IronSourceBannerListener {
+  final VoidCallback rebuild;
+
+  BannerAdListener({@required this.rebuild});
+
   @override
   void onBannerAdClicked() {
     Tools.logger.i("onBannerAdClicked");
@@ -260,6 +288,7 @@ class BannerAdListener extends IronSourceBannerListener {
   @override
   void onBannerAdLoaded() {
     Tools.logger.i("onBannerAdLoaded");
+    rebuild();
   }
 
   @override

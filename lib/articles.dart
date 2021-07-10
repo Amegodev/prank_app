@@ -96,7 +96,10 @@ List<String> articles = [
 <p dir="ltr"><span>Some of the free applications provide you extra features after in-app-purchase. In order to purchase inside an app, you are led to the payment page and after the process is done you will return to the application.</span></p>
 <h3 dir="ltr"><strong>Support:</strong></h3>
 <p>In case you face any problems during payment or other parts, you can take appropriate action by choosing support button from the menu on the main page or you can directly contact Support@cafebazaar.ir. If you have any complaints or need support from the developer of the application, in the end of the application page you can find contact information.</p></div>
-"""
+""",
+  """
+  <div id="rate"></div>
+  """
 ];
 
 

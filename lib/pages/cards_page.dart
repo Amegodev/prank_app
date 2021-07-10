@@ -3,10 +3,11 @@ import 'dart:math';
 
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
+
 // import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
-import 'package:prank_app/utils/strings.dart';
+import 'package:prank_app/constants.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/widgets/animated_counter.dart';
 import 'package:prank_app/widgets/widgets.dart';
@@ -46,7 +47,8 @@ class _CardsPageState extends State with TickerProviderStateMixin {
     super.initState();
     ads = new Ads();
     ads.loadInter(/*reloadOnClose: true*/);
-    ads.loadReward(/*onRewarded: (val) {
+    ads.loadReward(
+        /*onRewarded: (val) {
       if (val) {
         Future.delayed(Duration(seconds: 1), () => reFlipCards());
       } else {
@@ -54,7 +56,8 @@ class _CardsPageState extends State with TickerProviderStateMixin {
             context,
             duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       }
-    }*/);
+    }*/
+        );
 
     customDrawer = CustomDrawer();
 
@@ -119,269 +122,276 @@ class _CardsPageState extends State with TickerProviderStateMixin {
       key: scaffoldKey,
       drawer: customDrawer.buildDrawer(context),
       body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    CustomAppBar(
-                      scaffoldKey: scaffoldKey,
-                      title: Text(
-                        '',
-                        style: MyTextStyles.title.apply(color: Palette.white),
-                        textAlign: TextAlign.center,
-                      ),
-                      onClicked: () => ads.showInter(),
-                    ),
-                    Container(
-                      height: MediaQuery.of(context).size.width * 0.6,
-                      width: MediaQuery.of(context).size.width,
-                      child: Stack(
-                        alignment: Alignment.topCenter,
-                        children: <Widget>[
-                          Positioned(
-                            top: -MediaQuery.of(context).size.width,
-                            child: Container(
-                              height: MediaQuery.of(context).size.width * 1.5,
-                              width: MediaQuery.of(context).size.width * 1.5,
-                              decoration: BoxDecoration(
-                                color: Palette.accent,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
+        child: Stack(
+          overflow: Overflow.visible,
+          fit: StackFit.passthrough,
+          alignment: Alignment.topCenter,
+          children: <Widget>[
+            Positioned(
+              top: -MediaQuery.of(context).size.width / 2,
+              child: Container(
+                height: MediaQuery.of(context).size.width * 1.5,
+                width: MediaQuery.of(context).size.width * 1.5,
+                decoration: BoxDecoration(
+                  color: Palette.accent,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Positioned(
+              top: -MediaQuery.of(context).size.width / 2,
+              child: Container(
+                height: MediaQuery.of(context).size.width * 1.485,
+                width: MediaQuery.of(context).size.width * 1.485,
+                decoration: BoxDecoration(
+                  color: Palette.primary,
+                  shape: BoxShape.circle,
+                ),
+              ),
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        CustomAppBar(
+                          scaffoldKey: scaffoldKey,
+                          title: Text(
+                            '',
+                            style:
+                                MyTextStyles.title.apply(color: Palette.white),
+                            textAlign: TextAlign.center,
                           ),
-                          Positioned(
-                            top: -MediaQuery.of(context).size.width,
-                            child: Container(
-                              height: MediaQuery.of(context).size.width * 1.485,
-                              width: MediaQuery.of(context).size.width * 1.485,
-                              decoration: BoxDecoration(
-                                color: Palette.primary,
-                                shape: BoxShape.circle,
-                              ),
-                            ),
+                          onClicked: () => ads.showInter(),
+                          bannerAd: ads.getBannerAd(
+                            rebuid: () => setState(() {}),
                           ),
-                          Align(
-                            alignment: Alignment.topCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                '😍 Flip cards to win 🎁\n🃏🃏🃏🃏🃏🃏',
-                                style: MyTextStyles.bigTitleBold.apply(
-                                  color: Palette.white,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  '😍 Flip cards to win 🎁\n🃏🃏🃏🃏🃏🃏',
+                                  style: MyTextStyles.bigTitleBold.apply(
+                                    color: Palette.white,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                                textAlign: TextAlign.center,
                               ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: <Widget>[
-                                  cardFlip(
-                                    onClicked: () {
-                                      setState(() {
-                                        totalPoints += listPoints[points];
-                                      });
-                                      nbFlip++;
-                                      print("==================> nbflip : " +
-                                          nbFlip.toString());
-                                      if (nbFlip % 3 == 0) ads.showInter();
-                                    },
-                                    color: Colors.deepOrange,
-                                    points: listPoints[points],
-                                    animation: _animation,
-                                    animationStatus: _animationStatus,
-                                    animationController: _animationController,
-                                  ),
-                                  cardFlip(
-                                    onClicked: () {
-                                      setState(() {
-                                        totalPoints += listPoints[points1];
-                                      });
-                                      nbFlip++;
-                                      print("==================> nbflip : " +
-                                          nbFlip.toString());
-                                      if (nbFlip % 3 == 0) ads.showInter();
-                                    },
-                                    color: Colors.amber,
-                                    points: listPoints[points1],
-                                    animation: _animation2,
-                                    animationStatus: _animationStatus2,
-                                    animationController: _animationController2,
-                                  ),
-                                  cardFlip(
-                                    onClicked: () {
-                                      setState(() {
-                                        totalPoints += listPoints[points2];
-                                      });
-                                      nbFlip++;
-                                      print("==================> nbflip : " +
-                                          nbFlip.toString());
-                                      if (nbFlip % 3 == 0) ads.showInter();
-                                    },
-                                    color: Colors.orange,
-                                    points: listPoints[points2],
-                                    animation: _animation3,
-                                    animationStatus: _animationStatus3,
-                                    animationController: _animationController3,
-                                  ),
-                                ],
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: <Widget>[
+                                    cardFlip(
+                                      onClicked: () {
+                                        setState(() {
+                                          totalPoints += listPoints[points];
+                                        });
+                                        nbFlip++;
+                                        print("==================> nbflip : " +
+                                            nbFlip.toString());
+                                        if (nbFlip % 3 == 0) ads.showInter();
+                                      },
+                                      color: Colors.deepOrange,
+                                      points: listPoints[points],
+                                      animation: _animation,
+                                      animationStatus: _animationStatus,
+                                      animationController: _animationController,
+                                    ),
+                                    cardFlip(
+                                      onClicked: () {
+                                        setState(() {
+                                          totalPoints += listPoints[points1];
+                                        });
+                                        nbFlip++;
+                                        print("==================> nbflip : " +
+                                            nbFlip.toString());
+                                        if (nbFlip % 3 == 0) ads.showInter();
+                                      },
+                                      color: Colors.amber,
+                                      points: listPoints[points1],
+                                      animation: _animation2,
+                                      animationStatus: _animationStatus2,
+                                      animationController:
+                                          _animationController2,
+                                    ),
+                                    cardFlip(
+                                      onClicked: () {
+                                        setState(() {
+                                          totalPoints += listPoints[points2];
+                                        });
+                                        nbFlip++;
+                                        print("==================> nbflip : " +
+                                            nbFlip.toString());
+                                        if (nbFlip % 3 == 0) ads.showInter();
+                                      },
+                                      color: Colors.orange,
+                                      points: listPoints[points2],
+                                      animation: _animation3,
+                                      animationStatus: _animationStatus3,
+                                      animationController:
+                                          _animationController3,
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SizedBox(
-                        height: 35.0,
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[
-                            AnimatedFlipCounter(
-                              duration: Duration(seconds: 2),
-                              value: totalPoints,
-                              color: Colors.black,
-                              size: 40,
-                              celebrate: () {
-                                _controllerCenter.play();
-                              },
-                            ),
-                            Align(
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            height: 35.0,
+                            child: Stack(
                               alignment: Alignment.center,
-                              child: ConfettiWidget(
-                                confettiController: _controllerCenter,
-                                blastDirectionality:
-                                    BlastDirectionality.explosive,
-                                shouldLoop: false,
-                                colors: const [
-                                  Colors.green,
-                                  Colors.blue,
-                                  Colors.pink,
-                                  Colors.orange,
-                                  Colors.purple
-                                ], // manually specify the colors to be used
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: ButtonFilled(
-                        bgColor: nbFlip < 3 ? Colors.grey : Palette.primary,
-                        title: Text(
-                          'CONTINUE',
-                          style: MyTextStyles.title.apply(color: Colors.white),
-                        ),
-                        onClicked: nbFlip < 3
-                            ? null
-                            : () {
-                                showDialog(
-                                    context: context,
-                                    builder: (_) {
-                                      return AlertDialog(
-                                        title: Text(
-                                          'Share profile',
-                                        ),
-                                        content: Text(
-                                            'We are going to share your profile @$username with $totalPoints users from our community (we are +2M). By using the EXACT combination of hashtags that you are going to see on the next screen you will be able to get approximately $totalPoints new potential followers.'),
-                                        actions: <Widget>[
-                                          FlatButton(
-                                            child: Text('Cancel'),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                            },
-                                          ),
-                                          FlatButton(
-                                            child: Text('OK'),
-                                            onPressed: () {
-                                              Navigator.of(context).pop();
-                                              ads.showInter();
-                                              MyNavigator.goCounter(
-                                                  context,
-                                                  username,
-                                                  totalPoints.toString());
-                                            },
-                                          ),
-                                        ],
-                                      );
-                                    });
-                              },
-                      ),
-                    ),
-                    nbFlip < 3
-                        ? SizedBox()
-                        : Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Column(
                               children: <Widget>[
-                                ButtonOutlined(
-                                  borderColor: Palette.primary,
-                                  title: Text(
-                                    'TRY AGAIN',
-                                    style: MyTextStyles.title
-                                        .apply(color: Palette.primary),
-                                  ),
-                                  onClicked: () async {
-                                    if (Ads.rewardeVideoAvailable) {
-                                      await ads.showRewardAd();
-                                      Future.delayed(Duration(seconds: 1), () => reFlipCards());
-                                    } else {
-                                      if (Ads.isInterLoaded) {
-                                        ads.showInter();
-                                        reFlipCards();
-                                      } else {
-                                        Toast.show(
-                                          "OOPS! The Server blocks us every so often due to the high number of requests\nPlease try again later 😪.",
-                                          context,
-                                          duration: Toast.LENGTH_LONG,
-                                          gravity: Toast.BOTTOM,
-                                        );
-
-                                        /*Toast.show("Please Continue watching Ad, to get more flipping chances.",
-                                            context,
-                                            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);*/
-                                      }
-                                    }
+                                AnimatedFlipCounter(
+                                  duration: Duration(seconds: 2),
+                                  value: totalPoints,
+                                  color: Colors.black,
+                                  size: 40,
+                                  celebrate: () {
+                                    _controllerCenter.play();
                                   },
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'watch an ad to try again, and win more 😉',
-                                    style: MyTextStyles.subTitle
-                                        .apply(fontSizeFactor: 0.8),
-                                    textAlign: TextAlign.center,
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: ConfettiWidget(
+                                    confettiController: _controllerCenter,
+                                    blastDirectionality:
+                                        BlastDirectionality.explosive,
+                                    shouldLoop: false,
+                                    colors: const [
+                                      Colors.green,
+                                      Colors.blue,
+                                      Colors.pink,
+                                      Colors.orange,
+                                      Colors.purple
+                                    ], // manually specify the colors to be used
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                  ],
-                ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: ButtonFilled(
+                            bgColor: nbFlip < 3 ? Colors.grey : Palette.primary,
+                            title: Text(
+                              'CONTINUE',
+                              style:
+                                  MyTextStyles.title.apply(color: Colors.white),
+                            ),
+                            onClicked: nbFlip < 3
+                                ? null
+                                : () {
+                                    showDialog(
+                                        context: context,
+                                        builder: (_) {
+                                          return AlertDialog(
+                                            title: Text(
+                                              'Share profile',
+                                            ),
+                                            content: Text(
+                                                'We are going to share your profile @$username with $totalPoints users from our community (we are +2M). By using the EXACT combination of hashtags that you are going to see on the next screen you will be able to get approximately $totalPoints new potential followers.'),
+                                            actions: <Widget>[
+                                              FlatButton(
+                                                child: Text('Cancel'),
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                              ),
+                                              FlatButton(
+                                                child: Text('OK'),
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                  ads.showInter();
+                                                  MyNavigator.goCounter(
+                                                      context,
+                                                      username,
+                                                      totalPoints.toString());
+                                                },
+                                              ),
+                                            ],
+                                          );
+                                        });
+                                  },
+                          ),
+                        ),
+                        nbFlip < 3
+                            ? SizedBox()
+                            : Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    ButtonOutlined(
+                                      borderColor: Palette.primary,
+                                      title: Text(
+                                        'TRY AGAIN',
+                                        style: MyTextStyles.title
+                                            .apply(color: Palette.primary),
+                                      ),
+                                      onClicked: () async {
+                                        if (Ads.rewardeVideoAvailable) {
+                                          await ads.showRewardAd();
+                                          Future.delayed(Duration(seconds: 1),
+                                              () => reFlipCards());
+                                        } else {
+                                          if (Ads.isInterLoaded) {
+                                            ads.showInter();
+                                            reFlipCards();
+                                          } else {
+                                            Toast.show(
+                                              "OOPS! The Server blocks us every so often due to the high number of requests\nPlease try again later 😪.",
+                                              context,
+                                              duration: Toast.LENGTH_LONG,
+                                              gravity: Toast.BOTTOM,
+                                            );
+
+                                            /*Toast.show("Please Continue watching Ad, to get more flipping chances.",
+                                                context,
+                                                duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);*/
+                                          }
+                                        }
+                                      },
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'watch an ad to try again, and win more 😉',
+                                        style: MyTextStyles.subTitle
+                                            .apply(fontSizeFactor: 0.8),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                      ],
+                    ),
+                  ),
+                  /*Container(
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      border: Border(top: BorderSide(color: Colors.grey)),
+                    ),
+                    child: ads.getBannerAd(rebuid: () => setState(() {})),
+                  ),*/
+                ],
               ),
-              Container(
-                height: 200.0,
-                decoration: BoxDecoration(
-                  border: Border(top: BorderSide(color: Colors.grey)),
-                ),
-                child: ads.getNativeAd(),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

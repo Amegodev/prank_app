@@ -2,7 +2,7 @@
 name: prank_app
 description: A new Prank  application with Flutter.
 publish_to: none
-version: 4.0.0+4
+version: 1.0.0+1
 environment:
   sdk: '>=2.7.0 <3.0.0'
 
@@ -35,11 +35,15 @@ dependencies:
 
   #Ads plugins
   native_admob_flutter:
-  facebook_audience_network: ^0.9.0
-  unity_ads_plugin:
-  startapp: ^0.5.1
+#  facebook_audience_network: ^0.9.0
+#  unity_ads_plugin:
+#  startapp: ^0.5.1
 
   flutter_ironsource_x: ^0.0.3
+
+
+  #Push NotificationPlugin
+  onesignal_flutter:
 
 
 ##########################

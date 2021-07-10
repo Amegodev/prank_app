@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 // import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
-import 'package:prank_app/utils/strings.dart';
+import 'package:prank_app/constants.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/widgets/widgets.dart';
 
@@ -62,11 +62,11 @@ class _AboutPageState extends State<AboutPage> {
                     onPressed: () => scaffoldKey.currentState.openDrawer(),
                   ),
                   title: Text(
-                    Strings.privacy,
+                    Constants.privacy,
                     style: MyTextStyles.title.apply(color: Palette.white),
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getBannerAd(),
+                  bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
                   onClicked: () => ads.showInter(),
                 ),
                 Expanded(
@@ -74,7 +74,7 @@ class _AboutPageState extends State<AboutPage> {
                     padding: const EdgeInsets.symmetric(horizontal: 16.0),
                     child: SingleChildScrollView(
                       child: HtmlWidget(
-                        Strings.privacyText,
+                        Constants.privacyText,
                         textStyle: TextStyle(fontSize: 18.0),
                       ),
                     ),

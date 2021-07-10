@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 // import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
-import 'package:prank_app/utils/strings.dart';
+import 'package:prank_app/constants.dart';
 import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/widgets/widgets.dart';
 
@@ -66,11 +66,11 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                     },
                   ),
                   title: Text(
-                    Strings.privacy,
+                    Constants.privacy,
                     style: MyTextStyles.bigTitleBold,
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getBannerAd(),
+                  bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
                   onClicked: () => ads.showInter(),
                   bgColor: Colors.transparent,
                 ),
@@ -80,7 +80,7 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                     child: Center(
                       child: SingleChildScrollView(
                         child: HtmlWidget(
-                          Strings.privacyText,
+                          Constants.privacyText,
                           textStyle: TextStyle(fontSize: 18.0),
                         ),
                       ),
