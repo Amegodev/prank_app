@@ -219,6 +219,7 @@ class _UsernamePageState extends State<UsernamePage> {
                   ),
                 ],
               ),
+              ads.getNativeAd(),
             ],
           ),
         ),

@@ -128,7 +128,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
           alignment: Alignment.topCenter,
           children: <Widget>[
             Positioned(
-              top: -MediaQuery.of(context).size.width / 2,
+              top: -MediaQuery.of(context).size.width * 0.6,
               child: Container(
                 height: MediaQuery.of(context).size.width * 1.5,
                 width: MediaQuery.of(context).size.width * 1.5,
@@ -139,7 +139,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
               ),
             ),
             Positioned(
-              top: -MediaQuery.of(context).size.width / 2,
+              top: -MediaQuery.of(context).size.width * 0.6,
               child: Container(
                 height: MediaQuery.of(context).size.width * 1.485,
                 width: MediaQuery.of(context).size.width * 1.485,
@@ -162,7 +162,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                         CustomAppBar(
                           scaffoldKey: scaffoldKey,
                           title: Text(
-                            '',
+                            '😍 Flip cards to win 🎁',
                             style:
                                 MyTextStyles.title.apply(color: Palette.white),
                             textAlign: TextAlign.center,
@@ -177,7 +177,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  '😍 Flip cards to win 🎁\n🃏🃏🃏🃏🃏🃏',
+                                  '🃏🃏🃏🃏🃏🃏',
                                   style: MyTextStyles.bigTitleBold.apply(
                                     color: Palette.white,
                                   ),
@@ -379,13 +379,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  /*Container(
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      border: Border(top: BorderSide(color: Colors.grey)),
-                    ),
-                    child: ads.getBannerAd(),
-                  ),*/
+                  ads.getNativeAd(),
                 ],
               ),
             ),

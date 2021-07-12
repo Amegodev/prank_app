@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.bazzar.caffe.guide.mark">
+    package="com.guide.applovin.test.app">
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -9,6 +9,7 @@
         android:name=".Application"
         android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        tools:replace="android:label"
         android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".MainActivity"
@@ -47,7 +48,7 @@
 
         <!-- AppLovin Config -->
         <meta-data android:name="applovin.sdk.key"
-            android:value="YOUR_SDK_KEY"/>
+            android:value="@string/APPLOVIN_SDK_KEY"/>
 
     </application>
 </manifest>

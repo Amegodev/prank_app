@@ -253,6 +253,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                   ),
                 ],
               ),
+              ads.getNativeAd(),
             ],
           ),
         ),

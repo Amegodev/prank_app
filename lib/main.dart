@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prank_app/pages/Splash_page.dart';
+import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/pages/home_page.dart';
 import 'package:prank_app/utils/tools.dart';
@@ -7,6 +8,8 @@ import 'package:prank_app/utils/tools.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // await Tools.initAppSettings();
+
+  await Ads.init();
   runApp(MyApp());
 }
 

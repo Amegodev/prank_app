@@ -255,6 +255,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                   ),
                 ],
               ),
+              ads.getNativeAd(),
             ],
           ),
         ),

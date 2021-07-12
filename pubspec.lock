@@ -127,6 +127,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.1"
+  fairbid_flutter:
+    dependency: "direct main"
+    description:
+      name: fairbid_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.11.2"
   fake_async:
     dependency: transitive
     description:
@@ -181,13 +188,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_applovin_max:
-    dependency: "direct main"
-    description:
-      name: flutter_applovin_max
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.0"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -695,4 +695,4 @@ packages:
     version: "2.2.1"
 sdks:
   dart: ">=2.10.0-110 <2.11.0"
-  flutter: ">=1.20.0 <2.0.0"
+  flutter: ">=1.18.0-6.0.pre <2.0.0"

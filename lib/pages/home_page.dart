@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/theme.dart';
@@ -30,6 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      drawer: customDrawer.buildDrawer(context),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                   alignment: Alignment.topCenter,
                   children: <Widget>[
                     Positioned(
-                      top: -MediaQuery.of(context).size.width,
+                      top: -MediaQuery.of(context).size.width * 0.6,
                       child: Container(
                         height: MediaQuery.of(context).size.width * 1.5,
                         width: MediaQuery.of(context).size.width * 1.5,
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Positioned(
-                      top: -MediaQuery.of(context).size.width,
+                      top: -MediaQuery.of(context).size.width * 0.6,
                       child: Container(
                         height: MediaQuery.of(context).size.width * 1.485,
                         width: MediaQuery.of(context).size.width * 1.485,
@@ -67,21 +67,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SafeArea(
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Text(
-                            Tools.packageInfo.appName,
-                            style: MyTextStyles.bigTitle.apply(
-                              color: Palette.white,
-                              fontFamily: 'SuezOne',
-                              fontSizeFactor: 1.5,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomAppBar(
+                            scaffoldKey: scaffoldKey,
+                            bannerAd: ads.getBannerAd(),
+                            title: Text(
+                              Tools.packageInfo.appName,
+                              style: MyTextStyles.title.apply(color: Palette.white, fontFamily: 'SuezOne'),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.fade,
+                            onClicked: () => ads.showInter(),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                     Positioned(
@@ -100,7 +99,6 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: Tools.width * 0.2,
               ),
-              ads.getNativeAd(/*height: 200.0*/),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -163,6 +161,21 @@ class _HomePageState extends State<HomePage> {
                           int count = await showDialog(
                               context: context, builder: (_) => RatingDialog());
                           if (count != null && count <= 3) ads.showInter();
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: ButtonFilled(
+                        // bgColor: Colors.black,
+                        bgColor: Palette.white,
+                        title: Text(
+                          'Test Tapdaq',
+                          style:
+                              MyTextStyles.titleBold.apply(color: Colors.black),
+                        ),
+                        onClicked: () {
+                          Ads.tapdaq.test();
                         },
                       ),
                     ),

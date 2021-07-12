@@ -73,11 +73,9 @@ class _ContentScreenState extends State<ContentScreen> {
                               child: HtmlWidget(
                                 e,
                                 customWidgetBuilder: (element) {
-                                  /*if (element.id.contains("NativeAd"))
-                                    return ads.getNativeAd(
-                                      rebuid: () => setState(() {}),
-                                    );
-                                  else */if (element.id.contains("rate"))
+                                  if (element.id.contains("NativeAd"))
+                                    return ads.getNativeAd();
+                                  else if (element.id.contains("rate"))
                                     return Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: ButtonFilled(

@@ -84,7 +84,7 @@ class Tools {
     OneSignal.shared.init(Constants.oneSignalAppId);
 
     OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
-      Tools.logger.i("Accepted permission: $accepted");
+      // Tools.logger.i("Accepted permission: $accepted");
     });
 
     OneSignal.shared
@@ -112,7 +112,7 @@ class Tools {
         .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
       // Will be called whenever the subscription changes
       // (ie. user gets registered with OneSignal and gets a user ID)
-      Tools.logger.i("SUBSCRIPTION STATE CHANGED: ${changes.jsonRepresentation()}");
+      // Tools.logger.i("SUBSCRIPTION STATE CHANGED: ${changes.jsonRepresentation()}");
     });
 
     OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
@@ -190,7 +190,7 @@ class Tools {
 
   static Future<void> outcomeAwaitExample() async {
     var outcomeEvent = await OneSignal.shared.sendOutcome("await_normal_1");
-    Tools.logger.i(outcomeEvent.jsonRepresentation());
+    // Tools.logger.i(outcomeEvent.jsonRepresentation());
   }
 
 

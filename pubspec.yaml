@@ -40,7 +40,10 @@ dependencies:
 #  startapp: ^0.5.1
 
 #  flutter_ironsource_x: ^0.0.3
-  flutter_applovin_max: ^0.1.0
+#  flutter_applovin_max: ^0.1.0
+#  tapdaq_flutter: ^0.0.1
+  fairbid_flutter: #^1.0.1
+
 
   #Push NotificationPlugin
   onesignal_flutter:

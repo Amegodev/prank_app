@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">cafe Bazaar - کافه بازار</string>
     <string name="app_id">ca-app-pub-8644958469423958~6103102012</string>
+    <string name="APPLOVIN_SDK_KEY">QO91l1_TOsERBEiVdyJ1_v6565RlGQWzRisC9X6f4R7ycMd9S-piVBfREtbtmUp8IDf8a3H_O-fk-rFy9nk0JH</string>
 </resources>

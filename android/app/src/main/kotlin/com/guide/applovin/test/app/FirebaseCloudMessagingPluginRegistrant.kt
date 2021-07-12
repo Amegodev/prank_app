@@ -1,4 +1,4 @@
-package com.bazzar.caffe.guide.mark;
+package com.guide.applovin.test.app;
 
 import io.flutter.plugin.common.PluginRegistry
 import io.flutter.plugins.firebasemessaging.FirebaseMessagingPlugin

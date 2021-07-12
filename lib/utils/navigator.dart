@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:prank_app/pages/about_page.dart';
 import 'package:prank_app/pages/cards_page.dart';
-import 'package:prank_app/pages/content.dart';
+import 'package:prank_app/pages/content_pager.dart';
 import 'package:prank_app/pages/counter_page.dart';
-import 'package:prank_app/pages/hashtags_page.dart';
+import 'package:prank_app/pages/counter_hashtags_page.dart';
 import 'package:prank_app/pages/home_page.dart';
 import 'package:prank_app/pages/more_apps.dart';
 import 'package:prank_app/pages/username_page.dart';
-import 'package:prank_app/pages/one_more_step_page.dart';
+import 'package:prank_app/pages/counter_almost_done.dart';
 import 'package:prank_app/pages/privacy_policy_page.dart';
 
 class MyNavigator {
