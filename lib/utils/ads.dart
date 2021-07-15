@@ -2,32 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ironsource_x/ironsource.dart';
 import 'package:flutter_ironsource_x/models.dart';
 import 'package:prank_app/utils/tools.dart';
+// import 'package:tapdaq_flutter/tapdaq_flutter.dart';
 
 class Ads with WidgetsBindingObserver {
-  static const String APP_KEY = "fd1bce71";
+  static const String IRONSOURCE_APP_KEY = "fd1bce71";
+
+  static const String APPLOVIN_APP_KEY =
+      "QO91l1_TOsERBEiVdyJ1_v6565RlGQWzRisC9X6f4R7ycMd9S-piVBfREtbtmUp8IDf8a3H_O-fk-rFy9nk0JH";
+
+  static const String TAPDAQ_APP_KEY = "60ead1d808fe6c2d735d67f4";
+  static const String TAPDAQ_CLIENT_KEY =
+      "be58c4e8-9d82-450a-8903-4ef39755ec48";
 
   static bool rewardeVideoAvailable = false,
       offerwallAvailable = false,
       showBanner = false,
       isInterLoaded = false;
 
+  /*static Tapdaq tapdaq = new Tapdaq(
+    appId: TAPDAQ_APP_KEY,
+    clientKey: TAPDAQ_CLIENT_KEY,
+  );*/
+
+  /*TapdaqInterstitial tapdaqInterstitial = new TapdaqInterstitial(
+    adTag: "testtagone",
+    listener: (tapdaqInterstitiaEvent, value) {
+      Tools.logger.wtf("tapdaqBannerEventHandler $tapdaqInterstitiaEvent");
+      Tools.logger.wtf("Event: $value");
+    },
+  );*/
+
   Widget bannerAd, nativeAd;
 
   Ads() {
-    // init();
+    init();
   }
 
   static init() async {
-    var userId = await IronSource.getAdvertiserId();
+    // var userId = await IronSource.getAdvertiserId();
+    // await IronSource.validateIntegration();
 
-    await IronSource.validateIntegration();
+    // Tools.logger.wtf(userId);
 
-    Tools.logger.wtf(userId);
-
-    await IronSource.setUserId(userId);
+    // await IronSource.setUserId(userId);
 
     await IronSource.initialize(
-        appKey: APP_KEY,
+        appKey: IRONSOURCE_APP_KEY,
         listener: IrSourceAdListener(
             interstitialReady: isInterLoaded,
             rewardeVideoAvailable: rewardeVideoAvailable,
@@ -36,58 +56,133 @@ class Ads with WidgetsBindingObserver {
         ccpaConsent: false);
     rewardeVideoAvailable = await IronSource.isRewardedVideoAvailable();
     offerwallAvailable = await IronSource.isOfferwallAvailable();
-    // setState(() {});
   }
 
   loadInter() {
     IronSource.loadInterstitial();
   }
 
-  void showInter() async {
+  Future<void> showInter(BuildContext context) async {
     if (await IronSource.isInterstitialReady()) {
-      // showHideBanner();
-      IronSource.showInterstitial();
+      await IronSource.showInterstitial();
     } else {
-      Tools.logger.i(
-          "Interstial is not ready. use 'Ironsource.loadInterstial' before showing it");
-      await loadInter();
-      IronSource.showInterstitial();
+      Tools.logger.i("IronSource Inter not loaded yet");
     }
+
+    /*bool isInterLoaded = await tapdaqInterstitial.isLoaded;
+    if (isInterLoaded != null) {
+      tapdaqInterstitial.show();
+    } else {
+      Tools.logger.i("Tapdaq Inter not loaded yet");
+    }*/
   }
 
-  Widget getBannerAd({VoidCallback rebuid}) {
+  Widget getBannerAd() {
     if (bannerAd == null) {
       bannerAd = Container(
         padding: EdgeInsets.only(bottom: 2),
         width: Tools.width,
-        child: IronSourceBannerAd(
-          keepAlive: true,
-          listener: new BannerAdListener(
-            rebuild: () => rebuid(),
-          ),
+        child: new IronSourceBannerAd(
+          listener: new BannerAdListener(this),
         ),
       );
+      return bannerAd;
     }
+
+    return bannerAd;
+
+    return Container(
+      width: 320.0,
+      height: 50.0,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        border: Border.all(
+          color: Colors.black87,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          "Banner Ad",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+      ),
+    );
+
+    /*if (bannerAd == null) {
+      bannerAd = TapdaqBanner(
+        adSize: TapdaqBannerSize.STANDARD,
+        adTag: "testtagbannerone",
+        listener: (tapdaqBannerEventHandler, value) async {
+          Tools.logger
+              .wtf("tapdaqBannerEventHandler $tapdaqBannerEventHandler");
+          Tools.logger.wtf("Event: $value");
+          */ /*switch (event.) {
+            case 'didLoad':
+              _listener(TapdaqBannerEvent.didLoad, null);
+              break;
+            case 'didFailToLoad':
+              _listener(TapdaqBannerEvent.didFailToLoad,
+                  Map<String, dynamic>.from(call.arguments));
+              break;
+            case 'didRefresh':
+              _listener(TapdaqBannerEvent.didRefresh, null);
+              break;
+            case 'didFailToRefresh':
+              _listener(TapdaqBannerEvent.didFailToRefresh,
+                  Map<String, dynamic>.from(call.arguments));
+              break;
+            case 'didClick':
+              _listener(TapdaqBannerEvent.didClick, null);
+              break;
+          }*/ /*
+        },
+        onBannerCreated: (onBannercreated) {
+          Tools.logger.wtf("onBannercreated: $onBannercreated");
+        },
+      );
+
+      return bannerAd;
+    }
+*/
     return bannerAd;
   }
 
-  Widget getNativeAd({VoidCallback rebuid}) {
+  Widget getNativeAd() {
     if (nativeAd == null) {
       nativeAd = Container(
         width: Tools.width,
         child: IronSourceBannerAd(
-            keepAlive: true,
-            listener: new BannerAdListener(rebuild: () => rebuid())),
+          keepAlive: true,
+          listener: new BannerAdListener(this),
+        ),
       );
+      return nativeAd;
     }
+
+    return nativeAd;
+
+    return Container(
+      width: 320.0,
+      height: 150.0,
+      decoration: BoxDecoration(
+        color: Colors.grey,
+        border: Border.all(
+          color: Colors.black87,
+        ),
+      ),
+      child: Center(
+        child: Text(
+          "Native Ad",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+      ),
+    );
     return nativeAd;
   }
 
-  void loadReward() async {
-    rewardeVideoAvailable = await IronSource.isRewardedVideoAvailable();
-  }
+  void loadReward() async {}
 
-  showRewardAd() async {
+  void showRewardAd() async {
     if (await IronSource.isRewardedVideoAvailable()) {
       IronSource.showRewardedVideo();
     } else {
@@ -95,15 +190,13 @@ class Ads with WidgetsBindingObserver {
     }
   }
 
-  void loadOfferwall() async {
-    offerwallAvailable = await IronSource.isOfferwallAvailable();
-  }
+  void loadOfferwall() async {}
 
   void showOfferwall() async {
     if (await IronSource.isOfferwallAvailable()) {
       IronSource.showOfferwall();
     } else {
-      Tools.logger.i("Offerwall not available");
+      print("Offerwall not available");
     }
   }
 
@@ -114,7 +207,7 @@ class Ads with WidgetsBindingObserver {
         IronSource.activityResumed();
         break;
       case AppLifecycleState.paused:
-        IronSource.activityPaused();
+        // IronSource.activityPaused();
         break;
       case AppLifecycleState.inactive:
         break;
@@ -125,9 +218,7 @@ class Ads with WidgetsBindingObserver {
 }
 
 class IrSourceAdListener extends IronSourceListener {
-  bool interstitialReady;
-  bool rewardeVideoAvailable;
-  bool offerwallAvailable;
+  final bool interstitialReady, rewardeVideoAvailable, offerwallAvailable;
 
   IrSourceAdListener(
       {this.interstitialReady,
@@ -140,164 +231,152 @@ class IrSourceAdListener extends IronSourceListener {
   }
 
   @override
+  void onGetOfferwallCreditsFailed(IronSourceError error) {
+    // implement onGetOfferwallCreditsFailed
+    Tools.logger.i("onGetOfferwallCreditsFailed: $error");
+  }
+
+  @override
   void onInterstitialAdClosed() {
-    Tools.logger.i("onInterstitialAdClosed");
+    // implement onInterstitialAdClosed
+    IronSource.loadInterstitial();
   }
 
   @override
   void onInterstitialAdLoadFailed(IronSourceError error) {
-    Tools.logger
-        .i("onInterstitialAdLoadFailed : ${error.errorMessage.toString()}");
+    // implement onInterstitialAdLoadFailed
+    Tools.logger.i("onInterstitialAdLoadFailed: $error");
   }
 
   @override
   void onInterstitialAdOpened() {
-    Tools.logger.i("onInterstitialAdOpened");
-    interstitialReady = false;
-    /*setState(() {
-    interstitialReady = false;
-    });*/
+    // implement onInterstitialAdOpened
   }
 
   @override
   void onInterstitialAdReady() {
+    // implement onInterstitialAdReady
     Tools.logger.i("onInterstitialAdReady");
-    interstitialReady = true;
-    /*setState(() {
-    interstitialReady = true;
-    });*/
   }
 
   @override
   void onInterstitialAdShowFailed(IronSourceError error) {
-    Tools.logger
-        .i("onInterstitialAdShowFailed : ${error.errorMessage.toString()}");
-    interstitialReady = false;
-    /*setState(() {
-      interstitialReady = false;
-    });*/
+    // implement onInterstitialAdShowFailed
   }
 
   @override
   void onInterstitialAdShowSucceeded() {
-    Tools.logger.i("nInterstitialAdShowSucceeded");
-  }
-
-  @override
-  void onGetOfferwallCreditsFailed(IronSourceError error) {
-    Tools.logger
-        .i("onGetOfferwallCreditsFailed : ${error.errorMessage.toString()}");
+    // implement onInterstitialAdShowSucceeded
   }
 
   @override
   void onOfferwallAdCredited(OfferwallCredit reward) {
-    Tools.logger.i("onOfferwallAdCredited : $reward");
+    // implement onOfferwallAdCredited
   }
 
   @override
   void onOfferwallAvailable(bool available) {
-    Tools.logger.i("onOfferwallAvailable : $available");
-
-    offerwallAvailable = available;
-    /*setState(() {
-      offerwallAvailable = available;
-    });*/
+    // implement onOfferwallAvailable
+    Tools.logger.i("onOfferwallAvailable");
   }
 
   @override
   void onOfferwallClosed() {
+    // implement onOfferwallClosed
     Tools.logger.i("onOfferwallClosed");
   }
 
   @override
   void onOfferwallOpened() {
+    // implement onOfferwallOpened
     Tools.logger.i("onOfferwallOpened");
   }
 
   @override
   void onOfferwallShowFailed(IronSourceError error) {
-    Tools.logger.i("onOfferwallShowFailed ${error.errorMessage.toString()}");
+    // implement onOfferwallShowFailed
+    Tools.logger.i("onOfferwallShowFailed: $error");
   }
 
   @override
   void onRewardedVideoAdClicked(Placement placement) {
-    Tools.logger.i("onRewardedVideoAdClicked");
+    // implement onRewardedVideoAdClicked
+    Tools.logger.i("onRewardedVideoAdClicked: placement($placement)");
   }
 
   @override
   void onRewardedVideoAdClosed() {
+    // implement onRewardedVideoAdClosed
     Tools.logger.i("onRewardedVideoAdClosed");
   }
 
   @override
   void onRewardedVideoAdEnded() {
+    // implement onRewardedVideoAdEnded
     Tools.logger.i("onRewardedVideoAdEnded");
   }
 
   @override
   void onRewardedVideoAdOpened() {
-    Tools.logger.i("onRewardedVideoAdOpened");
+    // implement onRewardedVideoAdOpened
   }
 
   @override
   void onRewardedVideoAdRewarded(Placement placement) {
-    Tools.logger.i("onRewardedVideoAdRewarded: ${placement.placementName}");
+    // implement onRewardedVideoAdRewarded
+    Tools.logger.i("onRewardedVideoAdRewarded: placement($placement)");
   }
 
   @override
   void onRewardedVideoAdShowFailed(IronSourceError error) {
-    Tools.logger
-        .i("onRewardedVideoAdShowFailed : ${error.errorMessage.toString()}");
+    // implement onRewardedVideoAdShowFailed
+    Tools.logger.i("onRewardedVideoAdShowFailed: $error");
   }
 
   @override
   void onRewardedVideoAdStarted() {
-    Tools.logger.i("onRewardedVideoAdStarted");
+    // implement onRewardedVideoAdStarted
   }
 
   @override
   void onRewardedVideoAvailabilityChanged(bool available) {
-    Tools.logger.i("onRewardedVideoAvailabilityChanged : $available");
-    rewardeVideoAvailable = available;
-    /*setState(() {
-      rewardeVideoAvailable = available;
-    });*/
+    // implement onRewardedVideoAvailabilityChanged
   }
 }
 
 class BannerAdListener extends IronSourceBannerListener {
-  final VoidCallback rebuild;
+  final Ads ads;
 
-  BannerAdListener({@required this.rebuild});
+  BannerAdListener(this.ads);
 
   @override
   void onBannerAdClicked() {
-    Tools.logger.i("onBannerAdClicked");
+    Tools.logger.wtf("onBannerAdClicked");
   }
 
   @override
   void onBannerAdLeftApplication() {
-    Tools.logger.i("onBannerAdLeftApplication");
+    Tools.logger.wtf("onBannerAdLeftApplication");
   }
 
   @override
   void onBannerAdLoadFailed(Map<String, dynamic> error) {
-    Tools.logger.i("onBannerAdLoadFailed");
+    Tools.logger.wtf("onBannerAdLoadFailed");
+    ads.bannerAd = ads.getNativeAd();
   }
 
   @override
   void onBannerAdLoaded() {
-    Tools.logger.i("onBannerAdLoaded");
-    rebuild();
+    Tools.logger.wtf("onBannerAdLoaded");
   }
 
   @override
   void onBannerAdScreenDismissed() {
-    Tools.logger.i("onBannerAdScreenDismisse");
+    Tools.logger.wtf("onBannerAdScreenDismisse");
   }
 
   @override
   void onBannerAdScreenPresented() {
-    Tools.logger.i("onBannerAdScreenPresented");
+    Tools.logger.wtf("onBannerAdScreenPresented");
   }
 }

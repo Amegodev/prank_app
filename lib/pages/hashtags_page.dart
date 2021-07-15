@@ -64,13 +64,13 @@ class _HashtagsPageState extends State<HashtagsPage> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       'Congratulations',
                       style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
-                    onClicked: () => ads.showInter(),
+                    onClicked: () => ads.showInter(context),
                   ),
                   Container(
                     height: MediaQuery.of(context).size.width * 0.5,
@@ -181,8 +181,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                 title: Text('hashtags'),
                                 content: Text(hashs.toList().join(' ')),
                                 actions: <Widget>[
-                                  FlatButton(
-                                    child: Text('COPY AND CONTINUE'),
+                                  TextButton(
+                                                child: Text('COPY AND CONTINUE'),
                                     onPressed: () {
                                       Clipboard.setData(ClipboardData(
                                           text: hashs.toList().join(' ')));
@@ -193,7 +193,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                                         gravity: Toast.BOTTOM,
                                         duration: Toast.LENGTH_LONG,
                                       );
-                                      ads.showInter();
+                                      ads.showInter(context);
                                     },
                                   )
                                 ],
@@ -218,7 +218,7 @@ class _HashtagsPageState extends State<HashtagsPage> {
                         style: MyTextStyles.title.apply(color: Colors.white),
                       ),
                       onClicked: () {
-                        ads.showInter();
+                        ads.showInter(context);
                         Navigator.of(context)
                             .popUntil(ModalRoute.withName("/cards"));
                       },
@@ -240,8 +240,8 @@ class _HashtagsPageState extends State<HashtagsPage> {
                               content: Text(
                                   'If you have not received anything within 24 hours, please re-launch the process after a few days. The Server blocks us every so often due to the high number of requests.\nThanks for your understanding.'),
                               actions: <Widget>[
-                                FlatButton(
-                                  child: Text('OK'),
+                                TextButton(
+                                                child: Text('OK'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },

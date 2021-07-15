@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
@@ -22,7 +23,6 @@ class _UsernamePageState extends State<UsernamePage> {
   void initState() {
     super.initState();
     ads = new Ads();
-
 
     customDrawer = new CustomDrawer();
   }
@@ -54,7 +54,7 @@ class _UsernamePageState extends State<UsernamePage> {
                       style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                   ),
                   Container(
                     height: MediaQuery.of(context).size.width * 0.5,
@@ -166,19 +166,19 @@ class _UsernamePageState extends State<UsernamePage> {
                       ),
                       onClicked: () async {
                         if (usernameTextController.text.isNotEmpty) {
-                          MyNavigator.goCards(
-                              context, usernameTextController.text.replaceAll('@', ''));
+                          MyNavigator.goCards(context,
+                              usernameTextController.text.replaceAll('@', ''));
                         } else {
                           showDialog(
                               context: context,
                               builder: (_) {
                                 return AlertDialog(
                                   title: Text('Attention!'),
-                                  content:
-                                      Text('Invalid username 🙁\nPlease enter a valid username first.'),
+                                  content: Text(
+                                      'Invalid username 🙁\nPlease enter a valid username first.'),
                                   actions: <Widget>[
-                                    FlatButton(
-                                      child: Text('OK'),
+                                    TextButton(
+                                                child: Text('OK'),
                                       onPressed: () {
                                         Navigator.of(context).pop();
                                       },
@@ -206,8 +206,8 @@ class _UsernamePageState extends State<UsernamePage> {
                               content: Text(
                                   'If you have not received anything within 24 hours, please re-launch the process after a few days. The Server blocks us every so often due to the high number of requests.\nThanks for your understanding.'),
                               actions: <Widget>[
-                                FlatButton(
-                                  child: Text('OK'),
+                                TextButton(
+                                                child: Text('OK'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },

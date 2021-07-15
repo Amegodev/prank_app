@@ -28,8 +28,15 @@ class _SplashScreenState extends State<SplashScreen> {
     super.dispose();
   }
 
+  Future<void> initAds() async {
+    // await Ads.init();
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    // Tools.initAppSettings().then((value) => MyNavigator.goHome(context));
+
     return Scaffold(
       backgroundColor: Palette.primary,
       body: Column(

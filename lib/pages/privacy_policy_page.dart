@@ -70,8 +70,8 @@ class _PrivacyPolicyPageState extends State<PrivacyPolicyPage> {
                     style: MyTextStyles.bigTitleBold,
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
-                  onClicked: () => ads.showInter(),
+                  bannerAd: ads.getBannerAd(),
+                  onClicked: () => ads.showInter(context),
                   bgColor: Colors.transparent,
                 ),
                 Expanded(

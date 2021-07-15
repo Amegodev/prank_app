@@ -66,8 +66,8 @@ class _AboutPageState extends State<AboutPage> {
                     style: MyTextStyles.title.apply(color: Palette.white),
                     textAlign: TextAlign.center,
                   ),
-                  bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
-                  onClicked: () => ads.showInter(),
+                  bannerAd: ads.getBannerAd(),
+                  onClicked: () => ads.showInter(context),
                 ),
                 Expanded(
                   child: Padding(
@@ -89,7 +89,7 @@ class _AboutPageState extends State<AboutPage> {
                   bgColor: Palette.black,
                   textColor: Palette.white,
                   onClicked: () {
-                    ads.showInter();
+                    ads.showInter(context);
                     Navigator.pop(context);
                   },
                 )

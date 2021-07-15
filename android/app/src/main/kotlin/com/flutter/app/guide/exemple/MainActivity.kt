@@ -1,4 +1,4 @@
-package com.bazzar.caffe.guide.mark
+package com.flutter.app.guide.exemple
 
 import io.flutter.embedding.android.FlutterActivity
 

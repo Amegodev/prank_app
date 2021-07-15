@@ -123,12 +123,12 @@ class _CardsPageState extends State with TickerProviderStateMixin {
       drawer: customDrawer.buildDrawer(context),
       body: SingleChildScrollView(
         child: Stack(
-          overflow: Overflow.visible,
+          clipBehavior: Clip.none,
           fit: StackFit.passthrough,
           alignment: Alignment.topCenter,
           children: <Widget>[
             Positioned(
-              top: -MediaQuery.of(context).size.width / 2,
+              top: -MediaQuery.of(context).size.width * 0.6,
               child: Container(
                 height: MediaQuery.of(context).size.width * 1.5,
                 width: MediaQuery.of(context).size.width * 1.5,
@@ -139,7 +139,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
               ),
             ),
             Positioned(
-              top: -MediaQuery.of(context).size.width / 2,
+              top: -MediaQuery.of(context).size.width * 0.6,
               child: Container(
                 height: MediaQuery.of(context).size.width * 1.485,
                 width: MediaQuery.of(context).size.width * 1.485,
@@ -162,15 +162,13 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                         CustomAppBar(
                           scaffoldKey: scaffoldKey,
                           title: Text(
-                            '',
+                            '😍 Flip cards to win 🎁',
                             style:
                                 MyTextStyles.title.apply(color: Palette.white),
                             textAlign: TextAlign.center,
                           ),
-                          onClicked: () => ads.showInter(),
-                          bannerAd: ads.getBannerAd(
-                            rebuid: () => setState(() {}),
-                          ),
+                          onClicked: () => ads.showInter(context),
+                          bannerAd: ads.getBannerAd(),
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
@@ -179,7 +177,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: Text(
-                                  '😍 Flip cards to win 🎁\n🃏🃏🃏🃏🃏🃏',
+                                  '🃏🃏🃏🃏🃏🃏',
                                   style: MyTextStyles.bigTitleBold.apply(
                                     color: Palette.white,
                                   ),
@@ -200,7 +198,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                         nbFlip++;
                                         print("==================> nbflip : " +
                                             nbFlip.toString());
-                                        if (nbFlip % 3 == 0) ads.showInter();
+                                        if (nbFlip % 3 == 0) ads.showInter(context);
                                       },
                                       color: Colors.deepOrange,
                                       points: listPoints[points],
@@ -216,7 +214,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                         nbFlip++;
                                         print("==================> nbflip : " +
                                             nbFlip.toString());
-                                        if (nbFlip % 3 == 0) ads.showInter();
+                                        if (nbFlip % 3 == 0) ads.showInter(context);
                                       },
                                       color: Colors.amber,
                                       points: listPoints[points1],
@@ -233,7 +231,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                         nbFlip++;
                                         print("==================> nbflip : " +
                                             nbFlip.toString());
-                                        if (nbFlip % 3 == 0) ads.showInter();
+                                        if (nbFlip % 3 == 0) ads.showInter(context);
                                       },
                                       color: Colors.orange,
                                       points: listPoints[points2],
@@ -306,17 +304,17 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                             content: Text(
                                                 'We are going to share your profile @$username with $totalPoints users from our community (we are +2M). By using the EXACT combination of hashtags that you are going to see on the next screen you will be able to get approximately $totalPoints new potential followers.'),
                                             actions: <Widget>[
-                                              FlatButton(
+                                              TextButton(
                                                 child: Text('Cancel'),
                                                 onPressed: () {
                                                   Navigator.of(context).pop();
                                                 },
                                               ),
-                                              FlatButton(
+                                              TextButton(
                                                 child: Text('OK'),
                                                 onPressed: () {
                                                   Navigator.of(context).pop();
-                                                  ads.showInter();
+                                                  ads.showInter(context);
                                                   MyNavigator.goCounter(
                                                       context,
                                                       username,
@@ -344,12 +342,12 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                       ),
                                       onClicked: () async {
                                         if (Ads.rewardeVideoAvailable) {
-                                          await ads.showRewardAd();
+                                          ads.showRewardAd();
                                           Future.delayed(Duration(seconds: 1),
                                               () => reFlipCards());
                                         } else {
                                           if (Ads.isInterLoaded) {
-                                            ads.showInter();
+                                            ads.showInter(context);
                                             reFlipCards();
                                           } else {
                                             Toast.show(
@@ -381,13 +379,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  /*Container(
-                    height: 200.0,
-                    decoration: BoxDecoration(
-                      border: Border(top: BorderSide(color: Colors.grey)),
-                    ),
-                    child: ads.getBannerAd(rebuid: () => setState(() {})),
-                  ),*/
+                  ads.getNativeAd(),
                 ],
               ),
             ),

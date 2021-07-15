@@ -82,16 +82,16 @@ class _RatingDialogState extends State<RatingDialog> {
         ],
       ),
       actions: <Widget>[
-        FlatButton(
-          child: Text('CANCEL'),
+        TextButton(
+                                                child: Text('CANCEL'),
           onPressed: () {
             Toast.show("No rating 😢", context,
                 duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
             Navigator.of(context).pop(0);
           },
         ),
-        FlatButton(
-          child: Text('OK'),
+        TextButton(
+                                                child: Text('OK'),
           onPressed: () {
             int count = _stars;
             String text = '';

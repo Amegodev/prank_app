@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:prank_app/pages/Splash_page.dart';
-import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/pages/home_page.dart';
+import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/tools.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // await Tools.initAppSettings();
+  await Tools.initAppSettings();
   runApp(MyApp());
 }
 
@@ -26,11 +26,15 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting)
             return SplashScreen();
-          if (snapshot.hasError) {
+            /*if (snapshot.hasError) {
             Tools.logger.wtf(snapshot.error);
             return SplashScreen();
           } else
+            return HomePage();*/
+
+          else {
             return HomePage();
+          }
         },
       ) /*SplashScreen()*/,
     );

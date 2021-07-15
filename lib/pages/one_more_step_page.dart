@@ -62,7 +62,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       'Almost done',
                       style: MyTextStyles.title.apply(color: Palette.white),
@@ -196,7 +196,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             MyTextStyles.title.apply(color: Palette.primary),
                           ),
                           onClicked: () {
-                            ads.showInter();
+                            ads.showInter(context);
                             Navigator.pop(context);
                           },
                         ),
@@ -214,7 +214,7 @@ class _OneMoreStepState extends State<OneMoreStep> {
                             style: MyTextStyles.title.apply(color: Colors.white),
                           ),
                           onClicked: () {
-                            ads.showInter();
+                            ads.showInter(context);
                             Navigator.of(context)
                                 .popUntil(ModalRoute.withName("/cards"));
                           },
@@ -240,10 +240,10 @@ class _OneMoreStepState extends State<OneMoreStep> {
                                 content: Text(
                                     'If you have not received anything within 24 hours, please re-launch the process after a few days. The Server blocks us every so often due to the high number of requests.\nThanks for your understanding.'),
                                 actions: <Widget>[
-                                  FlatButton(
-                                    child: Text('OK'),
+                                  TextButton(
+                                                child: Text('OK'),
                                     onPressed: () {
-                                      ads.showInter();
+                                      ads.showInter(context);
                                       Navigator.of(context).pop();
                                     },
                                   )

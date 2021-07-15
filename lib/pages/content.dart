@@ -59,7 +59,7 @@ class _ContentScreenState extends State<ContentScreen> {
           SafeArea(
             child: Column(
               children: [
-                ads.getBannerAd(rebuid: () => setState(() {})),
+                ads.getBannerAd(),
                 Expanded(
                   child: PageSlider(
                     key: _sliderKey,
@@ -73,11 +73,9 @@ class _ContentScreenState extends State<ContentScreen> {
                               child: HtmlWidget(
                                 e,
                                 customWidgetBuilder: (element) {
-                                  /*if (element.id.contains("NativeAd"))
-                                    return ads.getNativeAd(
-                                      rebuid: () => setState(() {}),
-                                    );
-                                  else */if (element.id.contains("rate"))
+                                  if (element.id.contains("NativeAd"))
+                                    return ads.getNativeAd();
+                                  else if (element.id.contains("rate"))
                                     return Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child: ButtonFilled(
@@ -94,7 +92,7 @@ class _ContentScreenState extends State<ContentScreen> {
                                               context: context,
                                               builder: (_) => RatingDialog());
                                           if (count != null && count <= 3)
-                                            ads.showInter();
+                                            ads.showInter(context);
                                         },
                                       ),
                                     );
@@ -118,8 +116,8 @@ class _ContentScreenState extends State<ContentScreen> {
                       Expanded(
                         child: GFButton(
                           onPressed: () async {
-                            if (!Ads.isInterLoaded) await ads.loadInter();
-                            if (_sliderKey.currentState.hasPrevious) {
+                            if (_sliderKey
+                                .currentState.hasPrevious) {
                               if (_sliderKey.currentState.currentPage == 1) {
                                 setState(() {
                                   previous = "Quite";
@@ -134,11 +132,9 @@ class _ContentScreenState extends State<ContentScreen> {
                               _sliderKey.currentState.previous();
                               if (_sliderKey.currentState.currentPage % 2 ==
                                   0) {
-                                ads.showInter();
-                                await ads.loadInter();
+
                               }
                             } else {
-                              ads.showInter();
                               Navigator.pop(context);
                             }
                           },
@@ -155,10 +151,15 @@ class _ContentScreenState extends State<ContentScreen> {
                       Expanded(
                         child: GFButton(
                           onPressed: () async {
+
+                            await ads.showInter(context);
+                            await Ads.init();
+                            // await ads.loadInter();
+                            
                             Tools.logger.i(
                                 "currentPage: ${_sliderKey.currentState.currentPage}\narticles.length: ${articles.length}");
-                            if (!Ads.isInterLoaded) await ads.loadInter();
-                            if (_sliderKey.currentState.hasNext) {
+                            if (_sliderKey
+                                .currentState.hasNext) {
                               if (_sliderKey.currentState.currentPage ==
                                   articles.length - 2) {
                                 setState(() {
@@ -173,8 +174,7 @@ class _ContentScreenState extends State<ContentScreen> {
                               _sliderKey.currentState.next();
                               if (_sliderKey.currentState.currentPage % 2 ==
                                   0) {
-                                ads.showInter();
-                                await ads.loadInter();
+
                               }
                             } else {
                               _sliderKey.currentState.setPage(0);
@@ -183,6 +183,7 @@ class _ContentScreenState extends State<ContentScreen> {
                                 previous = "Quite";
                               });
                             }
+
                           },
                           text: next,
                           shape: GFButtonShape.pills,

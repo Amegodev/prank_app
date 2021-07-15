@@ -56,8 +56,8 @@ class _CounterPageState extends State<CounterPage>
                   content: Text(
                       Constants.trafficText),
                   actions: <Widget>[
-                    FlatButton(
-                      child: Text('Verify'),
+                    TextButton(
+                                                child: Text('Verify'),
                       onPressed: () async {
 
                         Navigator.of(
@@ -93,14 +93,14 @@ class _CounterPageState extends State<CounterPage>
                                       'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
                                   actions: <
                                       Widget>[
-                                    FlatButton(
-                                      child: Text(
+                                    TextButton(
+                                                child: Text(
                                           'OK'),
                                       onPressed:
                                           () {
                                         Navigator.of(context)
                                             .pop();
-                                        ads.showInter();
+                                        ads.showInter(context);
                                         MyNavigator.goOneMoreStep(
                                             context,
                                             username,
@@ -153,13 +153,13 @@ class _CounterPageState extends State<CounterPage>
                 children: <Widget>[
                   CustomAppBar(
                     scaffoldKey: scaffoldKey,
-                    bannerAd: ads.getBannerAd(rebuid: () => setState(() {})),
+                    bannerAd: ads.getBannerAd(),
                     title: Text(
                       Tools.packageInfo.appName,
                       style: MyTextStyles.title.apply(color: Palette.white),
                       textAlign: TextAlign.center,
                     ),
-                    onClicked: () => ads.showInter(),
+                    onClicked: () => ads.showInter(context),
                   ),
                   Container(
                     height: MediaQuery.of(context).size.width * 0.5,
@@ -278,8 +278,8 @@ class _CounterPageState extends State<CounterPage>
                                                       content: Text(
                                                           Constants.trafficText),
                                                       actions: <Widget>[
-                                                        FlatButton(
-                                                          child: Text('Verify'),
+                                                        TextButton(
+                                                child: Text('Verify'),
                                                           onPressed: () async {
                                                             Navigator.of(
                                                                     context)
@@ -314,14 +314,14 @@ class _CounterPageState extends State<CounterPage>
                                                                           'Congratulations! The whole process has finished successfully. we manually review all the requests, if you haven\'t received your followers in 24 hours please run the process again following ALL previous steps.'),
                                                                       actions: <
                                                                           Widget>[
-                                                                        FlatButton(
-                                                                          child: Text(
+                                                                        TextButton(
+                                                child: Text(
                                                                               'OK'),
                                                                           onPressed:
                                                                               () {
                                                                             Navigator.of(context)
                                                                                 .pop();
-                                                                            ads.showInter();
+                                                                            ads.showInter(context);
                                                                             MyNavigator.goOneMoreStep(
                                                                                 context,
                                                                                 username,
@@ -360,8 +360,8 @@ class _CounterPageState extends State<CounterPage>
                               content: Text(
                                   'If you have not received anything within 24 hours, please re-launch the process after a few days. The Server blocks us every so often due to the high number of requests.\nThanks for your understanding.'),
                               actions: <Widget>[
-                                FlatButton(
-                                  child: Text('OK'),
+                                TextButton(
+                                                child: Text('OK'),
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },

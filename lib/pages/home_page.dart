@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:prank_app/utils/ads_helper.dart';
 import 'package:prank_app/utils/ads.dart';
 import 'package:prank_app/utils/navigator.dart';
 import 'package:prank_app/utils/theme.dart';
@@ -22,14 +21,21 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     ads = new Ads();
+    Ads.init();
     ads.loadInter();
     customDrawer = new CustomDrawer();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      drawer: customDrawer.buildDrawer(context),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -41,11 +47,10 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.width * 0.5,
                 width: MediaQuery.of(context).size.width,
                 child: Stack(
-                  overflow: Overflow.visible,
-                  alignment: Alignment.topCenter,
+                  clipBehavior: Clip.none, alignment: Alignment.topCenter,
                   children: <Widget>[
                     Positioned(
-                      top: -MediaQuery.of(context).size.width,
+                      top: -MediaQuery.of(context).size.width * 0.6,
                       child: Container(
                         height: MediaQuery.of(context).size.width * 1.5,
                         width: MediaQuery.of(context).size.width * 1.5,
@@ -56,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     Positioned(
-                      top: -MediaQuery.of(context).size.width,
+                      top: -MediaQuery.of(context).size.width * 0.6,
                       child: Container(
                         height: MediaQuery.of(context).size.width * 1.485,
                         width: MediaQuery.of(context).size.width * 1.485,
@@ -67,21 +72,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     SafeArea(
-                      child: Align(
-                        alignment: Alignment.topCenter,
-                        child: Padding(
-                          padding: const EdgeInsets.all(6.0),
-                          child: Text(
-                            Tools.packageInfo.appName,
-                            style: MyTextStyles.bigTitle.apply(
-                              color: Palette.white,
-                              fontFamily: 'SuezOne',
-                              fontSizeFactor: 1.5,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomAppBar(
+                            scaffoldKey: scaffoldKey,
+                            bannerAd: ads.getBannerAd(),
+                            title: Text(
+                              Tools.packageInfo.appName,
+                              style: MyTextStyles.title.apply(color: Palette.white, fontFamily: 'SuezOne'),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
-                            overflow: TextOverflow.fade,
+                            onClicked: () => ads.showInter(context),
                           ),
-                        ),
+                        ],
                       ),
                     ),
                     Positioned(
@@ -100,7 +104,6 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: Tools.width * 0.2,
               ),
-              ads.getNativeAd(/*height: 200.0*/),
               Expanded(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -114,7 +117,7 @@ class _HomePageState extends State<HomePage> {
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
                         onClicked: () {
-                          ads.showInter();
+                          ads.showInter(context);
                           MyNavigator.start(context);
                         },
                       ),
@@ -137,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
                         onClicked: () {
-                          ads.showInter();
+                          ads.showInter(context);
                           MyNavigator.goUserNamePage(context);
                         },
                       ),
@@ -162,7 +165,7 @@ class _HomePageState extends State<HomePage> {
                         onClicked: () async {
                           int count = await showDialog(
                               context: context, builder: (_) => RatingDialog());
-                          if (count != null && count <= 3) ads.showInter();
+                          if (count != null && count <= 3) ads.showInter(context);
                         },
                       ),
                     ),

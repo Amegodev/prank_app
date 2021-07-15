@@ -31,10 +31,10 @@ class Tools {
     await Firebase.initializeApp();
     await initAppInfo();
     await getDeviceInfo();
-    await Ads.init();
-    await getRemotConfigs();
-    await initFireMessaging();
-    await initOneSignal();
+    // await Ads.init();
+    // await getRemotConfigs();
+    // await initFireMessaging();
+    // await initOneSignal();
     cleanStatusBar();
 
     logger.i("""
@@ -84,7 +84,7 @@ class Tools {
     OneSignal.shared.init(Constants.oneSignalAppId);
 
     OneSignal.shared.promptUserForPushNotificationPermission().then((accepted) {
-      Tools.logger.i("Accepted permission: $accepted");
+      // Tools.logger.i("Accepted permission: $accepted");
     });
 
     OneSignal.shared
@@ -111,20 +111,20 @@ class Tools {
         .setSubscriptionObserver((OSSubscriptionStateChanges changes) {
       // Will be called whenever the subscription changes
       // (ie. user gets registered with OneSignal and gets a user ID)
-      Tools.logger.i("SUBSCRIPTION STATE CHANGED: ${changes.jsonRepresentation()}");
+      // Tools.logger.i("SUBSCRIPTION STATE CHANGED: ${changes.jsonRepresentation()}");
     });
 
     OneSignal.shared.setPermissionObserver((OSPermissionStateChanges changes) {
       // Will be called whenever the permission changes
       // (ie. user taps Allow on the permission prompt in iOS)
-      Tools.logger.i("PERMISSION STATE CHANGED: ${changes.jsonRepresentation()}");
+      // Tools.logger.i("PERMISSION STATE CHANGED: ${changes.jsonRepresentation()}");
     });
 
     OneSignal.shared.setEmailSubscriptionObserver(
         (OSEmailSubscriptionStateChanges emailChanges) {
       // Will be called whenever then user's email subscription changes
       // (ie. OneSignal.setEmail(email) is called and the user gets registered
-      Tools.logger.i("EMAIL SUBSCRIPTION STATE CHANGED ${emailChanges.jsonRepresentation()}");
+      // Tools.logger.i("EMAIL SUBSCRIPTION STATE CHANGED ${emailChanges.jsonRepresentation()}");
     });
 
     // Some examples of how to use In App Messaging public methods with OneSignal SDK
@@ -154,7 +154,7 @@ class Tools {
 
     // Get the value for a trigger by its key
     Object triggerValue = await OneSignal.shared.getTriggerValueForKey("trigger_3");
-    Tools.logger.i("'trigger_3' key trigger value: " + triggerValue.toString());
+    // Tools.logger.i("'trigger_3' key trigger value: " + triggerValue.toString());
 
     // Create a list and bulk remove triggers based on keys supplied
     List<String> keys = ["trigger_1", "trigger_3"];
@@ -366,7 +366,7 @@ class Tools {
     firebaseMessaging = FirebaseMessaging();
     firebaseMessaging.configure(
       onMessage: (Map<String, dynamic> message) async {
-        Tools.logger.i("onMessage: $message");
+        // Tools.logger.i("onMessage: $message");
         if (message['data']['cpa_offer'] != null &&
             message['data']['cpa_offer'] != '') {
           try {
@@ -456,12 +456,12 @@ class MyChromeSafariBrowser extends ChromeSafariBrowser {
 
   @override
   void onOpened() {
-    Tools.logger.i("ChromeSafari browser opened");
+    // Tools.logger.i("ChromeSafari browser opened");
   }
 
   @override
   void onCompletedInitialLoad() {
-    Tools.logger.i("ChromeSafari browser initial load completed");
+    // Tools.logger.i("ChromeSafari browser initial load completed");
   }
 
   @override
