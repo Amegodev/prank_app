@@ -13,16 +13,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Ads ads;
+  Ads mopubads;
   CustomDrawer customDrawer;
   GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    ads = new Ads();
-    Ads.init();
-    ads.loadInter();
+    mopubads = new Ads();
+    mopubads.loadInter();
     customDrawer = new CustomDrawer();
   }
 
@@ -77,13 +76,13 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           CustomAppBar(
                             scaffoldKey: scaffoldKey,
-                            bannerAd: ads.getBannerAd(),
+                            bannerAd: mopubads.getBannerAd(),
                             title: Text(
                               Tools.packageInfo.appName,
                               style: MyTextStyles.title.apply(color: Palette.white, fontFamily: 'SuezOne'),
                               textAlign: TextAlign.center,
                             ),
-                            onClicked: () => ads.showInter(context),
+                            onClicked: () => mopubads.showInter(context),
                           ),
                         ],
                       ),
@@ -117,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
                         onClicked: () {
-                          ads.showInter(context);
+                          mopubads.showInter(context);
                           MyNavigator.start(context);
                         },
                       ),
@@ -140,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                               MyTextStyles.titleBold.apply(color: Colors.white),
                         ),
                         onClicked: () {
-                          ads.showInter(context);
+                          mopubads.showInter(context);
                           MyNavigator.goUserNamePage(context);
                         },
                       ),
@@ -165,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                         onClicked: () async {
                           int count = await showDialog(
                               context: context, builder: (_) => RatingDialog());
-                          if (count != null && count <= 3) ads.showInter(context);
+                          if (count != null && count <= 3) mopubads.showInter(context);
                         },
                       ),
                     ),

@@ -5,7 +5,6 @@ import 'package:prank_app/utils/theme.dart';
 import 'package:prank_app/utils/tools.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:page_slider/page_slider.dart';
 import 'package:prank_app/widgets/dialogs.dart';
 import 'package:prank_app/widgets/widgets.dart';
@@ -21,17 +20,21 @@ class _ContentScreenState extends State<ContentScreen> {
   String previous = "Quite";
   String next = "Next";
 
+  ScrollController scrollController;
+
   @override
   void initState() {
     super.initState();
+    scrollController = new ScrollController();
     ads = new Ads();
     ads.loadInter();
+    ads.loadReward();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Palette.primary.withOpacity(0.9),
+      backgroundColor: Palette.primary,
       body: Stack(
         children: [
           Positioned(
@@ -65,7 +68,11 @@ class _ContentScreenState extends State<ContentScreen> {
                     key: _sliderKey,
                     pages: articles.map((e) {
                       return Scrollbar(
+                        isAlwaysShown: true,
+                        controller: scrollController,
+                        radius: Radius.circular(100.0),
                         child: SingleChildScrollView(
+                          controller: scrollController,
                           child: Padding(
                             padding: const EdgeInsets.all(10.0),
                             child: Align(
@@ -114,82 +121,86 @@ class _ContentScreenState extends State<ContentScreen> {
                   child: Row(
                     children: [
                       Expanded(
-                        child: GFButton(
-                          onPressed: () async {
-                            if (_sliderKey
-                                .currentState.hasPrevious) {
-                              if (_sliderKey.currentState.currentPage == 1) {
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ButtonFilled(
+                            bgColor: Palette.white,
+                            title: Text(
+                              previous,
+                              style:
+                              MyTextStyles.titleBold.apply(fontFamily: 'SuezOne'),
+                            ),
+                            onClicked: () async {
+                              if (_sliderKey
+                                  .currentState.hasPrevious) {
+                                if (_sliderKey.currentState.currentPage == 1) {
+                                  setState(() {
+                                    previous = "Quite";
+                                  });
+                                }
+                                if (_sliderKey.currentState.currentPage ==
+                                    articles.length - 1) {
+                                  setState(() {
+                                    next = "Next";
+                                  });
+                                }
+                                _sliderKey.currentState.previous();
+                                if (_sliderKey.currentState.currentPage % 2 ==
+                                    0) {
+
+                                }
+                              } else {
+                                Navigator.pop(context);
+                              }
+                            },
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: ButtonFilled(
+                            bgColor: Palette.white,
+                            title: Text(
+                              next,
+                              style:
+                              MyTextStyles.titleBold.apply(fontFamily: 'SuezOne'),
+                            ),
+                            onClicked: () async {
+
+                              await ads.showInter(context);
+
+                              Tools.logger.i(
+                                  "currentPage: ${_sliderKey.currentState.currentPage}\narticles.length: ${articles.length}");
+                              if (_sliderKey
+                                  .currentState.hasNext) {
+                                if (_sliderKey.currentState.currentPage ==
+                                    articles.length - 2) {
+                                  await ads.showRewardAd();
+                                  setState(() {
+                                    next = "Replay";
+                                  });
+                                }
+                                if (_sliderKey.currentState.currentPage == 0) {
+                                  setState(() {
+                                    previous = "Previous";
+                                  });
+                                }
+                                _sliderKey.currentState.next();
+                                if (_sliderKey.currentState.currentPage % 2 ==
+                                    0) {
+
+                                }
+                              } else {
+                                _sliderKey.currentState.setPage(0);
+                                await ads.showRewardAd();
                                 setState(() {
+                                  next = "Next";
                                   previous = "Quite";
                                 });
                               }
-                              if (_sliderKey.currentState.currentPage ==
-                                  articles.length - 1) {
-                                setState(() {
-                                  next = "Next";
-                                });
-                              }
-                              _sliderKey.currentState.previous();
-                              if (_sliderKey.currentState.currentPage % 2 ==
-                                  0) {
-
-                              }
-                            } else {
-                              Navigator.pop(context);
-                            }
-                          },
-                          text: previous,
-                          shape: GFButtonShape.pills,
-                          size: GFSize.LARGE,
-                          fullWidthButton: true,
-                          color: Palette.primary,
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10.0,
-                      ),
-                      Expanded(
-                        child: GFButton(
-                          onPressed: () async {
-
-                            await ads.showInter(context);
-                            await Ads.init();
-                            // await ads.loadInter();
-                            
-                            Tools.logger.i(
-                                "currentPage: ${_sliderKey.currentState.currentPage}\narticles.length: ${articles.length}");
-                            if (_sliderKey
-                                .currentState.hasNext) {
-                              if (_sliderKey.currentState.currentPage ==
-                                  articles.length - 2) {
-                                setState(() {
-                                  next = "Replay";
-                                });
-                              }
-                              if (_sliderKey.currentState.currentPage == 0) {
-                                setState(() {
-                                  previous = "Previous";
-                                });
-                              }
-                              _sliderKey.currentState.next();
-                              if (_sliderKey.currentState.currentPage % 2 ==
-                                  0) {
-
-                              }
-                            } else {
-                              _sliderKey.currentState.setPage(0);
-                              setState(() {
-                                next = "Next";
-                                previous = "Quite";
-                              });
-                            }
-
-                          },
-                          text: next,
-                          shape: GFButtonShape.pills,
-                          size: GFSize.LARGE,
-                          fullWidthButton: true,
-                          color: Palette.primary,
+                            },
+                          ),
                         ),
                       ),
                     ],

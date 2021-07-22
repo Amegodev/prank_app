@@ -40,10 +40,10 @@ dependencies:
 #  startapp: ^0.5.1
 
   flutter_ironsource_x: ^0.0.3
-
+  mopub_flutter: ^1.2.2+1
 
   #Push NotificationPlugin
-  onesignal_flutter:
+  # onesignal_flutter:
 
 
 ##########################

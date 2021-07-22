@@ -6,7 +6,7 @@ import 'package:prank_app/utils/tools.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Tools.initAppSettings();
+  // await Tools.initAppSettings();
   runApp(MyApp());
 }
 

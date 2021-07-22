@@ -324,6 +324,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
+  mopub_flutter:
+    dependency: "direct main"
+    description:
+      name: mopub_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.2+1"
   native_admob_flutter:
     dependency: "direct main"
     description:
@@ -331,13 +338,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.4"
-  onesignal_flutter:
-    dependency: "direct main"
-    description:
-      name: onesignal_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.6.4"
   open_iconic_flutter:
     dependency: transitive
     description:

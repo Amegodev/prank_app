@@ -37,9 +37,6 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/app_id"/>
-<!--        <meta-data android:name="com.startapp.sdk.APPLICATION_ID" android:value="204846575"/>-->
-        <!--<meta-data android:name="com.startapp.sdk.RETURN_ADS_ENABLED" android:value="false"/>
-        <meta-data android:name="vn.momo.plugin.startapp.SPLASH_AD_ENABLED" android:value="false"/>-->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
@@ -61,11 +58,11 @@
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.Translucent" />
 
+        <!-- Facebook Config related to Mopub-->
         <activity
             android:name="com.facebook.ads.AudienceNetworkActivity"
             android:hardwareAccelerated="true"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-
-
     </application>
+
 </manifest>

@@ -47,17 +47,7 @@ class _CardsPageState extends State with TickerProviderStateMixin {
     super.initState();
     ads = new Ads();
     ads.loadInter(/*reloadOnClose: true*/);
-    ads.loadReward(
-        /*onRewarded: (val) {
-      if (val) {
-        Future.delayed(Duration(seconds: 1), () => reFlipCards());
-      } else {
-        Toast.show("Please Continue watching Ad, to get more flipping chances.",
-            context,
-            duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
-      }
-    }*/
-        );
+    ads.loadReward();
 
     customDrawer = CustomDrawer();
 
@@ -341,12 +331,12 @@ class _CardsPageState extends State with TickerProviderStateMixin {
                                             .apply(color: Palette.primary),
                                       ),
                                       onClicked: () async {
-                                        if (Ads.rewardeVideoAvailable) {
+                                        if (await ads.rewardeVideoAvailable) {
                                           ads.showRewardAd();
                                           Future.delayed(Duration(seconds: 1),
                                               () => reFlipCards());
                                         } else {
-                                          if (Ads.isInterLoaded) {
+                                          if (await ads.interAvailable) {
                                             ads.showInter(context);
                                             reFlipCards();
                                           } else {
